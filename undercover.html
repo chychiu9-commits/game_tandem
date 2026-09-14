@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>誰是臥底｜真正多人版</title>
+<title>誰是臥底｜無房主自動找詞版</title>
 <meta name="theme-color" content="#8a654c">
 <style>
 :root{
   --bg:#f7f3ed;--card:#fffdfb;--text:#201f1d;--muted:#746f6a;--line:#ddd7cf;
   --brown:#8a654c;--brown-dark:#5f4130;--blue:#2f72d8;--soft:#f7efe8;
-  --danger:#9b3535;--green:#2d7c5a;
+  --danger:#9b3535;--green:#2d7c5a;--amber:#9a6817;
 }
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","Noto Sans SC",sans-serif}
@@ -20,792 +20,275 @@ html.show-hans .hans{display:block}
 html.show-en .en{display:block}
 html.show-py .py{display:block}
 main{width:min(100%,780px);margin:auto}
-.topbar{
-  position:sticky;top:0;z-index:50;margin:0 -14px 14px;padding:10px max(14px,calc((100vw - 780px)/2 + 14px));
-  background:rgba(255,253,251,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
-  display:flex;justify-content:space-between;align-items:center;gap:12px;
-}
-.brand{font-weight:900;line-height:1.1}
-.brand .hant,.brand .hans{font-size:16px}
-.brand .py,.brand .en{font-size:11px;color:var(--muted);font-weight:600;margin-top:2px}
-.hamburger{
-  width:46px;height:46px;border:1px solid var(--line);border-radius:14px;background:white;cursor:pointer;
-  display:grid;place-items:center;padding:0;
-}
-.hamburger span{display:block;width:21px;height:2px;background:var(--brown-dark);margin:4px 0;border-radius:99px}
-.menu{
-  display:none;position:fixed;right:max(14px,calc((100vw - 780px)/2 + 14px));top:68px;z-index:60;
-  width:min(360px,calc(100vw - 28px));background:white;border:1px solid var(--line);border-radius:18px;
-  box-shadow:0 18px 55px rgba(0,0,0,.17);padding:12px;
-}
-.menu.open{display:block}
-.menu-head{padding:4px 7px 10px;border-bottom:1px solid var(--line);margin-bottom:8px}
-.menu-head strong{display:block;font-size:17px}
-.menu-head span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
-.choice{display:flex;align-items:center;gap:12px;padding:10px 8px;border-radius:12px;cursor:pointer}
-.choice:hover{background:var(--soft)}
-.choice input{appearance:none;width:22px;height:22px;border:2px solid #b8b0a8;border-radius:7px;background:white;position:relative;flex:0 0 auto}
-.choice input:checked{background:var(--brown);border-color:var(--brown)}
-.choice input:checked::after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:white;font-size:15px;font-weight:900}
-.choice strong{display:block;font-size:15px}
-.choice small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
-
-.card{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:26px 22px;margin-bottom:18px}
-.hero{text-align:center;padding-top:26px;padding-bottom:28px}
-.hero h1{font-size:clamp(40px,10vw,64px);line-height:1.05;margin:0;font-weight:900}
-.hero .py{font-size:18px;color:#786b61;margin-top:12px}
-.hero .en{font-size:22px;color:var(--brown-dark);font-weight:800;margin-top:5px}
-.hero-sub{margin-top:22px}
-.hero-sub .hant,.hero-sub .hans{font-size:20px;color:#67625e}
-.hero-sub .py{font-size:15px;color:#7d746d;margin-top:4px}
-.hero-sub .en{font-size:17px;color:var(--brown-dark);font-weight:700;margin-top:5px}
-.notice{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;background:#fffaf6}
-.notice-icon{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#f5e8dd;color:var(--brown-dark);font-weight:900;font-size:21px}
-.tri .hant,.tri .hans{font-weight:800}
-.tri .py{color:#7a6f66;margin-top:5px;line-height:1.35;font-size:14px}
-.tri .en{color:var(--brown-dark);margin-top:6px;line-height:1.35}
-h2,h3,h4{margin-top:0}
-.join-title{font-size:32px;line-height:1.1;margin:0 0 18px;font-weight:900}
-.small-title{font-size:26px;font-weight:900;margin:0 0 14px}
-.field{margin-bottom:20px}
-.field label{display:block;font-size:18px;font-weight:850;margin-bottom:8px}
-input{
-  width:100%;border:1px solid #cfc7bf;border-radius:16px;padding:16px 18px;font-size:17px;
-  background:white;color:var(--text);min-height:58px
-}
-input:focus{outline:3px solid rgba(138,101,76,.15);border-color:var(--brown)}
-.primary,.outline,.danger,.secondary{
-  width:100%;border-radius:999px;min-height:58px;padding:12px 18px;font-size:18px;font-weight:850;cursor:pointer
-}
-.primary{background:var(--brown);color:white;border:1px solid var(--brown)}
-.outline{background:white;color:var(--brown-dark);border:2px solid var(--brown-dark)}
-.secondary{background:#edf4ff;color:#245ea8;border:1px solid #cbdcf7}
-.danger{background:#faecec;color:#8f2d2d;border:1px solid #e7caca}
-button:disabled{opacity:.55;cursor:not-allowed}
-.divider{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;color:#6e6660;margin:18px 0}
-.divider::before,.divider::after{content:"";height:1px;background:#ddd7cf}
-.divider-center{text-align:center;font-weight:800}
-.hidden{display:none!important}
-.room-code{font-size:40px;font-weight:900;letter-spacing:.14em;text-align:center;color:var(--brown-dark);margin:14px 0 6px;word-break:break-word}
-.room-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-.players{display:grid;gap:10px;margin-top:14px}
-.player{border:1px solid var(--line);border-radius:16px;padding:13px 15px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.player-main{min-width:0}
-.player-name{font-weight:850;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.badge{font-size:12px;border-radius:999px;background:#f1eee9;color:#645f5b;padding:5px 8px;white-space:nowrap}
-.badge.host{background:#f5e8dd;color:var(--brown-dark)}
-.host-grid{display:grid;gap:14px}
-@media(min-width:660px){.host-grid.two{grid-template-columns:1fr 1fr}}
-.word-editor{background:#faf7f3;border:1px solid var(--line);border-radius:18px;padding:16px}
-.word-editor h4{margin:0 0 14px;font-size:20px}
-.word-box{border:1px dashed #cfc5bc;border-radius:22px;background:#faf8f5;padding:30px 18px;text-align:center}
-.word-main{font-size:46px;font-weight:900}
-.word-py{font-size:20px;color:#77685e;margin-top:8px}
-.word-en{font-size:24px;color:var(--blue);font-weight:800;margin-top:8px}
-.status{margin-top:14px;padding:12px 14px;border-radius:14px;background:#f0efed;color:#4c4844}
-.status.ok{background:#e9f6ed;color:#28663d}
-.status.error{background:#fdecec;color:#8a2a2a}
-.status.warn{background:#fff4dd;color:#8a5d16}
-.status .py{font-size:13px;margin-top:4px}
-.status .en{font-size:14px;margin-top:4px}
-.meta{font-size:13px;color:var(--muted);margin-top:10px}
-.actions{display:grid;gap:10px;margin-top:14px}
-.round-note{margin-top:16px;padding:14px 16px;border-radius:16px;background:#f7efe8;border:1px solid #ead9cc}
-@media(max-width:560px){
-  .card{padding:22px 18px}
-  .room-actions{grid-template-columns:1fr}
-}
+.topbar{position:sticky;top:0;z-index:50;margin:0 -14px 14px;padding:10px max(14px,calc((100vw - 780px)/2 + 14px));background:rgba(255,253,251,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{font-weight:900;line-height:1.1}.brand .hant,.brand .hans{font-size:16px}.brand .py,.brand .en{font-size:11px;color:var(--muted);font-weight:600;margin-top:2px}
+.hamburger{width:46px;height:46px;border:1px solid var(--line);border-radius:14px;background:white;cursor:pointer;display:grid;place-items:center;padding:0}.hamburger span{display:block;width:21px;height:2px;background:var(--brown-dark);margin:4px 0;border-radius:99px}
+.menu{display:none;position:fixed;right:max(14px,calc((100vw - 780px)/2 + 14px));top:68px;z-index:60;width:min(360px,calc(100vw - 28px));background:white;border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 55px rgba(0,0,0,.17);padding:12px}.menu.open{display:block}.menu-head{padding:4px 7px 10px;border-bottom:1px solid var(--line);margin-bottom:8px}.menu-head strong{display:block;font-size:17px}.menu-head span{display:block;font-size:12px;color:var(--muted);margin-top:2px}.choice{display:flex;align-items:center;gap:12px;padding:10px 8px;border-radius:12px;cursor:pointer}.choice:hover{background:var(--soft)}.choice input{appearance:none;width:22px;height:22px;border:2px solid #b8b0a8;border-radius:7px;background:white;position:relative;flex:0 0 auto}.choice input:checked{background:var(--brown);border-color:var(--brown)}.choice input:checked::after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:white;font-size:15px;font-weight:900}.choice strong{display:block;font-size:15px}.choice small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:26px 22px;margin-bottom:18px}.hero{text-align:center;padding-top:26px;padding-bottom:28px}.hero h1{font-size:clamp(40px,10vw,64px);line-height:1.05;margin:0;font-weight:900}.hero .py{font-size:18px;color:#786b61;margin-top:12px}.hero .en{font-size:22px;color:var(--brown-dark);font-weight:800;margin-top:5px}.hero-sub{margin-top:22px}.hero-sub .hant,.hero-sub .hans{font-size:20px;color:#67625e}.hero-sub .py{font-size:15px;color:#7d746d;margin-top:4px}.hero-sub .en{font-size:17px;color:var(--brown-dark);font-weight:700;margin-top:5px}
+.notice{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;background:#fffaf6}.notice-icon{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#f5e8dd;color:var(--brown-dark);font-weight:900;font-size:21px}.tri .hant,.tri .hans{font-weight:800}.tri .py{color:#7a6f66;margin-top:5px;line-height:1.35;font-size:14px}.tri .en{color:var(--brown-dark);margin-top:6px;line-height:1.35}
+h2,h3{margin-top:0}.join-title{font-size:32px;line-height:1.1;margin:0 0 18px;font-weight:900}.small-title{font-size:26px;font-weight:900;margin:0 0 14px}.field{margin-bottom:20px}.field label{display:block;font-size:18px;font-weight:850;margin-bottom:8px}
+input{width:100%;border:1px solid #cfc7bf;border-radius:16px;padding:16px 18px;font-size:17px;background:white;color:var(--text);min-height:58px}input:focus{outline:3px solid rgba(138,101,76,.15);border-color:var(--brown)}
+.primary,.outline,.danger,.secondary{width:100%;border-radius:999px;min-height:58px;padding:12px 18px;font-size:18px;font-weight:850;cursor:pointer}.primary{background:var(--brown);color:white;border:1px solid var(--brown)}.primary.ready{background:var(--green);border-color:var(--green)}.outline{background:white;color:var(--brown-dark);border:2px solid var(--brown-dark)}.secondary{background:#edf4ff;color:#245ea8;border:1px solid #cbdcf7}.danger{background:#faecec;color:#8f2d2d;border:1px solid #e7caca}button:disabled{opacity:.55;cursor:not-allowed}
+.divider{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;color:#6e6660;margin:18px 0}.divider::before,.divider::after{content:"";height:1px;background:#ddd7cf}.divider-center{text-align:center;font-weight:800}.hidden{display:none!important}.room-code{font-size:40px;font-weight:900;letter-spacing:.14em;text-align:center;color:var(--brown-dark);margin:14px 0 6px;word-break:break-word}.room-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.players{display:grid;gap:10px;margin-top:14px}.player{border:1px solid var(--line);border-radius:16px;padding:13px 15px;display:flex;align-items:center;justify-content:space-between;gap:10px}.player-main{min-width:0}.player-name{font-weight:850;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.badge{font-size:12px;border-radius:999px;background:#f1eee9;color:#645f5b;padding:5px 8px;white-space:nowrap}.badge.ready{background:#e8f5ed;color:#22613f}.badge.waiting{background:#fff3dd;color:#805515}
+.word-box{border:1px dashed #cfc5bc;border-radius:22px;background:#faf8f5;padding:30px 18px;text-align:center}.word-main{font-size:46px;font-weight:900}.word-py{font-size:20px;color:#77685e;margin-top:8px}.word-en{font-size:24px;color:var(--blue);font-weight:800;margin-top:8px}.status{margin-top:14px;padding:12px 14px;border-radius:14px;background:#f0efed;color:#4c4844}.status.ok{background:#e9f6ed;color:#28663d}.status.error{background:#fdecec;color:#8a2a2a}.status.warn{background:#fff4dd;color:#8a5d16}.status.busy{background:#edf4ff;color:#245ea8}.status .py{font-size:13px;margin-top:4px}.status .en{font-size:14px;margin-top:4px}.actions{display:grid;gap:10px;margin-top:14px}.round-note{margin-top:16px;padding:14px 16px;border-radius:16px;background:#f7efe8;border:1px solid #ead9cc}.tiny{font-size:12px;color:var(--muted);line-height:1.5;margin-top:10px}
+@media(max-width:560px){.card{padding:22px 18px}.room-actions{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header class="topbar">
   <div class="brand">
-    <div class="hant">誰是臥底</div>
-    <div class="hans">谁是卧底</div>
-    <div class="py">Shéi shì wòdǐ</div>
-    <div class="en">Who Is the Undercover?</div>
+    <div class="hant">誰是臥底</div><div class="hans">谁是卧底</div><div class="py">Shéi shì wòdǐ</div><div class="en">Who Is the Undercover?</div>
   </div>
-  <button id="menuBtn" class="hamburger" aria-label="Language menu">
-    <div><span></span><span></span><span></span></div>
-  </button>
+  <button id="menuBtn" class="hamburger" aria-label="Language menu"><div><span></span><span></span><span></span></div></button>
 </header>
 
 <aside id="menu" class="menu">
-  <div class="menu-head">
-    <strong>顯示內容 / Display</strong>
-    <span>可同時勾選多個項目 · Select multiple options</span>
-  </div>
-  <label class="choice">
-    <input id="toggleHant" type="checkbox" checked>
-    <span><strong>繁體中文</strong><small>Traditional Chinese</small></span>
-  </label>
-  <label class="choice">
-    <input id="toggleHans" type="checkbox">
-    <span><strong>简体中文</strong><small>Simplified Chinese</small></span>
-  </label>
-  <label class="choice">
-    <input id="toggleEn" type="checkbox" checked>
-    <span><strong>English</strong><small>英文</small></span>
-  </label>
-  <label class="choice">
-    <input id="togglePy" type="checkbox" checked>
-    <span><strong>Luómǎ pīnyīn / 羅馬拼音</strong><small>Mandarin Pinyin</small></span>
-  </label>
+  <div class="menu-head"><strong>顯示內容 / Display</strong><span>可同時勾選多個項目 · Select multiple options</span></div>
+  <label class="choice"><input id="toggleHant" type="checkbox" checked><span><strong>繁體中文</strong><small>Traditional Chinese</small></span></label>
+  <label class="choice"><input id="toggleHans" type="checkbox"><span><strong>简体中文</strong><small>Simplified Chinese</small></span></label>
+  <label class="choice"><input id="toggleEn" type="checkbox" checked><span><strong>English</strong><small>英文</small></span></label>
+  <label class="choice"><input id="togglePy" type="checkbox" checked><span><strong>Luómǎ pīnyīn / 羅馬拼音</strong><small>Mandarin Pinyin</small></span></label>
 </aside>
 
 <main>
 <section class="card hero">
-  <h1>
-    <div class="hant">誰是臥底</div>
-    <div class="hans">谁是卧底</div>
-    <div class="py">Shéi shì wòdǐ</div>
-    <div class="en">Who Is the Undercover?</div>
-  </h1>
-  <div class="hero-sub">
-    <div class="hant">跨裝置即時多人版</div>
-    <div class="hans">跨设备实时多人版</div>
-    <div class="py">Kuà zhuāngzhì jíshí duōrén bǎn</div>
-    <div class="en">Real-time Multi-device Multiplayer</div>
-  </div>
+  <h1><div class="hant">誰是臥底</div><div class="hans">谁是卧底</div><div class="py">Shéi shì wòdǐ</div><div class="en">Who Is the Undercover?</div></h1>
+  <div class="hero-sub"><div class="hant">無房主 · 自動上網找詞</div><div class="hans">无房主 · 自动上网找词</div><div class="py">Wú fángzhǔ · zìdòng shàngwǎng zhǎo cí</div><div class="en">Hostless · Automatic Online Words</div></div>
 </section>
 
 <section class="card notice">
-  <div class="notice-icon">✓</div>
+  <div class="notice-icon">↻</div>
   <div class="tri">
-    <div class="hant">不用 Firebase。房主會直接與其他玩家建立即時連線；房主的頁面必須保持開啟。</div>
-    <div class="hans">不用 Firebase。房主会直接与其他玩家建立实时连接；房主的页面必须保持开启。</div>
-    <div class="py">Bú yòng Firebase. Fángzhǔ huì zhíjiē yǔ qítā wánjiā jiànlì jíshí liánxiàn; fángzhǔ de yèmiàn bìxū bǎochí kāiqǐ.</div>
-    <div class="en">No Firebase required. The host connects directly to other players; the host page must stay open.</div>
+    <div class="hant">所有玩家權限相同，沒有房主。大家進入同一個房間後按「準備」，系統會自動從網路取得同類別的兩個詞並開始遊戲。</div>
+    <div class="hans">所有玩家权限相同，没有房主。大家进入同一个房间后按“准备”，系统会自动从网络取得同类别的两个词并开始游戏。</div>
+    <div class="py">Suǒyǒu wánjiā quánxiàn xiāngtóng, méiyǒu fángzhǔ. Dàjiā jìnrù tóng yí ge fángjiān hòu àn “zhǔnbèi”, xìtǒng huì zìdòng cóng wǎnglù qǔdé tóng lèibié de liǎng ge cí bìng kāishǐ yóuxì.</div>
+    <div class="en">Every player has equal permissions. There is no host. Once everyone joins the same room and presses Ready, the system automatically gets two related words online and starts the round.</div>
   </div>
 </section>
 
 <section id="loginCard" class="card">
-  <h2 class="join-title">
-    <span class="hant">加入遊戲</span>
-    <span class="hans">加入游戏</span>
-    <span class="py">Jiārù yóuxì</span>
-    <span class="en">Join Game</span>
-  </h2>
-
-  <div class="field">
-    <label>
-      <span class="hant">你的名字</span>
-      <span class="hans">你的名字</span>
-      <span class="py">Nǐ de míngzi</span>
-      <span class="en">Your Name</span>
-    </label>
-    <input id="nameInput" maxlength="20" autocomplete="name" placeholder="Joyce">
-  </div>
-
-  <div class="field">
-    <label>
-      <span class="hant">房間碼</span>
-      <span class="hans">房间码</span>
-      <span class="py">Fángjiān mǎ</span>
-      <span class="en">Room Code</span>
-    </label>
-    <input id="roomInput" maxlength="6" autocomplete="off" autocapitalize="characters" style="text-transform:uppercase" placeholder="ABC123">
-  </div>
-
-  <button id="joinBtn" class="primary" type="button">
-    <span class="hant">加入房間</span>
-    <span class="hans">加入房间</span>
-    <span class="py">Jiārù fángjiān</span>
-    <span class="en">Join Room</span>
-  </button>
-
-  <div class="divider">
-    <div></div>
-    <div class="divider-center">
-      <span class="hant">或者</span>
-      <span class="hans">或者</span>
-      <span class="py">Huòzhě</span>
-      <span class="en">Or</span>
-    </div>
-    <div></div>
-  </div>
-
-  <button id="createBtn" class="outline" type="button">
-    <span class="hant">建立新房間</span>
-    <span class="hans">建立新房间</span>
-    <span class="py">Jiànlì xīn fángjiān</span>
-    <span class="en">Create Room</span>
-  </button>
-
+  <h2 class="join-title"><span class="hant">加入遊戲</span><span class="hans">加入游戏</span><span class="py">Jiārù yóuxì</span><span class="en">Join Game</span></h2>
+  <div class="field"><label><span class="hant">你的名字</span><span class="hans">你的名字</span><span class="py">Nǐ de míngzi</span><span class="en">Your Name</span></label><input id="nameInput" maxlength="20" autocomplete="name" placeholder="Joyce"></div>
+  <div class="field"><label><span class="hant">房間碼</span><span class="hans">房间码</span><span class="py">Fángjiān mǎ</span><span class="en">Room Code</span></label><input id="roomInput" maxlength="6" autocomplete="off" autocapitalize="characters" style="text-transform:uppercase" placeholder="ABC123"></div>
+  <button id="joinBtn" class="primary" type="button"><span class="hant">加入房間</span><span class="hans">加入房间</span><span class="py">Jiārù fángjiān</span><span class="en">Join Room</span></button>
+  <div class="divider"><div></div><div class="divider-center"><span class="hant">或者</span><span class="hans">或者</span><span class="py">Huòzhě</span><span class="en">Or</span></div><div></div></div>
+  <button id="createBtn" class="outline" type="button"><span class="hant">產生新房間碼並加入</span><span class="hans">生成新房间码并加入</span><span class="py">Chǎnshēng xīn fángjiān mǎ bìng jiārù</span><span class="en">Generate New Room Code & Join</span></button>
   <div id="loginStatus" class="status hidden"></div>
 </section>
 
 <section id="lobbyCard" class="card hidden">
-  <h2 class="small-title">
-    <span class="hant">遊戲大廳</span>
-    <span class="hans">游戏大厅</span>
-    <span class="py">Yóuxì dàtīng</span>
-    <span class="en">Lobby</span>
-  </h2>
-
-  <div class="tri" style="text-align:center">
-    <div class="hant">房間碼</div>
-    <div class="hans">房间码</div>
-    <div class="py">Fángjiān mǎ</div>
-    <div class="en">Room Code</div>
-  </div>
+  <h2 class="small-title"><span class="hant">遊戲大廳</span><span class="hans">游戏大厅</span><span class="py">Yóuxì dàtīng</span><span class="en">Lobby</span></h2>
+  <div class="tri" style="text-align:center"><div class="hant">房間碼</div><div class="hans">房间码</div><div class="py">Fángjiān mǎ</div><div class="en">Room Code</div></div>
   <div id="roomCode" class="room-code">------</div>
-
   <div class="room-actions">
-    <button id="copyCodeBtn" class="secondary" type="button">
-      <span class="hant">複製房間碼</span>
-      <span class="hans">复制房间码</span>
-      <span class="py">Fùzhì fángjiān mǎ</span>
-      <span class="en">Copy Room Code</span>
-    </button>
-    <button id="shareBtn" class="secondary" type="button">
-      <span class="hant">分享邀請連結</span>
-      <span class="hans">分享邀请链接</span>
-      <span class="py">Fēnxiǎng yāoqǐng liánjiē</span>
-      <span class="en">Share Invite Link</span>
-    </button>
+    <button id="copyCodeBtn" class="secondary" type="button"><span class="hant">複製房間碼</span><span class="hans">复制房间码</span><span class="py">Fùzhì fángjiān mǎ</span><span class="en">Copy Room Code</span></button>
+    <button id="shareBtn" class="secondary" type="button"><span class="hant">分享邀請連結</span><span class="hans">分享邀请链接</span><span class="py">Fēnxiǎng yāoqǐng liánjiē</span><span class="en">Share Invite Link</span></button>
   </div>
-
-  <div style="margin-top:22px">
-    <h3>
-      <span class="hant">玩家</span>
-      <span class="hans">玩家</span>
-      <span class="py">Wánjiā</span>
-      <span class="en">Players</span>
-    </h3>
-    <div id="playerList" class="players"></div>
+  <div style="margin-top:22px"><h3><span class="hant">玩家</span><span class="hans">玩家</span><span class="py">Wánjiā</span><span class="en">Players</span></h3><div id="playerList" class="players"></div></div>
+  <div class="round-note tri">
+    <div class="hant">至少 3 人。全部玩家都準備後，系統會自動決定臥底人數、上網抓取詞彙並開始，不需要任何人按「開始遊戲」。</div>
+    <div class="hans">至少 3 人。全部玩家都准备后，系统会自动决定卧底人数、上网抓取词汇并开始，不需要任何人按“开始游戏”。</div>
+    <div class="py">Zhìshǎo sān rén. Quánbù wánjiā dōu zhǔnbèi hòu, xìtǒng huì zìdòng juédìng wòdǐ rénshù, shàngwǎng zhuāqǔ cíhuì bìng kāishǐ.</div>
+    <div class="en">At least 3 players are required. When everyone is ready, the system automatically chooses the undercover count, fetches words online, and starts—no Start Game button or host is needed.</div>
   </div>
-
-  <div id="guestWait" class="round-note hidden">
-    <div class="tri">
-      <div class="hant">等待房主開始遊戲。</div>
-      <div class="hans">等待房主开始游戏。</div>
-      <div class="py">Děngdài fángzhǔ kāishǐ yóuxì.</div>
-      <div class="en">Waiting for the host to start the game.</div>
-    </div>
-  </div>
-
-  <div id="hostPanel" style="margin-top:24px">
-    <h3>
-      <span class="hant">房主設定</span>
-      <span class="hans">房主设置</span>
-      <span class="py">Fángzhǔ shèdìng</span>
-      <span class="en">Host Settings</span>
-    </h3>
-
-    <div class="word-editor">
-      <h4>
-        <span class="hant">平民詞</span>
-        <span class="hans">平民词</span>
-        <span class="py">Píngmín cí</span>
-        <span class="en">Civilian Word</span>
-      </h4>
-      <div class="host-grid two">
-        <div class="field"><label>繁體中文 / Traditional Chinese</label><input id="civilianTrad" value="咖啡"></div>
-        <div class="field"><label>简体中文 / Simplified Chinese</label><input id="civilianSimp" value="咖啡"></div>
-        <div class="field"><label>拼音 / Pinyin</label><input id="civilianPinyin" value="kā fēi"></div>
-        <div class="field"><label>英文 / English</label><input id="civilianEnglish" value="coffee"></div>
-      </div>
-    </div>
-
-    <div class="word-editor" style="margin-top:14px">
-      <h4>
-        <span class="hant">臥底詞</span>
-        <span class="hans">卧底词</span>
-        <span class="py">Wòdǐ cí</span>
-        <span class="en">Undercover Word</span>
-      </h4>
-      <div class="host-grid two">
-        <div class="field"><label>繁體中文 / Traditional Chinese</label><input id="spyTrad" value="奶茶"></div>
-        <div class="field"><label>简体中文 / Simplified Chinese</label><input id="spySimp" value="奶茶"></div>
-        <div class="field"><label>拼音 / Pinyin</label><input id="spyPinyin" value="nǎi chá"></div>
-        <div class="field"><label>英文 / English</label><input id="spyEnglish" value="milk tea"></div>
-      </div>
-    </div>
-
-    <div class="field" style="margin-top:14px">
-      <label>
-        <span class="hant">臥底人數</span>
-        <span class="hans">卧底人数</span>
-        <span class="py">Wòdǐ rénshù</span>
-        <span class="en">Number of Undercover Players</span>
-      </label>
-      <input id="spyCount" type="number" min="1" max="5" value="1">
-    </div>
-
-    <button id="startBtn" class="primary" type="button">
-      <span class="hant">開始遊戲</span>
-      <span class="hans">开始游戏</span>
-      <span class="py">Kāishǐ yóuxì</span>
-      <span class="en">Start Game</span>
-    </button>
-  </div>
-
+  <button id="readyBtn" class="primary" type="button"><span class="hant">我準備好了</span><span class="hans">我准备好了</span><span class="py">Wǒ zhǔnbèi hǎo le</span><span class="en">I'm Ready</span></button>
   <div id="lobbyStatus" class="status hidden"></div>
-  <div class="actions">
-    <button id="leaveBtn" class="danger" type="button">
-      <span class="hant">離開房間</span>
-      <span class="hans">离开房间</span>
-      <span class="py">Líkāi fángjiān</span>
-      <span class="en">Leave Room</span>
-    </button>
-  </div>
+  <div class="actions"><button id="leaveBtn" class="danger" type="button"><span class="hant">離開房間</span><span class="hans">离开房间</span><span class="py">Líkāi fángjiān</span><span class="en">Leave Room</span></button></div>
 </section>
 
 <section id="gameCard" class="card hidden">
-  <div style="text-align:center">
-    <h2 class="small-title">
-      <span class="hant">你的詞</span>
-      <span class="hans">你的词</span>
-      <span class="py">Nǐ de cí</span>
-      <span class="en">Your Word</span>
-    </h2>
-  </div>
-
-  <div class="word-box">
-    <div id="wordMain" class="word-main">••••</div>
-    <div id="wordPinyin" class="word-py"></div>
-    <div id="wordEnglish" class="word-en"></div>
-  </div>
-
-  <div class="tri" style="text-align:center;margin-top:16px">
-    <div class="hant">不要讓其他玩家看到你的螢幕。</div>
-    <div class="hans">不要让其他玩家看到你的屏幕。</div>
-    <div class="py">Búyào ràng qítā wánjiā kàndào nǐ de yíngmù.</div>
-    <div class="en">Do not let other players see your screen.</div>
-  </div>
-
-  <div id="gameStatus" class="status ok">
-    <div class="hant">記住你的詞，然後開始描述！</div>
-    <div class="hans">记住你的词，然后开始描述！</div>
-    <div class="py">Jìzhù nǐ de cí, ránhòu kāishǐ miáoshù!</div>
-    <div class="en">Remember your word, then start describing!</div>
-  </div>
-
-  <div id="hostRoundControls" class="actions hidden">
-    <button id="backLobbyBtn" class="outline" type="button">
-      <span class="hant">結束本輪並回到大廳</span>
-      <span class="hans">结束本轮并回到大厅</span>
-      <span class="py">Jiéshù běn lún bìng huídào dàtīng</span>
-      <span class="en">End Round and Return to Lobby</span>
-    </button>
-  </div>
+  <div style="text-align:center"><h2 class="small-title"><span class="hant">你的詞</span><span class="hans">你的词</span><span class="py">Nǐ de cí</span><span class="en">Your Word</span></h2></div>
+  <div class="word-box"><div id="wordMain" class="word-main">••••</div><div id="wordPinyin" class="word-py"></div><div id="wordEnglish" class="word-en"></div></div>
+  <div class="tri" style="text-align:center;margin-top:16px"><div class="hant">不要讓其他玩家看到你的螢幕。你不會被告知自己是不是臥底。</div><div class="hans">不要让其他玩家看到你的屏幕。你不会被告知自己是不是卧底。</div><div class="py">Búyào ràng qítā wánjiā kàndào nǐ de yíngmù. Nǐ bú huì bèi gàozhī zìjǐ shì bú shì wòdǐ.</div><div class="en">Do not let other players see your screen. You are not told whether you are the undercover player.</div></div>
+  <div id="gameStatus" class="status ok"></div>
+  <div class="round-note tri"><div class="hant">本輪結束後，每個人都按「準備下一輪」。全員完成後，系統會自動回到大廳，再抓一組新的網路詞彙。</div><div class="hans">本轮结束后，每个人都按“准备下一轮”。全员完成后，系统会自动回到大厅，再抓一组新的网络词汇。</div><div class="py">Běn lún jiéshù hòu, měi ge rén dōu àn “zhǔnbèi xià yì lún”. Quányuán wánchéng hòu, xìtǒng huì zìdòng huídào dàtīng, zài zhuā yì zǔ xīn de wǎnglù cíhuì.</div><div class="en">When the round is over, everyone presses Ready for Next Round. Once all players do so, the system returns to the lobby and will fetch a fresh online pair.</div></div>
+  <button id="nextBtn" class="outline" type="button"><span class="hant">準備下一輪</span><span class="hans">准备下一轮</span><span class="py">Zhǔnbèi xià yì lún</span><span class="en">Ready for Next Round</span></button>
+  <div id="nextStatus" class="status hidden"></div>
 </section>
 </main>
 
-<script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.5/dist/peerjs.min.js"></script>
-<script>
-(function(){
-  const $=id=>document.getElementById(id);
+<script type="module">
+import {joinRoom, selfId} from 'https://esm.run/trystero';
+import {pinyin} from 'https://esm.run/pinyin-pro';
+import OpenCC from 'https://cdn.jsdelivr.net/npm/opencc-js@1.4.1/dist/esm/full.js';
 
-  const state={
-    peer:null,
-    isHost:false,
-    roomCode:"",
-    selfId:"",
-    selfName:"",
-    hostConn:null,
-    guestConns:new Map(),
-    players:new Map(),
-    secret:null,
-    phase:"login"
-  };
+const $=id=>document.getElementById(id);
+const APP_ID='game-tandem-undercover-hostless-v1';
+const VALID='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+const toTrad=OpenCC.Converter({from:'cn',to:'twp'});
+const toSimp=OpenCC.Converter({from:'tw',to:'cn'});
+const CATEGORIES=[
+  'Fruits','Vegetables','Beverages','Desserts','Musical instruments','Sports','Clothing','Furniture','Tools','Vehicles','Flowers','Birds','Fish','Occupations'
+];
+const FALLBACK=[
+  [{trad:'咖啡',simp:'咖啡',pinyin:'kā fēi',en:'coffee'},{trad:'奶茶',simp:'奶茶',pinyin:'nǎi chá',en:'milk tea'}],
+  [{trad:'蘋果',simp:'苹果',pinyin:'píng guǒ',en:'apple'},{trad:'梨',simp:'梨',pinyin:'lí',en:'pear'}],
+  [{trad:'公車',simp:'公交车',pinyin:'gōng chē',en:'bus'},{trad:'火車',simp:'火车',pinyin:'huǒ chē',en:'train'}],
+  [{trad:'小提琴',simp:'小提琴',pinyin:'xiǎo tí qín',en:'violin'},{trad:'吉他',simp:'吉他',pinyin:'jí tā',en:'guitar'}],
+  [{trad:'足球',simp:'足球',pinyin:'zú qiú',en:'football'},{trad:'籃球',simp:'篮球',pinyin:'lán qiú',en:'basketball'}]
+];
 
-  const roomPrefix="game-tandem-undercover-";
-  const validChars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+const state={room:null,roomCode:'',name:'',phase:'login',players:new Map(),peerIds:new Set(),ready:false,nextReady:false,roundId:null,roundPlayers:[],secret:null,startTimer:null,starting:false,lastMembershipChange:0,actions:null};
 
-  function makeRoomCode(){
-    let s="";
-    for(let i=0;i<6;i++) s+=validChars[Math.floor(Math.random()*validChars.length)];
-    return s;
-  }
+function escapeHtml(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));}
+function setPhase(phase){state.phase=phase;$('loginCard').classList.toggle('hidden',phase!=='login');$('lobbyCard').classList.toggle('hidden',phase!=='lobby');$('gameCard').classList.toggle('hidden',phase!=='game');}
+function status(el,hant,hans,py,en,type=''){el.className='status'+(type?' '+type:'');el.innerHTML=`<div class="hant">${escapeHtml(hant)}</div><div class="hans">${escapeHtml(hans)}</div><div class="py">${escapeHtml(py)}</div><div class="en">${escapeHtml(en)}</div>`;el.classList.remove('hidden');}
+function makeRoomCode(){let s='';for(let i=0;i<6;i++)s+=VALID[Math.floor(Math.random()*VALID.length)];return s;}
+function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function allIds(){return [selfId,...state.peerIds].sort();}
+function coordinatorId(){return allIds()[0]||selfId;}
+function amCoordinator(){return coordinatorId()===selfId;}
+function playerCount(){return allIds().filter(id=>state.players.has(id)).length;}
+function spyCountFor(n){return Math.max(1,Math.min(n-2,n<=6?1:n<=10?2:3));}
 
-  function peerIdForRoom(code){ return roomPrefix+code.toLowerCase(); }
-
-  function status(el,zhHant,zhHans,py,en,type=""){
-    el.className="status"+(type?" "+type:"");
-    el.innerHTML=
-      '<div class="hant">'+escapeHtml(zhHant)+'</div>'+
-      '<div class="hans">'+escapeHtml(zhHans)+'</div>'+
-      '<div class="py">'+escapeHtml(py)+'</div>'+
-      '<div class="en">'+escapeHtml(en)+'</div>';
-    el.classList.remove("hidden");
-  }
-
-  function escapeHtml(v){
-    return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
-  }
-
-  function setPhase(phase){
-    state.phase=phase;
-    $("loginCard").classList.toggle("hidden",phase!=="login");
-    $("lobbyCard").classList.toggle("hidden",phase!=="lobby");
-    $("gameCard").classList.toggle("hidden",phase!=="game");
-  }
-
-  function updateHostUI(){
-    $("hostPanel").classList.toggle("hidden",!state.isHost);
-    $("guestWait").classList.toggle("hidden",state.isHost);
-    $("hostRoundControls").classList.toggle("hidden",!state.isHost);
-  }
-
-  function playerArray(){
-    return [...state.players.values()].map(p=>({id:p.id,name:p.name,isHost:!!p.isHost}));
-  }
-
-  function renderPlayers(players=playerArray()){
-    const list=$("playerList");
-    list.innerHTML="";
-    players.forEach(p=>{
-      const row=document.createElement("div");
-      row.className="player";
-      const you=p.id===state.selfId;
-      row.innerHTML=
-        '<div class="player-main"><div class="player-name">'+escapeHtml(p.name)+(you?' <span style="color:#7a6f66">（你 / You）</span>':'')+'</div></div>'+
-        '<span class="badge '+(p.isHost?'host':'')+'">'+(p.isHost?'房主 / Host':'在線 / Online')+'</span>';
-      list.appendChild(row);
-    });
-  }
-
-  function broadcast(msg){
-    state.guestConns.forEach(conn=>{
-      if(conn && conn.open){
-        try{ conn.send(msg); }catch(e){}
-      }
-    });
-  }
-
-  function broadcastLobby(){
-    const msg={type:"lobbyState",roomCode:state.roomCode,players:playerArray(),phase:"lobby"};
-    broadcast(msg);
-    renderPlayers(msg.players);
-  }
-
-  function showLobby(){
-    setPhase("lobby");
-    $("roomCode").textContent=state.roomCode;
-    updateHostUI();
-    renderPlayers();
-  }
-
-  function showGame(secret){
-    state.secret=secret;
-    setPhase("game");
-    const useHans=document.documentElement.classList.contains("show-hans") &&
-                  !document.documentElement.classList.contains("show-hant");
-    $("wordMain").textContent=useHans?(secret.simp||secret.trad):(secret.trad||secret.simp);
-    $("wordPinyin").textContent=secret.pinyin||"";
-    $("wordEnglish").textContent=secret.en||"";
-    updateHostUI();
-  }
-
-  function resetAll(){
-    try{ if(state.hostConn) state.hostConn.close(); }catch(e){}
-    try{ state.guestConns.forEach(c=>c.close()); }catch(e){}
-    try{ if(state.peer) state.peer.destroy(); }catch(e){}
-    state.peer=null;state.isHost=false;state.roomCode="";state.selfId="";state.selfName="";
-    state.hostConn=null;state.guestConns=new Map();state.players=new Map();state.secret=null;
-    $("roomInput").value="";
-    $("loginStatus").classList.add("hidden");
-    $("lobbyStatus").classList.add("hidden");
-    setPhase("login");
-  }
-
-  function newPeer(explicitId){
-    return new Peer(explicitId||undefined,{
-      debug:1,
-      config:{
-        iceServers:[
-          {urls:"stun:stun.l.google.com:19302"},
-          {urls:"stun:stun1.l.google.com:19302"}
-        ]
-      }
-    });
-  }
-
-  function wireHostPeer(peer){
-    peer.on("connection",conn=>{
-      conn.on("data",msg=>handleHostMessage(conn,msg));
-      conn.on("close",()=>removeGuest(conn.peer));
-      conn.on("error",()=>removeGuest(conn.peer));
-    });
-    peer.on("error",err=>{
-      if(err && err.type==="unavailable-id"){
-        status($("loginStatus"),"這個房間碼剛好被使用，請再按一次建立房間。","这个房间码刚好被使用，请再按一次建立房间。","Zhège fángjiān mǎ gānghǎo bèi shǐyòng, qǐng zài àn yí cì jiànlì fángjiān.","That room code is already in use. Please create a room again.","warn");
-      }else{
-        status($("lobbyStatus"),"連線發生錯誤，請確認網路後重新整理。","连接发生错误，请确认网络后重新整理。","Liánxiàn fāshēng cuòwù, qǐng quèrèn wǎnglù hòu chóngxīn zhěnglǐ.","Connection error. Check your network and reload the page.","error");
-      }
-    });
-  }
-
-  function removeGuest(peerId){
-    const conn=state.guestConns.get(peerId);
-    if(conn) state.guestConns.delete(peerId);
-    if(state.players.delete(peerId)){
-      if(state.phase==="lobby"){
-        broadcastLobby();
-      }else{
-        const players=playerArray();
-        broadcast({type:"playersUpdate",players});
-      }
-    }
-  }
-
-  function handleHostMessage(conn,msg){
-    if(!msg || typeof msg!=="object") return;
-    if(msg.type==="join"){
-      if(state.phase==="game"){
-        conn.send({type:"error",message:"started"});
-        setTimeout(()=>{ try{conn.close()}catch(e){} },200);
-        return;
-      }
-      const cleanName=String(msg.name||"").trim().slice(0,20);
-      if(!cleanName){
-        conn.send({type:"error",message:"name"});
-        return;
-      }
-      if(state.players.size>=12){
-        conn.send({type:"error",message:"full"});
-        return;
-      }
-      state.guestConns.set(conn.peer,conn);
-      state.players.set(conn.peer,{id:conn.peer,name:cleanName,isHost:false});
-      conn.send({type:"joined",selfId:conn.peer,roomCode:state.roomCode,players:playerArray()});
-      broadcastLobby();
-      status($("lobbyStatus"),cleanName+" 已加入房間。",cleanName+" 已加入房间。",cleanName+" yǐ jiārù fángjiān.",cleanName+" joined the room.","ok");
-    }
-  }
-
-  function wireGuestPeer(peer){
-    peer.on("error",err=>{
-      let zh="連線失敗，請確認房間碼或網路。";
-      let hans="连接失败，请确认房间码或网络。";
-      let en="Connection failed. Check the room code or network.";
-      if(err && (err.type==="peer-unavailable" || err.type==="network")){
-        zh="找不到這個房間，請確認房間碼是否正確，且房主頁面仍保持開啟。";
-        hans="找不到这个房间，请确认房间码是否正确，且房主页面仍保持开启。";
-        en="Room not found. Check the code and make sure the host page is still open.";
-      }
-      status($("loginStatus"),zh,hans,"Zhǎo bù dào fángjiān huò liánxiàn shībài.",en,"error");
-      $("joinBtn").disabled=false;
-    });
-  }
-
-  function connectToHost(peer,code,name){
-    const conn=peer.connect(peerIdForRoom(code),{reliable:true});
-    state.hostConn=conn;
-    const timer=setTimeout(()=>{
-      if(!conn.open){
-        try{conn.close()}catch(e){}
-        status($("loginStatus"),"連線逾時，請確認房間碼與網路。","连接超时，请确认房间码与网络。","Liánxiàn yúshí, qǐng quèrèn fángjiān mǎ yǔ wǎnglù.","Connection timed out. Check the room code and network.","error");
-        $("joinBtn").disabled=false;
-      }
-    },10000);
-
-    conn.on("open",()=>{
-      clearTimeout(timer);
-      conn.send({type:"join",name});
-    });
-
-    conn.on("data",msg=>{
-      if(!msg || typeof msg!=="object") return;
-      if(msg.type==="joined"){
-        state.selfId=msg.selfId;
-        state.roomCode=msg.roomCode;
-        state.players=new Map(msg.players.map(p=>[p.id,p]));
-        showLobby();
-        $("joinBtn").disabled=false;
-      }else if(msg.type==="lobbyState"){
-        state.players=new Map(msg.players.map(p=>[p.id,p]));
-        state.roomCode=msg.roomCode||state.roomCode;
-        showLobby();
-      }else if(msg.type==="start"){
-        showGame(msg.secret);
-      }else if(msg.type==="returnLobby"){
-        state.secret=null;
-        showLobby();
-      }else if(msg.type==="playersUpdate"){
-        state.players=new Map(msg.players.map(p=>[p.id,p]));
-        if(state.phase==="lobby") renderPlayers(msg.players);
-      }else if(msg.type==="error"){
-        if(msg.message==="full"){
-          status($("loginStatus"),"房間已滿。","房间已满。","Fángjiān yǐ mǎn.","The room is full.","error");
-        }else if(msg.message==="started"){
-          status($("loginStatus"),"這個房間已經開始遊戲，請等下一輪。","这个房间已经开始游戏，请等下一轮。","Zhège fángjiān yǐjīng kāishǐ yóuxì, qǐng děng xià yì lún.","This room has already started. Please wait for the next round.","warn");
-        }else{
-          status($("loginStatus"),"無法加入房間。","无法加入房间。","Wúfǎ jiārù fángjiān.","Unable to join the room.","error");
-        }
-        $("joinBtn").disabled=false;
-      }
-    });
-
-    conn.on("close",()=>{
-      if(state.phase!=="login"){
-        status($("lobbyStatus"),"與房主的連線已中斷。","与房主的连接已中断。","Yǔ fángzhǔ de liánxiàn yǐ zhōngduàn.","Connection to the host was lost.","error");
-        setPhase("lobby");
-      }
-    });
-  }
-
-  $("createBtn").addEventListener("click",()=>{
-    const name=$("nameInput").value.trim();
-    if(!name){
-      return status($("loginStatus"),"請先輸入名字。","请先输入名字。","Qǐng xiān shūrù míngzi.","Please enter your name first.","error");
-    }
-    if(typeof Peer==="undefined"){
-      return status($("loginStatus"),"多人連線元件載入失敗，請確認網路後重新整理。","多人连接组件加载失败，请确认网络后重新整理。","Duōrén liánxiàn yuánjiàn zǎirù shībài.","The multiplayer library failed to load. Check your network and reload.","error");
-    }
-
-    $("createBtn").disabled=true;
-    const code=makeRoomCode();
-    const peer=newPeer(peerIdForRoom(code));
-    state.peer=peer;state.isHost=true;state.roomCode=code;state.selfName=name;
-
-    peer.on("open",id=>{
-      state.selfId=id;
-      state.players.set(id,{id,name,isHost:true});
-      wireHostPeer(peer);
-      showLobby();
-      $("createBtn").disabled=false;
-      status($("lobbyStatus"),"房間建立完成，把房間碼或邀請連結傳給朋友。","房间建立完成，把房间码或邀请链接传给朋友。","Fángjiān jiànlì wánchéng, bǎ fángjiān mǎ huò yāoqǐng liánjiē chuán gěi péngyǒu.","Room created. Share the room code or invite link with friends.","ok");
-    });
-
-    peer.on("error",err=>{
-      $("createBtn").disabled=false;
-      if(err && err.type==="unavailable-id"){
-        resetAll();
-        status($("loginStatus"),"房間碼衝突，請再試一次。","房间码冲突，请再试一次。","Fángjiān mǎ chōngtū, qǐng zài shì yí cì.","Room code collision. Please try again.","warn");
-      }
-    });
+function renderPlayers(){
+  const list=$('playerList');list.innerHTML='';
+  const ids=allIds().filter(id=>state.players.has(id));
+  ids.forEach(id=>{
+    const p=state.players.get(id);const you=id===selfId;
+    const row=document.createElement('div');row.className='player';
+    row.innerHTML=`<div class="player-main"><div class="player-name">${escapeHtml(p.name)}${you?' <span style="color:#7a6f66">（你 / You）</span>':''}</div></div><span class="badge ${p.ready?'ready':'waiting'}">${p.ready?'準備 / Ready':'等待 / Waiting'}</span>`;
+    list.appendChild(row);
   });
+  updateReadyButton();
+}
+function updateReadyButton(){
+  $('readyBtn').classList.toggle('ready',state.ready);
+  $('readyBtn').innerHTML=state.ready?'<span class="hant">取消準備</span><span class="hans">取消准备</span><span class="py">Qǔxiāo zhǔnbèi</span><span class="en">Cancel Ready</span>':'<span class="hant">我準備好了</span><span class="hans">我准备好了</span><span class="py">Wǒ zhǔnbèi hǎo le</span><span class="en">I\'m Ready</span>';
+}
+function showLobby(){setPhase('lobby');$('roomCode').textContent=state.roomCode;renderPlayers();}
+function showGame(secret,source){state.secret=secret;setPhase('game');const onlyHans=document.documentElement.classList.contains('show-hans')&&!document.documentElement.classList.contains('show-hant');$('wordMain').textContent=onlyHans?(secret.simp||secret.trad):(secret.trad||secret.simp);$('wordPinyin').textContent=secret.pinyin||'';$('wordEnglish').textContent=secret.en||'';status($('gameStatus'),'詞彙已由系統自動取得。記住你的詞，開始描述！','词汇已由系统自动取得。记住你的词，开始描述！','Cíhuì yǐ yóu xìtǒng zìdòng qǔdé. Jìzhù nǐ de cí, kāishǐ miáoshù!','Words were selected automatically. Remember your word and start describing! '+(source==='Wikipedia'?'Source: Wikipedia.':'Fallback words are being used.'),'ok');updateNextButton();}
+function updateNextButton(){
+  $('nextBtn').classList.toggle('ready',state.nextReady);
+  $('nextBtn').innerHTML=state.nextReady?'<span class="hant">已準備下一輪</span><span class="hans">已准备下一轮</span><span class="py">Yǐ zhǔnbèi xià yì lún</span><span class="en">Ready for Next Round</span>':'<span class="hant">準備下一輪</span><span class="hans">准备下一轮</span><span class="py">Zhǔnbèi xià yì lún</span><span class="en">Ready for Next Round</span>';
+}
 
-  $("joinBtn").addEventListener("click",()=>{
-    const name=$("nameInput").value.trim();
-    const code=$("roomInput").value.trim().toUpperCase();
-    if(!name) return status($("loginStatus"),"請先輸入名字。","请先输入名字。","Qǐng xiān shūrù míngzi.","Please enter your name first.","error");
-    if(code.length!==6) return status($("loginStatus"),"請輸入 6 位房間碼。","请输入 6 位房间码。","Qǐng shūrù liù wèi fángjiān mǎ.","Please enter a 6-character room code.","error");
-    if(typeof Peer==="undefined") return status($("loginStatus"),"多人連線元件載入失敗。","多人连接组件加载失败。","Duōrén liánxiàn yuánjiàn zǎirù shībài.","The multiplayer library failed to load.","error");
-
-    $("joinBtn").disabled=true;
-    const peer=newPeer();
-    state.peer=peer;state.isHost=false;state.roomCode=code;state.selfName=name;
-    wireGuestPeer(peer);
-    peer.on("open",id=>{
-      state.selfId=id;
-      connectToHost(peer,code,name);
-    });
-  });
-
-  $("startBtn").addEventListener("click",()=>{
-    if(!state.isHost) return;
-    const players=playerArray();
-    if(players.length<3){
-      return status($("lobbyStatus"),"至少需要 3 位玩家才能開始。","至少需要 3 位玩家才能开始。","Zhìshǎo xūyào sān wèi wánjiā cáinéng kāishǐ.","At least 3 players are required to start.","warn");
-    }
-
-    let spyCount=parseInt($("spyCount").value,10)||1;
-    if(spyCount<1 || spyCount>=players.length){
-      return status($("lobbyStatus"),"臥底人數必須至少 1 人，且少於總玩家數。","卧底人数必须至少 1 人，且少于总玩家数。","Wòdǐ rénshù bìxū zhìshǎo yì rén, qiě shǎoyú zǒng wánjiā shù.","Undercover count must be at least 1 and less than the total players.","warn");
-    }
-
-    const civilian={
-      trad:$("civilianTrad").value.trim(),simp:$("civilianSimp").value.trim(),
-      pinyin:$("civilianPinyin").value.trim(),en:$("civilianEnglish").value.trim()
-    };
-    const spy={
-      trad:$("spyTrad").value.trim(),simp:$("spySimp").value.trim(),
-      pinyin:$("spyPinyin").value.trim(),en:$("spyEnglish").value.trim()
-    };
-    if(!civilian.trad || !spy.trad){
-      return status($("lobbyStatus"),"請先填入平民詞與臥底詞。","请先填入平民词与卧底词。","Qǐng xiān tiánrù píngmín cí yǔ wòdǐ cí.","Please enter both the civilian and undercover words.","warn");
-    }
-
-    const indices=[...players.keys()];
-    for(let i=indices.length-1;i>0;i--){
-      const j=Math.floor(Math.random()*(i+1));
-      [indices[i],indices[j]]=[indices[j],indices[i]];
-    }
-    const spySet=new Set(indices.slice(0,spyCount));
-
-    players.forEach((p,index)=>{
-      const secret=spySet.has(index)?spy:civilian;
-      if(p.id===state.selfId){
-        showGame(secret);
-      }else{
-        const conn=state.guestConns.get(p.id);
-        if(conn && conn.open) conn.send({type:"start",secret});
-      }
-    });
-  });
-
-  $("backLobbyBtn").addEventListener("click",()=>{
-    if(!state.isHost) return;
-    state.secret=null;
-    broadcast({type:"returnLobby"});
-    showLobby();
-  });
-
-  $("leaveBtn").addEventListener("click",()=>resetAll());
-
-  $("copyCodeBtn").addEventListener("click",async()=>{
+function normalizeTitle(s){return String(s||'').replace(/\s*\([^)]*\)\s*$/,'').replace(/_/g,' ').trim();}
+function usableTitle(s){s=normalizeTitle(s);return s&&s.length<=30&&!/^List of /i.test(s)&&!/^\d{3,4}$/.test(s)&&!s.includes(':')&&s.split(/\s+/).length<=4;}
+async function fetchJson(url,timeout=8000){const c=new AbortController();const t=setTimeout(()=>c.abort(),timeout);try{const r=await fetch(url,{signal:c.signal,cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);return await r.json();}finally{clearTimeout(t);}}
+async function categoryMembers(cat){
+  const q=new URLSearchParams({action:'query',format:'json',origin:'*',list:'categorymembers',cmtitle:'Category:'+cat,cmtype:'page',cmlimit:'100'});
+  const j=await fetchJson('https://en.wikipedia.org/w/api.php?'+q.toString());
+  return (j?.query?.categorymembers||[]).map(x=>x.title).filter(usableTitle);
+}
+async function zhTitle(en){
+  const q=new URLSearchParams({action:'query',format:'json',origin:'*',prop:'langlinks',lllang:'zh',lllimit:'1',redirects:'1',titles:en});
+  const j=await fetchJson('https://en.wikipedia.org/w/api.php?'+q.toString());
+  const pages=Object.values(j?.query?.pages||{});const ll=pages[0]?.langlinks?.[0]?.['*'];return ll?normalizeTitle(ll):null;
+}
+function makeWord(zh,en){const trad=toTrad(zh),simp=toSimp(zh);let py='';try{py=pinyin(trad);}catch(e){py='';}return {trad,simp,pinyin:py,en:normalizeTitle(en)};}
+async function fetchOnlinePair(){
+  for(const cat of shuffle(CATEGORIES)){
     try{
-      await navigator.clipboard.writeText(state.roomCode);
-      status($("lobbyStatus"),"房間碼已複製。","房间码已复制。","Fángjiān mǎ yǐ fùzhì.","Room code copied.","ok");
-    }catch(e){
-      status($("lobbyStatus"),"請手動複製房間碼："+state.roomCode,"请手动复制房间码："+state.roomCode,"Qǐng shǒudòng fùzhì fángjiān mǎ: "+state.roomCode,"Copy the room code manually: "+state.roomCode,"warn");
-    }
-  });
-
-  $("shareBtn").addEventListener("click",async()=>{
-    const url=new URL(location.href);
-    url.searchParams.set("room",state.roomCode);
-    const shareText="誰是臥底 / Who Is the Undercover? — "+state.roomCode;
-    try{
-      if(navigator.share){
-        await navigator.share({title:"誰是臥底",text:shareText,url:url.toString()});
-      }else{
-        await navigator.clipboard.writeText(url.toString());
-        status($("lobbyStatus"),"邀請連結已複製。","邀请链接已复制。","Yāoqǐng liánjiē yǐ fùzhì.","Invite link copied.","ok");
+      const members=shuffle(await categoryMembers(cat));
+      for(let tries=0;tries<8&&members.length>=2;tries++){
+        const en1=members.pop(),en2=members.pop();
+        if(!en1||!en2||en1===en2)continue;
+        const [zh1,zh2]=await Promise.all([zhTitle(en1),zhTitle(en2)]);
+        if(!zh1||!zh2||zh1===zh2)continue;
+        return {civilian:makeWord(zh1,en1),undercover:makeWord(zh2,en2),source:'Wikipedia'};
       }
-    }catch(e){}
-  });
-
-  // Language menu
-  const menu=$("menu"), menuBtn=$("menuBtn");
-  menuBtn.addEventListener("click",()=>menu.classList.toggle("open"));
-  document.addEventListener("click",e=>{
-    if(!menu.contains(e.target) && !menuBtn.contains(e.target)) menu.classList.remove("open");
-  });
-
-  const toggles={
-    hant:$("toggleHant"), hans:$("toggleHans"), en:$("toggleEn"), py:$("togglePy")
-  };
-
-  function applyLanguages(){
-    const keys=Object.keys(toggles);
-    if(!keys.some(k=>toggles[k].checked)) toggles.hant.checked=true;
-    keys.forEach(k=>document.documentElement.classList.toggle("show-"+k,toggles[k].checked));
-    localStorage.setItem("undercoverLangs",JSON.stringify(Object.fromEntries(keys.map(k=>[k,toggles[k].checked]))));
-    if(state.secret && state.phase==="game") showGame(state.secret);
+    }catch(e){console.warn('word category failed',cat,e);}
   }
+  throw new Error('No online pair found');
+}
+function fallbackPair(){const [civilian,undercover]=FALLBACK[Math.floor(Math.random()*FALLBACK.length)];return {civilian,undercover,source:'fallback'};}
 
+function cleanup(){
+  clearTimeout(state.startTimer);state.startTimer=null;
+  try{state.room?.leave();}catch(e){}
+  state.room=null;state.roomCode='';state.name='';state.phase='login';state.players=new Map();state.peerIds=new Set();state.ready=false;state.nextReady=false;state.roundId=null;state.roundPlayers=[];state.secret=null;state.starting=false;state.actions=null;
+  $('roomInput').value='';$('loginStatus').classList.add('hidden');$('lobbyStatus').classList.add('hidden');$('nextStatus').classList.add('hidden');setPhase('login');
+}
+
+function maybeStart(){
+  clearTimeout(state.startTimer);state.startTimer=null;
+  if(state.phase!=='lobby'||state.starting)return;
+  const ids=allIds();
+  if(ids.length<3)return status($('lobbyStatus'),'至少需要 3 位玩家。','至少需要 3 位玩家。','Zhìshǎo xūyào sān wèi wánjiā.','At least 3 players are required.','warn');
+  if(ids.some(id=>!state.players.has(id)))return;
+  if(ids.some(id=>!state.players.get(id)?.ready))return status($('lobbyStatus'),'等待所有玩家按準備。','等待所有玩家按准备。','Děngdài suǒyǒu wánjiā àn zhǔnbèi.','Waiting for everyone to press Ready.','warn');
+  if(!amCoordinator())return status($('lobbyStatus'),'全部玩家已準備，系統正在同步並自動開始。','全部玩家已准备，系统正在同步并自动开始。','Quánbù wánjiā yǐ zhǔnbèi, xìtǒng zhèngzài tóngbù bìng zìdòng kāishǐ.','Everyone is ready. The system is synchronizing and will start automatically.','busy');
+  state.startTimer=setTimeout(()=>beginRound(),1500);
+}
+
+async function beginRound(){
+  if(state.phase!=='lobby'||state.starting||!amCoordinator())return;
+  const ids=allIds();if(ids.length<3||ids.some(id=>!state.players.get(id)?.ready))return;
+  state.starting=true;
+  state.actions.system.send({type:'fetching'}).catch(()=>{});
+  status($('lobbyStatus'),'系統正在上網尋找同類別詞彙…','系统正在上网寻找同类别词汇…','Xìtǒng zhèngzài shàngwǎng xúnzhǎo tóng lèibié cíhuì…','The system is finding related words online…','busy');
+  let pair;try{pair=await fetchOnlinePair();}catch(e){console.warn(e);pair=fallbackPair();}
+  const roundId=Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7);
+  const shuffled=shuffle(ids);const spies=new Set(shuffled.slice(0,spyCountFor(ids.length)));
+  state.roundId=roundId;state.roundPlayers=ids;state.nextReady=false;
+  for(const id of ids){
+    const secret=spies.has(id)?pair.undercover:pair.civilian;
+    const payload={roundId,secret,source:pair.source,players:ids};
+    if(id===selfId){receiveRound(payload);}else{try{await state.actions.round.send(payload,{target:id});}catch(e){console.warn('send round failed',id,e);}}
+  }
+  state.starting=false;
+}
+
+function receiveRound(payload){
+  if(!payload?.roundId||!payload?.secret)return;
+  if(state.phase==='game'&&state.roundId===payload.roundId)return;
+  state.roundId=payload.roundId;state.roundPlayers=payload.players||allIds();state.nextReady=false;showGame(payload.secret,payload.source);
+}
+function resetToLobby(){state.roundId=null;state.roundPlayers=[];state.secret=null;state.nextReady=false;state.ready=false;for(const [id,p] of state.players){p.ready=false;p.nextReady=false;}showLobby();status($('lobbyStatus'),'新一輪已重置。大家再次按準備後，系統會重新上網找詞。','新一轮已重置。大家再次按准备后，系统会重新上网找词。','Xīn yì lún yǐ chóngzhì. Dàjiā zàicì àn zhǔnbèi hòu, xìtǒng huì chóngxīn shàngwǎng zhǎo cí.','New round reset. When everyone is ready again, the system will fetch a new online pair.','ok');}
+function maybeResetRound(){
+  if(state.phase!=='game'||!state.roundId)return;
+  const ids=state.roundPlayers.filter(id=>id===selfId||state.peerIds.has(id)).sort();
+  const all=ids.every(id=>state.players.get(id)?.nextReady);
+  const roundCoordinator=ids[0]||selfId;
+  if(all&&ids.length>=2&&roundCoordinator===selfId){state.actions.reset.send({roundId:state.roundId}).catch(()=>{});resetToLobby();state.actions.profile.send({name:state.name,ready:false,nextReady:false}).catch(()=>{});}
+}
+
+function enterRoom(code,name){
+  cleanup();state.roomCode=code.toUpperCase();state.name=name;state.ready=false;state.nextReady=false;
   try{
-    const saved=JSON.parse(localStorage.getItem("undercoverLangs")||"null");
-    if(saved) Object.keys(toggles).forEach(k=>{if(typeof saved[k]==="boolean") toggles[k].checked=saved[k]});
-  }catch(e){}
-  Object.values(toggles).forEach(el=>el.addEventListener("change",applyLanguages));
-  applyLanguages();
+    const room=joinRoom({appId:APP_ID},state.roomCode.toLowerCase());state.room=room;
+    const profile=room.makeAction('profile');const ready=room.makeAction('ready');const round=room.makeAction('round');const system=room.makeAction('system');const next=room.makeAction('next');const reset=room.makeAction('reset');
+    state.actions={profile,ready,round,system,next,reset};
+    state.players.set(selfId,{name,ready:false,nextReady:false});
 
-  // Pre-fill invite room code from URL.
-  const roomFromUrl=(new URL(location.href)).searchParams.get("room");
-  if(roomFromUrl && /^[A-Z0-9]{6}$/i.test(roomFromUrl)) $("roomInput").value=roomFromUrl.toUpperCase();
+    room.onPeerJoin=peerId=>{
+      state.peerIds.add(peerId);state.lastMembershipChange=Date.now();
+      if(!state.players.has(peerId))state.players.set(peerId,{name:'…',ready:false,nextReady:false});
+      profile.send({name:state.name,ready:state.ready,nextReady:state.nextReady},{target:peerId}).catch(()=>{});
+      renderPlayers();maybeStart();
+    };
+    room.onPeerLeave=peerId=>{state.peerIds.delete(peerId);state.players.delete(peerId);state.lastMembershipChange=Date.now();renderPlayers();maybeStart();maybeResetRound();};
+    profile.onMessage=(data,{peerId})=>{
+      const p=state.players.get(peerId)||{};state.players.set(peerId,{...p,name:String(data?.name||'玩家').slice(0,20),ready:!!data?.ready,nextReady:!!data?.nextReady});renderPlayers();maybeStart();maybeResetRound();
+    };
+    ready.onMessage=(data,{peerId})=>{const p=state.players.get(peerId)||{name:'玩家'};p.ready=!!data?.ready;state.players.set(peerId,p);renderPlayers();maybeStart();};
+    round.onMessage=(data)=>receiveRound(data);
+    system.onMessage=(data)=>{if(data?.type==='fetching'&&state.phase==='lobby')status($('lobbyStatus'),'系統正在上網尋找同類別詞彙…','系统正在上网寻找同类别词汇…','Xìtǒng zhèngzài shàngwǎng xúnzhǎo tóng lèibié cíhuì…','The system is finding related words online…','busy');};
+    next.onMessage=(data,{peerId})=>{const p=state.players.get(peerId)||{name:'玩家'};p.nextReady=!!data?.ready;state.players.set(peerId,p);maybeResetRound();};
+    reset.onMessage=(data)=>{if(!data?.roundId||data.roundId===state.roundId)resetToLobby();};
 
-  window.addEventListener("beforeunload",()=>{
-    try{ if(state.peer) state.peer.destroy(); }catch(e){}
-  });
+    showLobby();profile.send({name:state.name,ready:false,nextReady:false}).catch(()=>{});
+    status($('lobbyStatus'),'已加入房間。把房間碼傳給朋友；沒有任何人是房主。','已加入房间。把房间码传给朋友；没有任何人是房主。','Yǐ jiārù fángjiān. Bǎ fángjiān mǎ chuán gěi péngyǒu; méiyǒu rènhé rén shì fángzhǔ.','Joined the room. Share the code with friends; no player is the host.','ok');
+  }catch(e){console.error(e);cleanup();status($('loginStatus'),'多人連線元件啟動失敗，請確認網路後重新整理。','多人连接组件启动失败，请确认网络后重新整理。','Duōrén liánxiàn yuánjiàn qǐdòng shībài.','Multiplayer failed to start. Check the network and reload.','error');}
+}
 
-  setPhase("login");
-})();
+$('createBtn').addEventListener('click',()=>{const name=$('nameInput').value.trim();if(!name)return status($('loginStatus'),'請先輸入名字。','请先输入名字。','Qǐng xiān shūrù míngzi.','Please enter your name first.','error');const code=makeRoomCode();$('roomInput').value=code;enterRoom(code,name);});
+$('joinBtn').addEventListener('click',()=>{const name=$('nameInput').value.trim();const code=$('roomInput').value.trim().toUpperCase();if(!name)return status($('loginStatus'),'請先輸入名字。','请先输入名字。','Qǐng xiān shūrù míngzi.','Please enter your name first.','error');if(!/^[A-Z2-9]{6}$/.test(code))return status($('loginStatus'),'請輸入 6 位房間碼。','请输入 6 位房间码。','Qǐng shūrù liù wèi fángjiān mǎ.','Please enter a 6-character room code.','error');enterRoom(code,name);});
+$('readyBtn').addEventListener('click',()=>{if(state.phase!=='lobby')return;state.ready=!state.ready;const p=state.players.get(selfId);if(p)p.ready=state.ready;state.actions.ready.send({ready:state.ready}).catch(()=>{});state.actions.profile.send({name:state.name,ready:state.ready,nextReady:state.nextReady}).catch(()=>{});renderPlayers();maybeStart();});
+$('nextBtn').addEventListener('click',()=>{if(state.phase!=='game')return;state.nextReady=!state.nextReady;const p=state.players.get(selfId);if(p)p.nextReady=state.nextReady;state.actions.next.send({ready:state.nextReady,roundId:state.roundId}).catch(()=>{});state.actions.profile.send({name:state.name,ready:state.ready,nextReady:state.nextReady}).catch(()=>{});updateNextButton();status($('nextStatus'),state.nextReady?'已準備下一輪，等待其他玩家。':'已取消下一輪準備。',state.nextReady?'已准备下一轮，等待其他玩家。':'已取消下一轮准备。',state.nextReady?'Yǐ zhǔnbèi xià yì lún, děngdài qítā wánjiā.':'Yǐ qǔxiāo xià yì lún zhǔnbèi.',state.nextReady?'Ready for the next round. Waiting for the others.':'Next-round readiness cancelled.',state.nextReady?'ok':'warn');maybeResetRound();});
+$('leaveBtn').addEventListener('click',()=>cleanup());
+$('copyCodeBtn').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(state.roomCode);status($('lobbyStatus'),'房間碼已複製。','房间码已复制。','Fángjiān mǎ yǐ fùzhì.','Room code copied.','ok');}catch(e){status($('lobbyStatus'),'請手動複製房間碼：'+state.roomCode,'请手动复制房间码：'+state.roomCode,'Qǐng shǒudòng fùzhì fángjiān mǎ: '+state.roomCode,'Copy the room code manually: '+state.roomCode,'warn');}});
+$('shareBtn').addEventListener('click',async()=>{const url=new URL(location.href);url.searchParams.set('room',state.roomCode);const text='誰是臥底 / Who Is the Undercover? — '+state.roomCode;try{if(navigator.share)await navigator.share({title:'誰是臥底',text,url:url.toString()});else{await navigator.clipboard.writeText(url.toString());status($('lobbyStatus'),'邀請連結已複製。','邀请链接已复制。','Yāoqǐng liánjiē yǐ fùzhì.','Invite link copied.','ok');}}catch(e){}});
+
+const menu=$('menu'),menuBtn=$('menuBtn');menuBtn.addEventListener('click',()=>menu.classList.toggle('open'));document.addEventListener('click',e=>{if(!menu.contains(e.target)&&!menuBtn.contains(e.target))menu.classList.remove('open');});
+const toggles={hant:$('toggleHant'),hans:$('toggleHans'),en:$('toggleEn'),py:$('togglePy')};
+function applyLanguages(){const keys=Object.keys(toggles);if(!keys.some(k=>toggles[k].checked))toggles.hant.checked=true;keys.forEach(k=>document.documentElement.classList.toggle('show-'+k,toggles[k].checked));localStorage.setItem('undercoverLangs',JSON.stringify(Object.fromEntries(keys.map(k=>[k,toggles[k].checked]))));if(state.secret&&state.phase==='game')showGame(state.secret,'Wikipedia');}
+try{const saved=JSON.parse(localStorage.getItem('undercoverLangs')||'null');if(saved)Object.keys(toggles).forEach(k=>{if(typeof saved[k]==='boolean')toggles[k].checked=saved[k];});}catch(e){}
+Object.values(toggles).forEach(el=>el.addEventListener('change',applyLanguages));applyLanguages();
+const roomFromUrl=(new URL(location.href)).searchParams.get('room');if(roomFromUrl&&/^[A-Z0-9]{6}$/i.test(roomFromUrl))$('roomInput').value=roomFromUrl.toUpperCase();
+window.addEventListener('beforeunload',()=>{try{state.room?.leave();}catch(e){}});
+setPhase('login');
 </script>
 </body>
 </html>
