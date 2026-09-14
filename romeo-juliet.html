@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700;800;900&family=Noto+Sans+TC:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <title>羅密歐與茱麗葉 · Romeo and Juliet</title>
   <style>
     :root{
@@ -321,6 +324,46 @@
       }
     }
 
+  
+    /* ===== Linux / cross-browser compatibility ===== */
+    body {
+      font-family:
+        "Noto Sans TC",
+        "Noto Sans SC",
+        "Noto Sans CJK TC",
+        "Noto Sans CJK SC",
+        "WenQuanYi Zen Hei",
+        "WenQuanYi Micro Hei",
+        "Microsoft JhengHei",
+        "Microsoft YaHei",
+        Arial,
+        Helvetica,
+        sans-serif;
+    }
+
+    button, input, textarea, select {
+      font-family: inherit;
+    }
+
+    /* Some Linux browsers render font-weight 850/950 inconsistently */
+    .brand,
+    .hero .hant,
+    .hero .hans,
+    .player,
+    .assigned-role .hant,
+    .assigned-role .hans,
+    button,
+    .btn {
+      font-synthesis: none;
+    }
+
+    /* Safer than depending on backdrop-filter support */
+    @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+      .topbar {
+        background: #fffdf8;
+      }
+    }
+
   </style>
 </head>
 
@@ -560,14 +603,32 @@
         .filter(Boolean);
     }
 
+    
+    function getRandomIndex(maxExclusive){
+      if(maxExclusive <= 1) return 0;
+      try{
+        if(window.crypto && typeof window.crypto.getRandomValues === "function"){
+          const u = new Uint32Array(1);
+          const limit = Math.floor(0x100000000 / maxExclusive) * maxExclusive;
+          let n;
+          do{
+            window.crypto.getRandomValues(u);
+            n = u[0];
+          }while(n >= limit);
+          return n % maxExclusive;
+        }
+      }catch(e){}
+      return Math.floor(Math.random() * maxExclusive);
+    }
+
     function shuffle(arr){
       const a = [...arr];
       for(let i=a.length-1;i>0;i--){
-        const u = new Uint32Array(1);
-        crypto.getRandomValues(u);
-        const j = u[0] % (i+1);
+        const j = getRandomIndex(i+1);
         [a[i],a[j]]=[a[j],a[i]];
       }
+      return a;
+    }
       return a;
     }
 
@@ -636,7 +697,7 @@
       );
 
       $("resultCard").style.display="block";
-      $("resultCard").scrollIntoView({behavior:"smooth",block:"start"});
+      try{$("resultCard").scrollIntoView({behavior:"smooth",block:"start"});}catch(e){$("resultCard").scrollIntoView();}
     }
 
     // ===== Multi-select language display =====
@@ -702,7 +763,7 @@
     $("editBtn").addEventListener("click",()=>{
       $("resultCard").style.display="none";
       $("names").focus();
-      window.scrollTo({top:0,behavior:"smooth"});
+      try{window.scrollTo({top:0,behavior:"smooth"});}catch(e){window.scrollTo(0,0);}
     });
     $("demoBtn").addEventListener("click",()=>{
       $("names").value="Joyce\nAlex\nMina\nKevin\nLeo\nAnna\nSam";
