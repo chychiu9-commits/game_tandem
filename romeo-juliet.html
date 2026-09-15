@@ -2,6 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>羅密歐與茱麗葉 · Romeo and Juliet</title>
   <style>
@@ -321,7 +322,34 @@
       }
     }
 
-  </style>
+  
+
+/* ===== Cross-browser compatibility layer ===== */
+html, body { -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+button, input, textarea, select { font:inherit; }
+button, a, input, textarea, select { -webkit-tap-highlight-color:transparent; }
+.topbar { -webkit-backdrop-filter:blur(12px); }
+.choice input { -webkit-appearance:none; appearance:none; }
+.player, .assigned-role, .role-name, .player-name {
+  min-width:0; max-width:100%; overflow-wrap:break-word; word-wrap:break-word; word-break:break-word;
+}
+@media (prefers-reduced-motion:reduce) {
+  * { scroll-behavior:auto !important; transition:none !important; animation:none !important; }
+}
+
+.wrap { width:92%; max-width:860px; }
+.topbar { padding:9px 18px; }
+.menu { right:18px; width:calc(100% - 36px); max-width:360px; }
+.hero .hant,.hero .hans, html.only-en .hero .en { font-size:44px; }
+@supports (padding:max(0px)) {
+  .topbar { padding:9px max(18px,calc((100vw - 900px)/2)); }
+  .menu { right:max(18px,calc((100vw - 900px)/2)); width:min(360px,calc(100vw - 36px)); }
+}
+@supports (font-size:clamp(1px,2vw,3px)) {
+  .hero .hant,.hero .hans, html.only-en .hero .en { font-size:clamp(35px,7vw,58px); }
+}
+
+</style>
 </head>
 
 <body>
@@ -521,196 +549,176 @@
   </main>
 
   <script>
-    const SCRIPT_URL =
-      "https://claude.ai/code/artifact/326ff1a0-0e87-4aad-b699-801dad6e55c9";
-
-    const ROLES = [
-      { hant:"羅密歐", hans:"罗密欧", py:"Luómì'ōu", en:"Romeo" },
-      { hant:"茱麗葉", hans:"朱丽叶", py:"Zhūlìyè", en:"Juliet" },
-      { hant:"牧師", hans:"牧师", py:"Mùshī", en:"Friar" },
-      { hant:"凱普萊特", hans:"凯普莱特", py:"Kǎipǔláitè", en:"Capulet" },
-      { hant:"奶媽", hans:"奶妈", py:"Nǎimā", en:"Nurse" },
-      { hant:"提伯爾特", hans:"提伯尔特", py:"Tíbó'ěrtè", en:"Tybalt" },
-      { hant:"旁白", hans:"旁白", py:"Pángbái", en:"Narrator" }
-    ];
-
-    const $ = id => document.getElementById(id);
-    let lastNames = [];
-
-    function escapeHtml(s){
-      return String(s).replace(/[&<>"']/g, c => ({
-        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
-      }[c]));
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
     }
-
-    function renderRoles(){
-      $("rolePool").innerHTML = ROLES.map(r => `
-        <div class="pill">
-          <div class="hant">${r.hant}</div>
-          <div class="hans">${r.hans}</div>
-          <div class="py">${r.py}</div>
-          <div class="en">${r.en}</div>
-        </div>`).join("");
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
     }
-
-    function getNames(){
-      return $("names").value
+    return ar;
+};
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+var SCRIPT_URL = "https://claude.ai/code/artifact/326ff1a0-0e87-4aad-b699-801dad6e55c9";
+var ROLES = [
+    { hant: "羅密歐", hans: "罗密欧", py: "Luómì'ōu", en: "Romeo" },
+    { hant: "茱麗葉", hans: "朱丽叶", py: "Zhūlìyè", en: "Juliet" },
+    { hant: "牧師", hans: "牧师", py: "Mùshī", en: "Friar" },
+    { hant: "凱普萊特", hans: "凯普莱特", py: "Kǎipǔláitè", en: "Capulet" },
+    { hant: "奶媽", hans: "奶妈", py: "Nǎimā", en: "Nurse" },
+    { hant: "提伯爾特", hans: "提伯尔特", py: "Tíbó'ěrtè", en: "Tybalt" },
+    { hant: "旁白", hans: "旁白", py: "Pángbái", en: "Narrator" }
+];
+var $ = function (id) { return document.getElementById(id); };
+var lastNames = [];
+function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) { return ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
+    }[c]); });
+}
+function renderRoles() {
+    $("rolePool").innerHTML = ROLES.map(function (r) { return "\n        <div class=\"pill\">\n          <div class=\"hant\">".concat(r.hant, "</div>\n          <div class=\"hans\">").concat(r.hans, "</div>\n          <div class=\"py\">").concat(r.py, "</div>\n          <div class=\"en\">").concat(r.en, "</div>\n        </div>"); }).join("");
+}
+function getNames() {
+    return $("names").value
         .split(/\n|,/)
-        .map(x => x.trim())
+        .map(function (x) { return x.trim(); })
         .filter(Boolean);
+}
+function shuffle(arr) {
+    var _a;
+    var a = __spreadArray([], __read(arr), false);
+    for (var i = a.length - 1; i > 0; i--) {
+        var j = void 0;
+        if (window.crypto && window.crypto.getRandomValues && window.Uint32Array) {
+            var u = new Uint32Array(1);
+            window.crypto.getRandomValues(u);
+            j = u[0] % (i + 1);
+        }
+        else {
+            j = Math.floor(Math.random() * (i + 1));
+        }
+        _a = __read([a[j], a[i]], 2), a[i] = _a[0], a[j] = _a[1];
     }
-
-    function shuffle(arr){
-      const a = [...arr];
-      for(let i=a.length-1;i>0;i--){
-        const u = new Uint32Array(1);
-        crypto.getRandomValues(u);
-        const j = u[0] % (i+1);
-        [a[i],a[j]]=[a[j],a[i]];
-      }
-      return a;
-    }
-
-    function showError(hant,hans,py,en){
-      $("errorBox").innerHTML = `
-        <div class="hant">${escapeHtml(hant)}</div>
-        <div class="hans">${escapeHtml(hans)}</div>
-        <div class="py">${escapeHtml(py)}</div>
-        <div class="en">${escapeHtml(en)}</div>`;
-      $("errorBox").style.display="block";
-    }
-
-    function clearError(){ $("errorBox").style.display="none"; }
-
-    function assign(names){
-      clearError();
-
-      if(!names.length){
-        showError(
-          "請至少輸入一位玩家。",
-          "请至少输入一位玩家。",
-          "Qǐng zhìshǎo shūrù yí wèi wánjiā.",
-          "Please enter at least one player."
-        );
+    return a;
+}
+function showError(hant, hans, py, en) {
+    $("errorBox").innerHTML = "\n        <div class=\"hant\">".concat(escapeHtml(hant), "</div>\n        <div class=\"hans\">").concat(escapeHtml(hans), "</div>\n        <div class=\"py\">").concat(escapeHtml(py), "</div>\n        <div class=\"en\">").concat(escapeHtml(en), "</div>");
+    $("errorBox").style.display = "block";
+}
+function clearError() { $("errorBox").style.display = "none"; }
+function assign(names) {
+    clearError();
+    if (!names.length) {
+        showError("請至少輸入一位玩家。", "请至少输入一位玩家。", "Qǐng zhìshǎo shūrù yí wèi wánjiā.", "Please enter at least one player.");
         return;
-      }
-
-      if(new Set(names).size !== names.length){
-        showError(
-          "玩家名字不可重複。",
-          "玩家名字不可重复。",
-          "Wánjiā míngzi bùkě chóngfù.",
-          "Player names cannot be duplicated."
-        );
-        return;
-      }
-
-      if(names.length > ROLES.length){
-        showError(
-          `目前有 ${names.length} 位玩家，但劇本只有 ${ROLES.length} 個角色。`,
-          `目前有 ${names.length} 位玩家，但剧本只有 ${ROLES.length} 个角色。`,
-          `Mùqián yǒu ${names.length} wèi wánjiā, dàn jùběn zhǐyǒu ${ROLES.length} gè juésè.`,
-          `There are ${names.length} players, but only ${ROLES.length} roles are available.`
-        );
-        return;
-      }
-
-      lastNames=[...names];
-      const picked=shuffle(ROLES).slice(0,names.length);
-
-      $("assignmentList").innerHTML = names.map((name,i)=>`
-        <div class="assignment">
-          <div class="player">${escapeHtml(name)}</div>
-          <div class="arrow">→</div>
-          <div class="assigned-role">
-            <div class="hant">${picked[i].hant}</div>
-            <div class="hans">${picked[i].hans}</div>
-            <div class="py">${picked[i].py}</div>
-            <div class="en">${picked[i].en}</div>
-          </div>
-        </div>`).join("");
-
-      localStorage.setItem(
-        "romeoJulietPublicAssignments",
-        JSON.stringify(names.map((name,i)=>({name,role:picked[i]})))
-      );
-
-      $("resultCard").style.display="block";
-      $("resultCard").scrollIntoView({behavior:"smooth",block:"start"});
     }
-
-    // ===== Multi-select language display =====
-    const toggles = {
-      hant: $("toggleHant"),
-      hans: $("toggleHans"),
-      en: $("toggleEn"),
-      py: $("togglePy")
-    };
-
-    function loadPrefs(){
-      let prefs;
-      try{
+    if (names.some(function (v, i) { return names.indexOf(v) !== i; })) {
+        showError("玩家名字不可重複。", "玩家名字不可重复。", "Wánjiā míngzi bùkě chóngfù.", "Player names cannot be duplicated.");
+        return;
+    }
+    if (names.length > ROLES.length) {
+        showError("\u76EE\u524D\u6709 ".concat(names.length, " \u4F4D\u73A9\u5BB6\uFF0C\u4F46\u5287\u672C\u53EA\u6709 ").concat(ROLES.length, " \u500B\u89D2\u8272\u3002"), "\u76EE\u524D\u6709 ".concat(names.length, " \u4F4D\u73A9\u5BB6\uFF0C\u4F46\u5267\u672C\u53EA\u6709 ").concat(ROLES.length, " \u4E2A\u89D2\u8272\u3002"), "M\u00F9qi\u00E1n y\u01D2u ".concat(names.length, " w\u00E8i w\u00E1nji\u0101, d\u00E0n j\u00F9b\u011Bn zh\u01D0y\u01D2u ").concat(ROLES.length, " g\u00E8 ju\u00E9s\u00E8."), "There are ".concat(names.length, " players, but only ").concat(ROLES.length, " roles are available."));
+        return;
+    }
+    lastNames = __spreadArray([], __read(names), false);
+    var picked = shuffle(ROLES).slice(0, names.length);
+    $("assignmentList").innerHTML = names.map(function (name, i) { return "\n        <div class=\"assignment\">\n          <div class=\"player\">".concat(escapeHtml(name), "</div>\n          <div class=\"arrow\">\u2192</div>\n          <div class=\"assigned-role\">\n            <div class=\"hant\">").concat(picked[i].hant, "</div>\n            <div class=\"hans\">").concat(picked[i].hans, "</div>\n            <div class=\"py\">").concat(picked[i].py, "</div>\n            <div class=\"en\">").concat(picked[i].en, "</div>\n          </div>\n        </div>"); }).join("");
+    try {
+        localStorage.setItem("romeoJulietPublicAssignments", JSON.stringify(names.map(function (name, i) { return ({ name: name, role: picked[i] }); })));
+    }
+    catch (e) { }
+    $("resultCard").style.display = "block";
+    try {
+        $("resultCard").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    catch (e) {
+        $("resultCard").scrollIntoView(true);
+    }
+}
+// ===== Multi-select language display =====
+var toggles = {
+    hant: $("toggleHant"),
+    hans: $("toggleHans"),
+    en: $("toggleEn"),
+    py: $("togglePy")
+};
+function loadPrefs() {
+    var prefs;
+    try {
         prefs = JSON.parse(localStorage.getItem("languageLayers"));
-      }catch(e){}
-
-      if(!prefs){
-        prefs = {hant:true, hans:false, en:true, py:true};
-      }
-
-      Object.keys(toggles).forEach(k => toggles[k].checked = !!prefs[k]);
-      applyPrefs(false);
     }
-
-    function applyPrefs(save=true){
-      // Avoid an entirely blank page: if all are off, turn Traditional Chinese back on.
-      if(!Object.values(toggles).some(t => t.checked)){
+    catch (e) { }
+    if (!prefs) {
+        prefs = { hant: true, hans: false, en: true, py: true };
+    }
+    Object.keys(toggles).forEach(function (k) { return toggles[k].checked = !!prefs[k]; });
+    applyPrefs(false);
+}
+function applyPrefs(save) {
+    if (save === void 0) { save = true; }
+    // Avoid an entirely blank page: if all are off, turn Traditional Chinese back on.
+    if (!Object.keys(toggles).some(function (k) { return toggles[k].checked; })) {
         toggles.hant.checked = true;
-      }
-
-      const root = document.documentElement;
-      ["hant","hans","en","py"].forEach(k=>{
-        root.classList.toggle("show-"+k, toggles[k].checked);
-      });
-
-      const onlyEn = toggles.en.checked &&
-        !toggles.hant.checked && !toggles.hans.checked && !toggles.py.checked;
-      root.classList.toggle("only-en", onlyEn);
-
-      if(save){
-        localStorage.setItem("languageLayers", JSON.stringify({
-          hant:toggles.hant.checked,
-          hans:toggles.hans.checked,
-          en:toggles.en.checked,
-          py:toggles.py.checked
-        }));
-      }
     }
-
-    Object.values(toggles).forEach(t => t.addEventListener("change",()=>applyPrefs(true)));
-
-    // ===== Hamburger =====
-    const menu = $("menu");
-    $("menuBtn").addEventListener("click", e=>{
-      e.stopPropagation();
-      menu.classList.toggle("open");
+    var root = document.documentElement;
+    ["hant", "hans", "en", "py"].forEach(function (k) {
+        root.classList.toggle("show-" + k, toggles[k].checked);
     });
-    menu.addEventListener("click", e=>e.stopPropagation());
-    document.addEventListener("click",()=>menu.classList.remove("open"));
-
-    $("assignBtn").addEventListener("click",()=>assign(getNames()));
-    $("rerollBtn").addEventListener("click",()=>lastNames.length && assign(lastNames));
-    $("editBtn").addEventListener("click",()=>{
-      $("resultCard").style.display="none";
-      $("names").focus();
-      window.scrollTo({top:0,behavior:"smooth"});
-    });
-    $("demoBtn").addEventListener("click",()=>{
-      $("names").value="Joyce\nAlex\nMina\nKevin\nLeo\nAnna\nSam";
-      clearError();
-    });
-
-    renderRoles();
-    loadPrefs();
-  </script>
+    var onlyEn = toggles.en.checked &&
+        !toggles.hant.checked && !toggles.hans.checked && !toggles.py.checked;
+    root.classList.toggle("only-en", onlyEn);
+    if (save) {
+        localStorage.setItem("languageLayers", JSON.stringify({
+            hant: toggles.hant.checked,
+            hans: toggles.hans.checked,
+            en: toggles.en.checked,
+            py: toggles.py.checked
+        }));
+    }
+}
+Object.keys(toggles).forEach(function (k) { return toggles[k].addEventListener("change", function () { return applyPrefs(true); }); });
+// ===== Hamburger =====
+var menu = $("menu");
+$("menuBtn").addEventListener("click", function (e) {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+});
+menu.addEventListener("click", function (e) { return e.stopPropagation(); });
+document.addEventListener("click", function () { return menu.classList.remove("open"); });
+$("assignBtn").addEventListener("click", function () { return assign(getNames()); });
+$("rerollBtn").addEventListener("click", function () { return lastNames.length && assign(lastNames); });
+$("editBtn").addEventListener("click", function () {
+    $("resultCard").style.display = "none";
+    $("names").focus();
+    try {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    catch (e) {
+        window.scrollTo(0, 0);
+    }
+});
+$("demoBtn").addEventListener("click", function () {
+    $("names").value = "Joyce\nAlex\nMina\nKevin\nLeo\nAnna\nSam";
+    clearError();
+});
+renderRoles();
+loadPrefs();
+</script>
 </body>
 </html>
