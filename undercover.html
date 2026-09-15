@@ -2,7 +2,6 @@
 <html lang="zh-Hant" class="show-hant show-en show-py">
 <head>
 <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>誰是臥底｜無房主多人投票版</title>
 <style>
@@ -10,7 +9,7 @@
 *{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","Noto Sans SC",sans-serif}body{padding:0 14px 40px}main{width:min(100%,780px);margin:auto}
 .hant,.hans,.en,.py{display:none}html.show-hant .hant{display:block}html.show-hans .hans{display:block}html.show-en .en{display:block}html.show-py .py{display:block}
 .topbar{position:sticky;top:0;z-index:50;margin:0 -14px 14px;padding:10px max(14px,calc((100vw - 780px)/2 + 14px));background:rgba(255,253,251,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{font-weight:900}.brand .en,.brand .py{font-size:12px;color:var(--muted)}.top-actions{display:flex;align-items:center;gap:8px}.top-exit{width:auto;min-height:46px;border-radius:14px;padding:8px 13px;border:1px solid #e7caca;background:#faecec;color:#8f2d2d;font-weight:900;cursor:pointer}.top-exit .py,.top-exit .en{font-size:11px}.top-exit:hover{background:#f7dddd}
-.hamburger{width:46px;height:46px;border:1px solid var(--line);border-radius:14px;background:white;cursor:pointer;display:grid;place-items:center;padding:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation}.hamburger span{display:block;width:21px;height:2px;background:var(--brown-dark);margin:4px 0;border-radius:99px}.menu{display:none;position:fixed;right:14px;right:max(14px,calc((100vw - 780px)/2 + 14px));top:68px;z-index:60;width:360px;max-width:calc(100vw - 28px);width:min(360px,calc(100vw - 28px));background:white;border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 55px rgba(0,0,0,.17);padding:12px}.menu.open{display:block}.menu-head{padding:4px 7px 10px;border-bottom:1px solid var(--line);margin-bottom:8px}.menu-head strong{display:block;font-size:17px}.menu-head span{display:block;font-size:12px;color:var(--muted);margin-top:2px}.choice{display:flex;align-items:center;gap:12px;padding:10px 8px;border-radius:12px;cursor:pointer}.choice:hover{background:var(--soft)}.choice input{appearance:none;width:22px;height:22px;border:2px solid #b8b0a8;border-radius:7px;background:white;position:relative;flex:0 0 auto}.choice input:checked{background:var(--brown);border-color:var(--brown)}.choice input:checked::after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:white;font-size:15px;font-weight:900}.choice strong{display:block;font-size:15px}.choice small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.hamburger{width:46px;height:46px;border:1px solid var(--line);border-radius:14px;background:white;cursor:pointer;display:grid;place-items:center;padding:0}.hamburger span{display:block;width:21px;height:2px;background:var(--brown-dark);margin:4px 0;border-radius:99px}.menu{display:none;position:fixed;right:max(14px,calc((100vw - 780px)/2 + 14px));top:68px;z-index:60;width:min(360px,calc(100vw - 28px));background:white;border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 55px rgba(0,0,0,.17);padding:12px}.menu.open{display:block}.menu-head{padding:4px 7px 10px;border-bottom:1px solid var(--line);margin-bottom:8px}.menu-head strong{display:block;font-size:17px}.menu-head span{display:block;font-size:12px;color:var(--muted);margin-top:2px}.choice{display:flex;align-items:center;gap:12px;padding:10px 8px;border-radius:12px;cursor:pointer}.choice:hover{background:var(--soft)}.choice input{appearance:none;width:22px;height:22px;border:2px solid #b8b0a8;border-radius:7px;background:white;position:relative;flex:0 0 auto}.choice input:checked{background:var(--brown);border-color:var(--brown)}.choice input:checked::after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:white;font-size:15px;font-weight:900}.choice strong{display:block;font-size:15px}.choice small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:26px 22px;margin-bottom:18px}.hero{text-align:center;padding-top:32px;padding-bottom:30px}.hero h1{font-size:clamp(40px,10vw,64px);line-height:1.05;margin:0;font-weight:950}.hero .py{font-size:18px;color:#786b61;margin-top:12px}.hero .en{font-size:22px;color:var(--brown-dark);font-weight:800;margin-top:5px}.hero-sub{margin-top:22px}.hero-sub .hant,.hero-sub .hans{font-size:20px;color:#67625e}.hero-sub .py{font-size:15px;color:#7d746d;margin-top:4px}.hero-sub .en{font-size:17px;color:var(--brown-dark);font-weight:700;margin-top:5px}
 .small-title{font-size:28px;font-weight:950;margin:0 0 16px}.field{margin-bottom:20px}.field label{display:block;font-size:18px;font-weight:850;margin-bottom:8px}.field .py{font-size:13px;color:var(--muted);margin-top:3px}.field .en{font-size:14px;color:var(--brown-dark);margin-top:3px}input[type=text]{width:100%;border:1px solid #cfc7bf;border-radius:16px;padding:16px 18px;font-size:17px;background:white;color:var(--text);min-height:58px}input:focus{outline:3px solid rgba(138,101,76,.15);border-color:var(--brown)}
 .primary,.outline,.danger,.secondary{width:100%;border-radius:999px;min-height:58px;padding:12px 18px;font-size:18px;font-weight:850;cursor:pointer}.primary{background:var(--brown);color:white;border:1px solid var(--brown)}.primary.ready{background:var(--green);border-color:var(--green)}.outline{background:white;color:var(--brown-dark);border:2px solid var(--brown-dark)}.secondary{background:#edf4ff;color:#245ea8;border:1px solid #cbdcf7}.danger{background:#faecec;color:#8f2d2d;border:1px solid #e7caca}button:disabled{opacity:.5;cursor:not-allowed}.actions{display:grid;gap:10px;margin-top:14px}.hidden{display:none!important}
@@ -22,31 +21,6 @@
 .result-hero{text-align:center;padding:22px;border-radius:20px;background:#fff7ec;border:1px solid #ead8c3}.result-hero .big{font-size:clamp(28px,7vw,46px);font-weight:950;margin-top:8px}.result-hero.win-civ{background:#edf8f0;border-color:#cce7d4}.result-hero.win-spy{background:#fff0f0;border-color:#edcccc}.result-hero.tie{background:#f5f2fb;border-color:#ddd4ee}.role-reveal{margin-top:16px;padding:16px;border-radius:18px;border:1px solid var(--line);background:#fff}.role-reveal .who{font-size:26px;font-weight:950}.role-reveal .role{font-size:16px;font-weight:900;margin-top:7px}.role-reveal .role.civ{color:var(--green)}.role-reveal .role.spy{color:var(--danger)}
 .counts{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:16px}.count-box{padding:11px 14px;border-radius:14px;background:#fff;border:1px solid var(--line);font-weight:900}.summary-words{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.summary-word{border:1px solid var(--line);border-radius:18px;padding:16px;background:#fff}.summary-word .k{font-size:13px;color:var(--muted);font-weight:800}.summary-word .v{font-size:24px;font-weight:900;margin-top:6px}.summary-word .py{font-size:13px;margin-top:4px;color:var(--muted)}.summary-word .en{font-size:15px;margin-top:4px;color:var(--blue);font-weight:700}.role-list{display:grid;gap:10px;margin-top:16px}.role-row{border:1px solid var(--line);border-radius:16px;padding:13px 15px;display:flex;justify-content:space-between;gap:12px;align-items:center}.role-row .role-name{font-weight:850}.role-tag{font-size:12px;font-weight:900;padding:6px 10px;border-radius:999px}.role-tag.spy{background:#fdecec;color:#8a2a2a}.role-tag.civ{background:#e9f6ed;color:#28663d}.spectator{padding:24px;text-align:center;border-radius:20px;background:#f3f1ef;border:1px solid var(--line)}
 @media(max-width:560px){.card{padding:22px 18px}.room-actions,.summary-words{grid-template-columns:1fr}.hero{padding-top:22px}.word-main{font-size:40px}}
-
-
-/* ===== Cross-browser compatibility layer ===== */
-html, body { -webkit-text-size-adjust:100%; text-size-adjust:100%; }
-button, input, textarea, select { font:inherit; }
-button, a, input, textarea, select { -webkit-tap-highlight-color:transparent; }
-.topbar { -webkit-backdrop-filter:blur(12px); }
-.choice input { -webkit-appearance:none; appearance:none; }
-.player, .assigned-role, .role-name, .player-name {
-  min-width:0; max-width:100%; overflow-wrap:break-word; word-wrap:break-word; word-break:break-word;
-}
-@media (prefers-reduced-motion:reduce) {
-  * { scroll-behavior:auto !important; transition:none !important; animation:none !important; }
-}
-
-main { width:100%; max-width:780px; }
-.topbar { padding:10px 14px; }
-.menu { right:14px; width:calc(100% - 28px); max-width:360px; }
-.hero h1 { font-size:48px; }
-@supports (padding:max(0px)) {
-  .topbar { padding:10px max(14px,calc((100vw - 780px)/2 + 14px)); }
-  .menu { right:max(14px,calc((100vw - 780px)/2 + 14px)); width:min(360px,calc(100vw - 28px)); }
-}
-@supports (font-size:clamp(1px,2vw,3px)) { .hero h1 { font-size:clamp(40px,10vw,64px); } }
-
 </style>
 </head>
 <body>
@@ -54,7 +28,7 @@ main { width:100%; max-width:780px; }
   <div class="brand"><div class="hant">誰是臥底</div><div class="hans">谁是卧底</div><div class="py">Shéi shì wòdǐ</div><div class="en">Who Is the Undercover?</div></div>
   <div class="top-actions">
     <button id="exitGameBtn" class="top-exit hidden" type="button" title="退出遊戲 / Leave Game"><span class="hant">退出遊戲</span><span class="hans">退出游戏</span><span class="py">Tuìchū yóuxì</span><span class="en">Leave Game</span></button>
-    <button id="menuBtn" class="hamburger" type="button" aria-label="Language menu" aria-expanded="false"><div><span></span><span></span><span></span></div></button>
+    <button id="menuBtn" class="hamburger" aria-label="Language menu"><div><span></span><span></span><span></span></div></button>
   </div>
 </header>
 <aside id="menu" class="menu">
@@ -134,1713 +108,167 @@ main { width:100%; max-width:780px; }
 </section>
 </main>
 <script>
-/* Small ES5-compatible polyfills used by the game UI. */
 (function(){
-  if(!Object.keys){Object.keys=function(o){var a=[],k;for(k in o)if(Object.prototype.hasOwnProperty.call(o,k))a.push(k);return a;};}
-  if(!Object.entries){Object.entries=function(o){var k=Object.keys(o),a=[],i;for(i=0;i<k.length;i++)a.push([k[i],o[k[i]]]);return a;};}
-  if(!Object.values){Object.values=function(o){var k=Object.keys(o),a=[],i;for(i=0;i<k.length;i++)a.push(o[k[i]]);return a;};}
-  if(!Object.fromEntries){Object.fromEntries=function(it){var o={},i,p;for(i=0;i<it.length;i++){p=it[i];o[p[0]]=p[1];}return o;};}
-  if(!Array.prototype.includes){Array.prototype.includes=function(x){return this.indexOf(x)!==-1;};}
-  if(!Array.prototype.find){Array.prototype.find=function(fn,that){var i;for(i=0;i<this.length;i++)if(fn.call(that,this[i],i,this))return this[i];};}
-  if(!String.prototype.includes){String.prototype.includes=function(x,pos){return this.indexOf(x,pos||0)!==-1;};}
-  if(!String.prototype.startsWith){String.prototype.startsWith=function(x,pos){pos=pos||0;return this.substr(pos,x.length)===x;};}
-}());
-
-/* Hamburger + language controls are deliberately kept OUTSIDE the ES module.
-   They continue to work even if multiplayer imports/WebRTC fail to load. */
-(function(){
-  function byId(id){return document.getElementById(id);}
-  function hasClass(el,name){return (" "+el.className+" " ).indexOf(" "+name+" ")!==-1;}
-  function addClass(el,name){if(!hasClass(el,name))el.className=(el.className?el.className+" " : "")+name;}
-  function removeClass(el,name){var re=new RegExp("(^|\\s)"+name+"(?=\\s|$)","g");el.className=el.className.replace(re," ").replace(/^\\s+|\\s+$/g,"");}
-  function setClass(el,name,on){if(on)addClass(el,name);else removeClass(el,name);}
-
-  function initBasicUi(){
-    var menu=byId('menu');
-    var menuBtn=byId('menuBtn');
-    if(menu && menuBtn){
-      menuBtn.setAttribute('type','button');
-      menuBtn.setAttribute('aria-expanded','false');
-      menuBtn.onclick=function(e){
-        if(e && e.preventDefault)e.preventDefault();
-        if(e && e.stopPropagation)e.stopPropagation();
-        var open=!hasClass(menu,'open');
-        setClass(menu,'open',open);
-        menuBtn.setAttribute('aria-expanded',open?'true':'false');
-        return false;
-      };
-      menu.onclick=function(e){if(e && e.stopPropagation)e.stopPropagation();};
-      document.addEventListener('click',function(){
-        removeClass(menu,'open');
-        menuBtn.setAttribute('aria-expanded','false');
-      },false);
-      document.addEventListener('keydown',function(e){
-        e=e||window.event;
-        if((e.key && e.key==='Escape') || e.keyCode===27){
-          removeClass(menu,'open');
-          menuBtn.setAttribute('aria-expanded','false');
-        }
-      },false);
-    }
-
-    var ids={hant:'toggleHant',hans:'toggleHans',en:'toggleEn',py:'togglePy'};
-    var toggles={},k;
-    for(k in ids)if(Object.prototype.hasOwnProperty.call(ids,k))toggles[k]=byId(ids[k]);
-
-    function applyBasicLanguages(){
-      var any=false,key,saved={};
-      for(key in toggles){
-        if(Object.prototype.hasOwnProperty.call(toggles,key) && toggles[key]){
-          if(toggles[key].checked)any=true;
-        }
-      }
-      if(!any && toggles.hant)toggles.hant.checked=true;
-      for(key in toggles){
-        if(Object.prototype.hasOwnProperty.call(toggles,key) && toggles[key]){
-          setClass(document.documentElement,'show-'+key,!!toggles[key].checked);
-          saved[key]=!!toggles[key].checked;
-        }
-      }
-      try{localStorage.setItem('undercoverLangs',JSON.stringify(saved));}catch(err){}
-    }
-
-    try{
-      var old=JSON.parse(localStorage.getItem('undercoverLangs')||'null');
-      if(old){
-        for(k in toggles){
-          if(Object.prototype.hasOwnProperty.call(toggles,k) && toggles[k] && typeof old[k]==='boolean')toggles[k].checked=old[k];
-        }
-      }
-    }catch(err){}
-
-    for(k in toggles){
-      if(Object.prototype.hasOwnProperty.call(toggles,k) && toggles[k])toggles[k].onchange=applyBasicLanguages;
-    }
-    applyBasicLanguages();
-
-    /* Create-room-code button must work even before/without the multiplayer module. */
-    var createBtn=byId('createBtn');
-    var roomInput=byId('roomInput');
-    var nameInput=byId('nameInput');
-    var loginStatus=byId('loginStatus');
-    function makeLocalRoomCode(){
-      var chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-      var code='',i;
-      for(i=0;i<6;i++)code+=chars.charAt(Math.floor(Math.random()*chars.length));
-      return code;
-    }
-    function showLocalStatus(hant,hans,py,en,type){
-      if(!loginStatus)return;
-      loginStatus.className='status'+(type?' '+type:'');
-      loginStatus.innerHTML='<div class="hant"></div><div class="hans"></div><div class="py"></div><div class="en"></div>';
-      var parts=loginStatus.children;
-      if(parts[0])parts[0].textContent=hant;
-      if(parts[1])parts[1].textContent=hans;
-      if(parts[2])parts[2].textContent=py;
-      if(parts[3])parts[3].textContent=en;
-    }
-    if(createBtn && roomInput){
-      createBtn.onclick=function(e){
-        if(e && e.preventDefault)e.preventDefault();
-        var code=makeLocalRoomCode();
-        roomInput.value=code;
-        var name=nameInput?nameInput.value.replace(/^\s+|\s+$/g,''):'';
-        if(name && typeof window.__undercoverEnterRoom==='function'){
-          window.__undercoverEnterRoom(code,name);
-        }else if(!name){
-          showLocalStatus(
-            '已產生新房間碼 '+code+'。請輸入名字後按「加入房間」。',
-            '已产生新房间码 '+code+'。请输入名字后按“加入房间”。',
-            'Yǐ chǎnshēng xīn fángjiān mǎ '+code+'. Qǐng shūrù míngzi hòu àn jiārù fángjiān.',
-            'New room code '+code+' created. Enter your name, then press Join Room.',
-            'ok'
-          );
-        }else{
-          showLocalStatus(
-            '房間碼 '+code+' 已產生。多人連線功能正在載入，完成後請按「加入房間」。',
-            '房间码 '+code+' 已产生。多人连接功能正在载入，完成后请按“加入房间”。',
-            'Fángjiān mǎ '+code+' yǐ chǎnshēng. Duōrén liánxiàn gōngnéng zhèngzài zàirù.',
-            'Room code '+code+' created. Multiplayer is still loading; press Join Room when it is ready.',
-            'busy'
-          );
-        }
-        return false;
-      };
-    }
+  function byId(id){ return document.getElementById(id); }
+  function randomCode(){
+    var chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789', out='';
+    for(var i=0;i<6;i++) out += chars.charAt(Math.floor(Math.random()*chars.length));
+    return out;
   }
+  function setMenu(open){
+    var m=byId('menu'), b=byId('menuBtn');
+    if(!m || !b) return;
+    if(open){ m.classList.add('open'); b.setAttribute('aria-expanded','true'); }
+    else { m.classList.remove('open'); b.setAttribute('aria-expanded','false'); }
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    var menu=byId('menu'), btn=byId('menuBtn');
+    if(btn && menu){
+      btn.addEventListener('click',function(e){
+        e.preventDefault(); e.stopPropagation();
+        setMenu(!menu.classList.contains('open'));
+      });
+      menu.addEventListener('click',function(e){ e.stopPropagation(); });
+      document.addEventListener('click',function(){ setMenu(false); });
+      document.addEventListener('keydown',function(e){ if(e.key==='Escape' || e.keyCode===27) setMenu(false); });
+    }
 
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initBasicUi,false);
-  else initBasicUi();
-}());
+    /* 房間碼生成不依賴多人模組；只負責填入號碼。真正加入仍交給原本的 joinRoom 流程。 */
+    var createBtn=byId('createBtn'), roomInput=byId('roomInput');
+    if(createBtn && roomInput){
+      createBtn.addEventListener('click',function(e){
+        /* 讓原本 module 的 onclick 仍可在載入成功時接手；這裡只保證先有房間碼 */
+        if(!roomInput.value || !/^[A-Z2-9]{6}$/i.test(roomInput.value.trim())){
+          roomInput.value=randomCode();
+        }
+      }, true);
+    }
+  });
+})();
 </script>
 <script type="module">
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
-    return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-var __values = (this && this.__values) || function(o) {
-    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
-    if (m) return m.call(o);
-    if (o && typeof o.length === "number") return {
-        next: function () {
-            if (o && i >= o.length) o = void 0;
-            return { value: o && o[i++], done: !o };
-        }
-    };
-    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
-};
-var __read = (this && this.__read) || function (o, n) {
-    var m = typeof Symbol === "function" && o[Symbol.iterator];
-    if (!m) return o;
-    var i = m.call(o), r, ar = [], e;
-    try {
-        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-    }
-    catch (error) { e = { error: error }; }
-    finally {
-        try {
-            if (r && !r.done && (m = i["return"])) m.call(i);
-        }
-        finally { if (e) throw e.error; }
-    }
-    return ar;
-};
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
-import { joinRoom, selfId } from 'https://esm.sh/trystero@0.25.4?target=es2015';
-import { pinyin } from 'https://esm.sh/pinyin-pro@3.29.4?target=es2015';
-import OpenCC from 'https://esm.sh/opencc-js@1.4.2?target=es2015';
-var $ = function (id) { return document.getElementById(id); };
-var APP_ID = 'game-tandem-undercover-vote-v6-exam8000-reconnect-state';
-var VALID = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-var toTrad = OpenCC.Converter({ from: 'cn', to: 'twp' });
-var toSimp = OpenCC.Converter({ from: 'tw', to: 'cn' });
+import {joinRoom,selfId} from 'https://esm.run/trystero';
+import {pinyin} from 'https://esm.run/pinyin-pro';
+import OpenCC from 'https://cdn.jsdelivr.net/npm/opencc-js@1.4.1/dist/esm/full.js';
+const $=id=>document.getElementById(id);const APP_ID='game-tandem-undercover-vote-v6-exam8000-reconnect-state';const VALID='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';const toTrad=OpenCC.Converter({from:'cn',to:'twp'});const toSimp=OpenCC.Converter({from:'tw',to:'cn'});
 // 升大學 8000 字庫：大考中心現行約 6,000 詞 + 2,000 個高頻常用延伸詞。
 // 注意：大考中心官方現行參考詞彙表本身不是 8,000 詞；為避免誤標，本遊戲明確標示為 6,000 + 2,000 延伸。
-var CEEC_VOCAB_URL = 'https://cdn.jsdelivr.net/gh/EngTW/English-for-Programmers@main/lists/Taiwan-high-school-6K-108-edition/Data/Taiwan-high-school-english-reference-vocabulary-list-108-edition.pdf.txt';
-var COMMON_VOCAB_URL = 'https://cdn.jsdelivr.net/gh/first20hours/google-10000-english@master/google-10000-english-no-swears.txt';
-var VOCAB_CACHE_KEY = 'gameTandemExam8000-v1';
-var examBankCache = null;
+const CEEC_VOCAB_URL='https://cdn.jsdelivr.net/gh/EngTW/English-for-Programmers@main/lists/Taiwan-high-school-6K-108-edition/Data/Taiwan-high-school-english-reference-vocabulary-list-108-edition.pdf.txt';
+const COMMON_VOCAB_URL='https://cdn.jsdelivr.net/gh/first20hours/google-10000-english@master/google-10000-english-no-swears.txt';
+const VOCAB_CACHE_KEY='gameTandemExam8000-v1';
+let examBankCache=null;
 // 網路字庫或語意查詢失敗時才使用的保底詞組。
-var FALLBACK_PAIRS = [
-    ['咖啡', 'coffee', '珍珠奶茶', 'bubble tea'], ['可樂', 'cola', '雪碧', 'Sprite'], ['漢堡', 'hamburger', '披薩', 'pizza'], ['炸雞', 'fried chicken', '薯條', 'French fries'], ['火鍋', 'hot pot', '燒烤', 'barbecue'], ['壽司', 'sushi', '生魚片', 'sashimi'], ['拉麵', 'ramen', '牛肉麵', 'beef noodles'], ['蛋糕', 'cake', '冰淇淋', 'ice cream'],
-    ['蘋果', 'apple', '香蕉', 'banana'], ['西瓜', 'watermelon', '哈密瓜', 'melon'], ['草莓', 'strawberry', '櫻桃', 'cherry'], ['芒果', 'mango', '鳳梨', 'pineapple'],
-    ['貓', 'cat', '狗', 'dog'], ['老虎', 'tiger', '獅子', 'lion'], ['熊貓', 'panda', '無尾熊', 'koala'], ['企鵝', 'penguin', '海豹', 'seal'],
-    ['籃球', 'basketball', '足球', 'football'], ['羽毛球', 'badminton', '網球', 'tennis'], ['棒球', 'baseball', '壘球', 'softball'], ['游泳', 'swimming', '潛水', 'diving'],
-    ['鋼琴', 'piano', '吉他', 'guitar'], ['小提琴', 'violin', '大提琴', 'cello'], ['電影', 'movie', '電視劇', 'TV drama'], ['演唱會', 'concert', '音樂祭', 'music festival'],
-    ['手機', 'smartphone', '平板', 'tablet'], ['筆記型電腦', 'laptop', '桌上型電腦', 'desktop computer'], ['捷運', 'metro', '火車', 'train'], ['公車', 'bus', '計程車', 'taxi'], ['汽車', 'car', '機車', 'motorcycle'], ['飛機', 'airplane', '直升機', 'helicopter']
+const FALLBACK_PAIRS=[
+['咖啡','coffee','珍珠奶茶','bubble tea'],['可樂','cola','雪碧','Sprite'],['漢堡','hamburger','披薩','pizza'],['炸雞','fried chicken','薯條','French fries'],['火鍋','hot pot','燒烤','barbecue'],['壽司','sushi','生魚片','sashimi'],['拉麵','ramen','牛肉麵','beef noodles'],['蛋糕','cake','冰淇淋','ice cream'],
+['蘋果','apple','香蕉','banana'],['西瓜','watermelon','哈密瓜','melon'],['草莓','strawberry','櫻桃','cherry'],['芒果','mango','鳳梨','pineapple'],
+['貓','cat','狗','dog'],['老虎','tiger','獅子','lion'],['熊貓','panda','無尾熊','koala'],['企鵝','penguin','海豹','seal'],
+['籃球','basketball','足球','football'],['羽毛球','badminton','網球','tennis'],['棒球','baseball','壘球','softball'],['游泳','swimming','潛水','diving'],
+['鋼琴','piano','吉他','guitar'],['小提琴','violin','大提琴','cello'],['電影','movie','電視劇','TV drama'],['演唱會','concert','音樂祭','music festival'],
+['手機','smartphone','平板','tablet'],['筆記型電腦','laptop','桌上型電腦','desktop computer'],['捷運','metro','火車','train'],['公車','bus','計程車','taxi'],['汽車','car','機車','motorcycle'],['飛機','airplane','直升機','helicopter']
 ];
-var state = { room: null, actions: null, roomCode: '', name: '', phase: 'login', players: new Map(), peerIds: new Set(), ready: false, gameId: null, roundNo: 0, gamePlayers: [], playerNames: {}, aliveIds: new Set(), undercoverIds: new Set(), undercoverName: '', pair: null, source: '', secret: null, votes: new Map(), myVote: null, result: null, nextReady: new Set(), newReady: new Set(), offlineIds: new Set(), starting: false, startTimer: null, syncConfirmed: false, restoredLocally: false };
-var SESSION_TTL = 24 * 60 * 60 * 1000, COOKIE_MAX_AGE = 24 * 60 * 60;
-function cookieHash(v) {
-    var e_1, _a;
-    var h = 2166136261;
-    try {
-        for (var _b = __values(String(v || '')), _c = _b.next(); !_c.done; _c = _b.next()) {
-            var ch = _c.value;
-            h ^= ch.charCodeAt(0);
-            h = Math.imul(h, 16777619);
-        }
-    }
-    catch (e_1_1) { e_1 = { error: e_1_1 }; }
-    finally {
-        try {
-            if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
-        }
-        finally { if (e_1) throw e_1.error; }
-    }
-    return (h >>> 0).toString(36);
+const state={room:null,actions:null,roomCode:'',name:'',phase:'login',players:new Map(),peerIds:new Set(),ready:false,gameId:null,roundNo:0,gamePlayers:[],playerNames:{},aliveIds:new Set(),undercoverIds:new Set(),undercoverName:'',pair:null,source:'',secret:null,votes:new Map(),myVote:null,result:null,nextReady:new Set(),newReady:new Set(),offlineIds:new Set(),starting:false,startTimer:null,syncConfirmed:false,restoredLocally:false};
+const SESSION_TTL=24*60*60*1000,COOKIE_MAX_AGE=24*60*60;
+function cookieHash(v){let h=2166136261;for(const ch of String(v||'')){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}return (h>>>0).toString(36)}
+function setCookie(name,value,maxAge=COOKIE_MAX_AGE){try{const secure=location.protocol==='https:'?'; Secure':'';document.cookie=`${encodeURIComponent(name)}=${encodeURIComponent(value)}; Max-Age=${maxAge}; Path=/; SameSite=Lax${secure}`;return true}catch{return false}}
+function getCookie(name){try{const want=encodeURIComponent(name)+'=';for(const part of document.cookie.split(';')){const p=part.trim();if(p.startsWith(want))return decodeURIComponent(p.slice(want.length))}}catch{}return ''}
+function deleteCookie(name){try{document.cookie=`${encodeURIComponent(name)}=; Max-Age=0; Path=/; SameSite=Lax${location.protocol==='https:'?'; Secure':''}`}catch{}}
+function progressCookieName(code,name){return 'uc_progress_'+cookieHash(String(code||'').toUpperCase()+'|'+String(name||'').trim().toLocaleLowerCase())}
+function saveLastCookie(name=state.name,room=state.roomCode){if(!name||!room)return;setCookie('uc_last_player',JSON.stringify({ts:Date.now(),name:String(name).trim(),room:String(room).toUpperCase()}))}
+function readLastCookie(){try{const p=JSON.parse(getCookie('uc_last_player')||'null');if(!p?.name||!/^[A-Z2-9]{6}$/.test(String(p.room||'').toUpperCase()))return null;if(Date.now()-(p.ts||0)>SESSION_TTL)return null;return{name:String(p.name).trim(),room:String(p.room).toUpperCase(),ts:p.ts||0}}catch{return null}}
+function saveProgressCookie(){if(!state.roomCode||!state.name)return;const myAlive=!state.gameId||state.aliveIds.has(selfId);const payload={v:3,ts:Date.now(),room:state.roomCode,name:state.name,gameId:state.gameId||null,roundNo:state.roundNo||0,phase:state.phase||'lobby',ready:!!state.ready,alive:myAlive,undercoverName:state.undercoverName||'',pair:state.pair||null,source:state.source||'',myVoteName:state.myVote?(state.playerNames[state.myVote]||state.players.get(state.myVote)?.name||''):'',nextReady:state.nextReady.has(selfId),newReady:state.newReady.has(selfId)};let raw=JSON.stringify(payload);if(encodeURIComponent(raw).length>3600){delete payload.source;delete payload.myVoteName;raw=JSON.stringify(payload)}setCookie(progressCookieName(state.roomCode,state.name),raw);saveLastCookie()}
+function readProgressCookie(code,name){try{const raw=getCookie(progressCookieName(code,name));if(!raw)return null;const p=JSON.parse(raw);if(Date.now()-(p.ts||0)>SESSION_TTL){deleteCookie(progressCookieName(code,name));return null}return p}catch{return null}}
+function sessionKey(code,name){return 'undercoverSessionV3:'+String(code||'').toUpperCase()+':'+normName(name)}
+function cloneResult(r,oldId,newId){if(!r)return null;const x=JSON.parse(JSON.stringify(r));if(x.eliminatedId===oldId)x.eliminatedId=newId;if(Array.isArray(x.aliveIds))x.aliveIds=x.aliveIds.map(id=>id===oldId?newId:id);return x}
+function fullSnapshot(){return{ts:Date.now(),selfIdAtSave:selfId,gameId:state.gameId,roundNo:state.roundNo,gamePlayers:state.gamePlayers,playerNames:state.playerNames,aliveIds:[...state.aliveIds],undercoverIds:[...state.undercoverIds],undercoverName:state.undercoverName,pair:state.pair,source:state.source,secret:state.secret,votes:[...state.votes],result:state.result,nextReady:[...state.nextReady],newReady:[...state.newReady],phase:state.phase,ready:state.ready}}
+function saveSession(){if(!state.roomCode||!state.name)return;saveProgressCookie();if(!state.gameId)return;try{localStorage.setItem(sessionKey(state.roomCode,state.name),JSON.stringify(fullSnapshot()))}catch{}}
+function clearSession(code=state.roomCode,name=state.name){try{if(code&&name)localStorage.removeItem(sessionKey(code,name))}catch{}if(code&&name)deleteCookie(progressCookieName(code,name));const last=readLastCookie();if(last&&last.room===String(code||'').toUpperCase()&&normName(last.name)===normName(name))deleteCookie('uc_last_player')}
+function restoreScreenFromSavedPhase(){if(!state.gameId){renderLobby();return}const p=state.phase;if(p==='game'){showGame();return}if(p==='vote'){renderVote();return}if(p==='roundResult'&&state.result){showRoundResult(state.result);return}if(p==='spectator'){showSpectator();return}if(p==='final'&&state.result){showFinal(state.result);return}showGame()}
+function restoreFromFullSnapshot(p,code,name){const old=p.selfIdAtSave||selfId,map=id=>id===old?selfId:id;state.gameId=p.gameId;state.roundNo=p.roundNo||1;state.gamePlayers=(p.gamePlayers||[]).map(map);state.playerNames={};for(const [id,n] of Object.entries(p.playerNames||{}))state.playerNames[map(id)]=id===old?name:n;state.playerNames[selfId]=name;state.aliveIds=new Set((p.aliveIds||[]).map(map));state.undercoverIds=new Set((p.undercoverIds||[]).map(map));state.undercoverName=p.undercoverName||'';if(!state.undercoverName){const oldSpy=(p.undercoverIds||[])[0];state.undercoverName=(p.playerNames||{})[oldSpy]||'';}state.pair=p.pair||null;state.source=p.source||'';state.secret=state.pair?(normName(state.name)===normName(state.undercoverName)?state.pair.undercover:state.pair.civilian):null;state.votes=new Map((p.votes||[]).map(([v,t])=>[map(v),map(t)]));state.myVote=state.votes.get(selfId)||null;state.result=cloneResult(p.result,old,selfId);state.nextReady=new Set((p.nextReady||[]).map(map));state.newReady=new Set((p.newReady||[]).map(map));state.ready=!!p.ready;state.phase=p.phase||'game';state.restoredLocally=true;state.syncConfirmed=false;restoreScreenFromSavedPhase();return true}
+function restoreFromCookie(p,code,name){if(!p?.gameId)return false;state.gameId=p.gameId;state.roundNo=p.roundNo||1;state.undercoverName=p.undercoverName||'';state.pair=p.pair||null;state.source=p.source||'';state.ready=!!p.ready;state.phase=p.phase||'game';state.secret=state.pair?(normName(name)===normName(state.undercoverName)?state.pair.undercover:state.pair.civilian):null;state.gamePlayers=[selfId];state.playerNames={[selfId]:name};state.aliveIds=new Set(p.alive===false?[]:[selfId]);state.undercoverIds=new Set(normName(name)===normName(state.undercoverName)?[selfId]:[]);state.nextReady=new Set(p.nextReady?[selfId]:[]);state.newReady=new Set(p.newReady?[selfId]:[]);state.restoredLocally=true;state.syncConfirmed=false;if(state.phase==='vote')state.phase='game';if(state.phase==='roundResult'||state.phase==='final')state.phase=p.alive===false?'spectator':'game';restoreScreenFromSavedPhase();return true}
+function restoreSession(code,name){try{let raw='';try{raw=localStorage.getItem(sessionKey(code,name))||''}catch{}if(raw){const p=JSON.parse(raw);if(p?.gameId&&Date.now()-(p.ts||0)<=SESSION_TTL){restoreFromFullSnapshot(p,code,name);const el=state.phase==='vote'?$('voteStatus'):state.phase==='spectator'?$('spectatorStatus'):state.phase==='roundResult'?$('continueStatus'):state.phase==='final'?$('finalStatus'):$('gameStatus');if(el)status(el,'已用 Cookie 身分與本機進度回到原本畫面，正在同步房間最新狀態。','已用 Cookie 身份与本机进度回到原本画面，正在同步房间最新状态。','Yǐ yòng Cookie shēnfèn yǔ běnjī jìndù huídào yuánběn huàmiàn.','Your cookie identity and saved progress restored this screen. Syncing the latest room state…','busy');return true}}
+const cp=readProgressCookie(code,name);if(cp&&restoreFromCookie(cp,code,name)){const el=state.phase==='spectator'?$('spectatorStatus'):$('gameStatus');if(el)status(el,'已從 Cookie 找回你的個人進度，正在向其他玩家同步完整房間狀態。','已从 Cookie 找回你的个人进度，正在向其他玩家同步完整房间状态。','Yǐ cóng Cookie zhǎohuí nǐ de gèrén jìndù.','Your personal progress was restored from cookies. Syncing the full room state…','busy');return true}return false}catch(e){console.warn('restoreSession',e);return false}}
+
+function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));}function normName(v){return String(v||'').trim().replace(/\s+/g,' ').toLocaleLowerCase();}function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}function ids(){return [selfId,...state.peerIds].sort();}function coord(){return [...state.aliveIds].filter(id=>id===selfId||state.peerIds.has(id)).sort()[0]||ids()[0]||selfId;}function amCoord(){return coord()===selfId;}function makeCode(){let s='';for(let i=0;i<6;i++)s+=VALID[Math.floor(Math.random()*VALID.length)];return s;}function status(el,hant,hans,py,en,type=''){el.className='status'+(type?' '+type:'');el.innerHTML=`<div class="hant">${esc(hant)}</div><div class="hans">${esc(hans)}</div><div class="py">${esc(py)}</div><div class="en">${esc(en)}</div>`;el.classList.remove('hidden');}
+function phase(p){state.phase=p;['login','lobby','game','vote','roundResult','spectator','final'].forEach(x=>$(x+'Card').classList.toggle('hidden',x!==p));const xb=$('exitGameBtn');if(xb)xb.classList.toggle('hidden',p==='login');if(p!=='login'&&state.roomCode&&state.name)queueMicrotask(()=>saveSession());}
+function currentConnected(){return ids().filter(id=>state.players.has(id)&&!state.offlineIds.has(id));}function activeIds(){return [...state.aliveIds].sort();}function connectedAliveIds(){return [...state.aliveIds].filter(id=>id===selfId||state.peerIds.has(id)).sort();}function isUndercoverName(name){return !!state.undercoverName&&normName(name)===normName(state.undercoverName);}function isUndercoverId(id){const n=state.playerNames[id]??state.players.get(id)?.name??'';return isUndercoverName(n)||(state.undercoverIds.has(id)&&!state.undercoverName);}function aliveCounts(){let spy=0,civ=0;for(const id of state.aliveIds){if(isUndercoverId(id))spy++;else civ++;}return{spy,civ};}
+function reconnectCandidate(name,newId){const key=normName(name);if(!key||!state.gameId)return null;for(const id of state.gamePlayers){if(id===newId)continue;const n=state.playerNames[id]??state.players.get(id)?.name;if(normName(n)===key)return id;}for(const [id,p] of state.players){if(id===newId)continue;if(normName(p?.name)===key)return id;}return null;}
+function swapSetId(set,oldId,newId){if(set.has(oldId)){set.delete(oldId);set.add(newId)}}
+function migrateIdentity(oldId,newId,name,ready){if(!oldId||oldId===newId)return;const prev=state.players.get(oldId)||{};state.players.delete(oldId);state.players.set(newId,{...prev,name,ready:!!ready});state.offlineIds.delete(oldId);state.offlineIds.delete(newId);state.gamePlayers=[...new Set(state.gamePlayers.map(id=>id===oldId?newId:id))];if(state.playerNames[oldId]!==undefined){state.playerNames[newId]=name||state.playerNames[oldId];delete state.playerNames[oldId]}else state.playerNames[newId]=name;swapSetId(state.aliveIds,oldId,newId);swapSetId(state.undercoverIds,oldId,newId);swapSetId(state.nextReady,oldId,newId);swapSetId(state.newReady,oldId,newId);const nv=new Map();for(const [v,t] of state.votes)nv.set(v===oldId?newId:v,t===oldId?newId:t);state.votes=nv;if(state.result){if(state.result.eliminatedId===oldId)state.result.eliminatedId=newId;if(Array.isArray(state.result.aliveIds))state.result.aliveIds=state.result.aliveIds.map(id=>id===oldId?newId:id)}}
+function remapIncomingSelf(p){if(!p||!state.name)return p;const q=JSON.parse(JSON.stringify(p));const key=normName(state.name);const names=q.playerNames||{};const oldId=(q.gamePlayers||[]).find(id=>id!==selfId&&normName(names[id])===key);if(!oldId)return q;const map=id=>id===oldId?selfId:id;q.gamePlayers=[...new Set((q.gamePlayers||[]).map(map))];q.aliveIds=(q.aliveIds||[]).map(map);q.undercoverIds=(q.undercoverIds||[]).map(map);const mappedNames={};for(const [id,n] of Object.entries(names))mappedNames[map(id)]=id===oldId?state.name:n;mappedNames[selfId]=state.name;q.playerNames=mappedNames;q.votes=(q.votes||[]).map(([v,t])=>[map(v),map(t)]);q.nextReady=(q.nextReady||[]).map(map);q.newReady=(q.newReady||[]).map(map);if(q.result){if(q.result.eliminatedId===oldId)q.result.eliminatedId=selfId;if(Array.isArray(q.result.aliveIds))q.result.aliveIds=q.result.aliveIds.map(map)}q.spectator=!(q.aliveIds||[]).includes(selfId);if(!q.undercoverName){const sid=(q.undercoverIds||[])[0];q.undercoverName=(q.playerNames||{})[sid]||'';}if(q.pair)q.secret=normName(state.name)===normName(q.undercoverName)?q.pair.undercover:q.pair.civilian;return q;}
+function reconnectPayload(targetId,spectator=false){const targetName=state.playerNames[targetId]??state.players.get(targetId)?.name??'';return{gameId:state.gameId,roundNo:state.roundNo,gamePlayers:state.gamePlayers,playerNames:state.playerNames,aliveIds:[...state.aliveIds],undercoverIds:[...state.undercoverIds],undercoverName:state.undercoverName,pair:state.pair,source:state.source,secret:spectator?null:(isUndercoverName(targetName)?state.pair?.undercover:state.pair?.civilian),sync:true,spectator,phase:state.phase,votes:[...state.votes],result:state.result,nextReady:[...state.nextReady],newReady:[...state.newReady]}}
+function renderLobby(){phase('lobby');$('roomCode').textContent=state.roomCode;const list=$('playerList');list.innerHTML='';for(const id of currentConnected()){const p=state.players.get(id);const row=document.createElement('div');row.className='player';row.innerHTML=`<div class="player-main"><div class="player-name">${esc(p.name)}${id===selfId?' <span style="color:#7a6f66">（你 / You）</span>':''}</div></div><span class="badge ${p.ready?'ready':'waiting'}">${p.ready?'準備 / Ready':'等待 / Waiting'}</span>`;list.appendChild(row);}$('readyBtn').classList.toggle('ready',state.ready);$('readyBtn').innerHTML=state.ready?'<span class="hant">取消準備</span><span class="hans">取消准备</span><span class="py">Qǔxiāo zhǔnbèi</span><span class="en">Cancel Ready</span>':'<span class="hant">我準備好了</span><span class="hans">我准备好了</span><span class="py">Wǒ zhǔnbèi hǎo le</span><span class="en">I\'m Ready</span>';}
+function showGame(){if(!state.aliveIds.has(selfId)){showSpectator();return;}phase('game');$('roundPill').textContent=`Round ${state.roundNo}`;const onlyHans=document.documentElement.classList.contains('show-hans')&&!document.documentElement.classList.contains('show-hant');$('wordMain').textContent=onlyHans?(state.secret?.simp||state.secret?.trad):(state.secret?.trad||state.secret?.simp);$('wordPinyin').textContent=state.secret?.pinyin||'';$('wordEnglish').textContent=state.secret?.en||'';status($('gameStatus'),`第 ${state.roundNo} 輪：目前場上 ${aliveCounts().civ} 位平民 + ${aliveCounts().spy} 位臥底。`,`第 ${state.roundNo} 轮：目前场上 ${aliveCounts().civ} 位平民 + ${aliveCounts().spy} 位卧底。`,`Dì ${state.roundNo} lún: mùqián chǎngshàng ${aliveCounts().civ} wèi píngmín + ${aliveCounts().spy} wèi wòdǐ.`,`Round ${state.roundNo}: ${aliveCounts().civ} civilian(s) + ${aliveCounts().spy} undercover remain.`,'ok');}
+function showSpectator(){phase('spectator');const c=aliveCounts();status($('spectatorStatus'),`目前場上：${c.civ} 位平民 + ${c.spy} 位臥底。`,`目前场上：${c.civ} 位平民 + ${c.spy} 位卧底。`,`Mùqián chǎngshàng: ${c.civ} wèi píngmín + ${c.spy} wèi wòdǐ.`,`Still in play: ${c.civ} civilian(s) + ${c.spy} undercover.`,'ok');}
+function renderVote(){if(!state.aliveIds.has(selfId)){showSpectator();return;}phase('vote');$('voteRoundPill').textContent=`Round ${state.roundNo}`;const box=$('voteOptions');box.innerHTML='';for(const id of activeIds()){if(id===selfId)continue;const label=document.createElement('label');label.className='vote-option'+(state.myVote===id?' selected':'');label.innerHTML=`<input type="radio" name="vote" value="${esc(id)}" ${state.myVote===id?'checked':''} ${state.myVote?'disabled':''}><span class="name">${esc(state.playerNames[id]||state.players.get(id)?.name||'玩家')}</span>`;label.addEventListener('click',()=>{if(state.myVote)return;document.querySelectorAll('.vote-option').forEach(x=>x.classList.remove('selected'));label.classList.add('selected');$('submitVoteBtn').disabled=false;});box.appendChild(label);}$('submitVoteBtn').disabled=!!state.myVote;renderVoteProgress();}
+function renderVoteProgress(){const box=$('voteProgress');box.innerHTML='';for(const id of activeIds()){const done=state.votes.has(id),offline=id!==selfId&&!state.peerIds.has(id);const row=document.createElement('div');row.className='vote-person';row.innerHTML=`<strong>${esc(state.playerNames[id]||state.players.get(id)?.name||'玩家')}</strong><span class="badge ${done?'voted':'waiting'}">${done?'已投票 / Voted':offline?'暫時離線 / Offline':'未投票 / Waiting'}</span>`;box.appendChild(row);}const n=activeIds().filter(id=>state.votes.has(id)).length,total=activeIds().length;if(state.phase==='vote')status($('voteStatus'),`已有 ${n}/${total} 位玩家完成投票。`,`已有 ${n}/${total} 位玩家完成投票。`,`Yǐ yǒu ${n}/${total} wèi wánjiā wánchéng tóupiào.`,`${n}/${total} players have voted.`,'warn');}
+function applyResult(r){if(!r||r.gameId!==state.gameId||r.roundNo!==state.roundNo)return;state.result=r;state.aliveIds=new Set(r.aliveIds||[]);state.nextReady=new Set();saveSession();if(r.winner){showFinal(r);return;}if(!state.aliveIds.has(selfId)){showRoundResult(r);return;}showRoundResult(r);}
+function showRoundResult(r){phase('roundResult');const hero=$('roundResultHero');hero.className='result-hero'+(r.tie?' tie':'');$('eliminatedBox').classList.toggle('hidden',!r.eliminatedId);if(r.tie){$('roundResultTitle').textContent='平票 · 無人淘汰 / Tie · No Elimination';$('roundResultText').innerHTML='<div class="hant">最高票平手，本輪沒有人離場，遊戲繼續。</div><div class="hans">最高票平手，本轮没有人离场，游戏继续。</div><div class="py">Zuìgāo piào píngshǒu, běn lún méiyǒu rén líchǎng, yóuxì jìxù.</div><div class="en">The top vote is tied. Nobody is eliminated, so the game continues.</div>';}else{const name=state.playerNames[r.eliminatedId]||'玩家';const spy=r.eliminatedWasSpy;$('roundResultTitle').textContent=`${name} 被淘汰 / Eliminated`;$('roundResultText').innerHTML=spy?'<div class="hant">被淘汰的是臥底。</div><div class="hans">被淘汰的是卧底。</div><div class="py">Bèi táotài de shì wòdǐ.</div><div class="en">The eliminated player was the undercover player.</div>':'<div class="hant">被淘汰的是平民，遊戲繼續。</div><div class="hans">被淘汰的是平民，游戏继续。</div><div class="py">Bèi táotài de shì píngmín, yóuxì jìxù.</div><div class="en">The eliminated player was a civilian. The game continues.</div>';$('eliminatedName').textContent=name;$('eliminatedRole').className='role '+(spy?'spy':'civ');$('eliminatedRole').textContent=spy?'😈 臥底 / Undercover':'👤 平民 / Civilian';}$('civilianCount').textContent=`👤 × ${r.civiliansAlive}`;$('spyCount').textContent=`😈 × ${r.spiesAlive}`;$('continueArea').classList.toggle('hidden',!!r.winner);updateContinue();}
+function updateContinue(){const ready=state.nextReady.has(selfId);$('continueBtn').classList.toggle('ready',ready);$('continueBtn').innerHTML=ready?'<span class="hant">已準備，等待其他玩家</span><span class="hans">已准备，等待其他玩家</span><span class="py">Yǐ zhǔnbèi, děngdài qítā wánjiā</span><span class="en">Ready — Waiting for Others</span>':'<span class="hant">準備下一輪</span><span class="hans">准备下一轮</span><span class="py">Zhǔnbèi xià yì lún</span><span class="en">Ready for Next Round</span>';}
+function setWord(prefix,w){const onlyHans=document.documentElement.classList.contains('show-hans')&&!document.documentElement.classList.contains('show-hant');$(prefix+'Main').textContent=onlyHans?(w?.simp||w?.trad||''):(w?.trad||w?.simp||'');$(prefix+'Py').textContent=w?.pinyin||'';$(prefix+'En').textContent=w?.en||'';}
+function showFinal(r){phase('final');const civWin=r.winner==='civilian';$('finalHero').className='result-hero '+(civWin?'win-civ':'win-spy');$('winnerTitle').textContent=civWin?'👤 平民勝 / Civilians Win':'😈 臥底勝 / Undercover Wins';$('winnerReason').innerHTML=r.quit?(civWin?'<div class="hant">臥底主動退出遊戲，因此平民獲勝。</div><div class="hans">卧底主动退出游戏，因此平民获胜。</div><div class="py">Wòdǐ zhǔdòng tuìchū yóuxì, yīncǐ píngmín huòshèng.</div><div class="en">The undercover player left the game, so the civilians win.</div>':'<div class="hant">玩家退出後，場上平民人數已不多於臥底，因此臥底獲勝。</div><div class="hans">玩家退出后，场上平民人数已不多于卧底，因此卧底获胜。</div><div class="py">Wánjiā tuìchū hòu, chǎngshàng píngmín rénshù yǐ bù duō yú wòdǐ.</div><div class="en">After a player left, civilians no longer outnumber the undercover, so the undercover wins.</div>'):(civWin?'<div class="hant">臥底已被投票淘汰。</div><div class="hans">卧底已被投票淘汰。</div><div class="py">Wòdǐ yǐ bèi tóupiào táotài.</div><div class="en">The undercover player was voted out.</div>':'<div class="hant">場上只剩 1 位平民和 1 位臥底，臥底達成勝利條件。</div><div class="hans">场上只剩 1 位平民和 1 位卧底，卧底达成胜利条件。</div><div class="py">Chǎngshàng zhǐ shèng yí wèi píngmín hé yí wèi wòdǐ, wòdǐ dáchéng shènglì tiáojiàn.</div><div class="en">Only one civilian and one undercover remain, so the undercover wins.</div>');$('undercoverNames').textContent=state.undercoverName||[...state.undercoverIds].map(id=>state.playerNames[id]||'玩家').join('、');setWord('civilianWord',state.pair?.civilian);setWord('undercoverWord',state.pair?.undercover);const list=$('roleList');list.innerHTML='';for(const id of state.gamePlayers){const row=document.createElement('div');const spy=isUndercoverId(id);row.className='role-row';row.innerHTML=`<div class="role-name">${esc(state.playerNames[id]||'玩家')}${id===selfId?' <span style="color:#7a6f66">（你 / You）</span>':''}</div><span class="role-tag ${spy?'spy':'civ'}">${spy?'😈 臥底 / Undercover':'👤 平民 / Civilian'}</span>`;list.appendChild(row);}state.newReady=new Set();updateNewGame();}
+function updateNewGame(){const ready=state.newReady.has(selfId);$('newGameBtn').classList.toggle('ready',ready);$('newGameBtn').innerHTML=ready?'<span class="hant">已準備新遊戲</span><span class="hans">已准备新游戏</span><span class="py">Yǐ zhǔnbèi xīn yóuxì</span><span class="en">Ready for New Game</span>':'<span class="hant">準備新遊戲</span><span class="hans">准备新游戏</span><span class="py">Zhǔnbèi xīn yóuxì</span><span class="en">Ready for New Game</span>';}
+function norm(s){return String(s||'').replace(/\s*\([^)]*\)\s*$/,'').replace(/_/g,' ').trim()}function usable(s){s=norm(s);return s&&s.length<=40&&!/^List of /i.test(s)&&!/^[0-9]{3,4}$/.test(s)&&!s.includes(':')&&s.split(/\s+/).length<=5}
+async function fetchJson(url,timeout=6500){const c=new AbortController(),t=setTimeout(()=>c.abort(),timeout);try{const r=await fetch(url,{signal:c.signal,cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);return await r.json()}finally{clearTimeout(t)}}
+async function fetchText(url,timeout=9000){const c=new AbortController(),t=setTimeout(()=>c.abort(),timeout);try{const r=await fetch(url,{signal:c.signal,cache:'force-cache'});if(!r.ok)throw Error('HTTP '+r.status);return await r.text()}finally{clearTimeout(t)}}
+async function zhTitle(en){const q=new URLSearchParams({action:'query',format:'json',origin:'*',prop:'langlinks',lllang:'zh',lllimit:'1',redirects:'1',titles:en});const j=await fetchJson('https://en.wikipedia.org/w/api.php?'+q);const p=Object.values(j?.query?.pages||{});const z=p[0]?.langlinks?.[0]?.['*'];return z?norm(z):null}
+function word(zh,en){const trad=toTrad(zh),simp=toSimp(zh);let py='';try{py=pinyin(trad)}catch{}return{trad,simp,pinyin:py,en:norm(en)}}
+function simpleEnglish(w){w=String(w||'').toLowerCase().trim();return /^[a-z]{3,18}$/.test(w)&&!/(.)\1\1/.test(w)}
+function parseCeecVocab(raw){const all=[],nouns=[];for(const line of String(raw||'').split(/\r?\n/)){const s=line.trim();const m=s.match(/^([A-Za-z][A-Za-z'/-]*(?:\([^)]*\))?)\s+(.+)$/);if(!m)continue;let w=m[1].split('/')[0].replace(/\([^)]*\)/g,'').toLowerCase();if(!simpleEnglish(w))continue;all.push(w);if(/(^|\/)n\.|\bn\./.test(m[2]))nouns.push(w)}return{all:[...new Set(all)],nouns:[...new Set(nouns)]}}
+function parseCommonVocab(raw){return [...new Set(String(raw||'').split(/\r?\n/).map(x=>x.trim().toLowerCase()).filter(simpleEnglish))]}
+async function loadExam8000(){
+  if(examBankCache)return examBankCache;
+  try{const saved=JSON.parse(localStorage.getItem(VOCAB_CACHE_KEY)||'null');if(saved?.all?.length===8000&&saved?.nouns?.length>500){examBankCache={all:saved.all,nouns:saved.nouns,set:new Set(saved.all)};return examBankCache}}catch{}
+  const [ceecRaw,commonRaw]=await Promise.all([fetchText(CEEC_VOCAB_URL),fetchText(COMMON_VOCAB_URL)]);
+  const ceec=parseCeecVocab(ceecRaw),common=parseCommonVocab(commonRaw),set=new Set(ceec.all);
+  for(const w of common){if(set.size>=8000)break;set.add(w)}
+  // 若來源格式日後變更，仍要求至少有大量詞彙才啟用；不足就走保底詞組。
+  if(set.size<7000)throw Error('Vocabulary bank too small: '+set.size);
+  const all=[...set].slice(0,8000);
+  const allSet=new Set(all);
+  const nouns=ceec.nouns.filter(w=>allSet.has(w)&&simpleEnglish(w));
+  examBankCache={all,nouns:nouns.length>500?nouns:all.slice(0,3500),set:allSet};
+  try{localStorage.setItem(VOCAB_CACHE_KEY,JSON.stringify({all:examBankCache.all,nouns:examBankCache.nouns}))}catch{}
+  return examBankCache;
 }
-function setCookie(name, value, maxAge) {
-    if (maxAge === void 0) { maxAge = COOKIE_MAX_AGE; }
-    try {
-        var secure = location.protocol === 'https:' ? '; Secure' : '';
-        document.cookie = "".concat(encodeURIComponent(name), "=").concat(encodeURIComponent(value), "; Max-Age=").concat(maxAge, "; Path=/; SameSite=Lax").concat(secure);
-        return true;
-    }
-    catch (_a) {
-        return false;
-    }
+async function relatedWord(base,bank){
+  const q=new URLSearchParams({ml:base,md:'p',max:'50'});
+  const rows=await fetchJson('https://api.datamuse.com/words?'+q,5500);
+  const good=(Array.isArray(rows)?rows:[]).map(x=>String(x.word||'').toLowerCase()).filter(w=>w!==base&&simpleEnglish(w)&&bank.set.has(w));
+  if(!good.length)return null;
+  // 前段通常語意較接近；在前 12 個中隨機，可降低每局重複。
+  return good[Math.floor(Math.random()*Math.min(12,good.length))];
 }
-function getCookie(name) {
-    var e_2, _a;
-    try {
-        var want = encodeURIComponent(name) + '=';
-        try {
-            for (var _b = __values(document.cookie.split(';')), _c = _b.next(); !_c.done; _c = _b.next()) {
-                var part = _c.value;
-                var p = part.trim();
-                if (p.startsWith(want))
-                    return decodeURIComponent(p.slice(want.length));
-            }
-        }
-        catch (e_2_1) { e_2 = { error: e_2_1 }; }
-        finally {
-            try {
-                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
-            }
-            finally { if (e_2) throw e_2.error; }
-        }
-    }
-    catch (_d) { }
-    return '';
-}
-function deleteCookie(name) { try {
-    document.cookie = "".concat(encodeURIComponent(name), "=; Max-Age=0; Path=/; SameSite=Lax").concat(location.protocol === 'https:' ? '; Secure' : '');
-}
-catch (_a) { } }
-function progressCookieName(code, name) { return 'uc_progress_' + cookieHash(String(code || '').toUpperCase() + '|' + String(name || '').trim().toLocaleLowerCase()); }
-function saveLastCookie(name, room) {
-    if (name === void 0) { name = state.name; }
-    if (room === void 0) { room = state.roomCode; }
-    if (!name || !room)
-        return;
-    setCookie('uc_last_player', JSON.stringify({ ts: Date.now(), name: String(name).trim(), room: String(room).toUpperCase() }));
-}
-function readLastCookie() { try {
-    var p = JSON.parse(getCookie('uc_last_player') || 'null');
-    if (!(p === null || p === void 0 ? void 0 : p.name) || !/^[A-Z2-9]{6}$/.test(String(p.room || '').toUpperCase()))
-        return null;
-    if (Date.now() - (p.ts || 0) > SESSION_TTL)
-        return null;
-    return { name: String(p.name).trim(), room: String(p.room).toUpperCase(), ts: p.ts || 0 };
-}
-catch (_a) {
-    return null;
-} }
-function saveProgressCookie() { var _a; if (!state.roomCode || !state.name)
-    return; var myAlive = !state.gameId || state.aliveIds.has(selfId); var payload = { v: 3, ts: Date.now(), room: state.roomCode, name: state.name, gameId: state.gameId || null, roundNo: state.roundNo || 0, phase: state.phase || 'lobby', ready: !!state.ready, alive: myAlive, undercoverName: state.undercoverName || '', pair: state.pair || null, source: state.source || '', myVoteName: state.myVote ? (state.playerNames[state.myVote] || ((_a = state.players.get(state.myVote)) === null || _a === void 0 ? void 0 : _a.name) || '') : '', nextReady: state.nextReady.has(selfId), newReady: state.newReady.has(selfId) }; var raw = JSON.stringify(payload); if (encodeURIComponent(raw).length > 3600) {
-    delete payload.source;
-    delete payload.myVoteName;
-    raw = JSON.stringify(payload);
-} setCookie(progressCookieName(state.roomCode, state.name), raw); saveLastCookie(); }
-function readProgressCookie(code, name) { try {
-    var raw = getCookie(progressCookieName(code, name));
-    if (!raw)
-        return null;
-    var p = JSON.parse(raw);
-    if (Date.now() - (p.ts || 0) > SESSION_TTL) {
-        deleteCookie(progressCookieName(code, name));
-        return null;
-    }
-    return p;
-}
-catch (_a) {
-    return null;
-} }
-function sessionKey(code, name) { return 'undercoverSessionV3:' + String(code || '').toUpperCase() + ':' + normName(name); }
-function cloneResult(r, oldId, newId) { if (!r)
-    return null; var x = JSON.parse(JSON.stringify(r)); if (x.eliminatedId === oldId)
-    x.eliminatedId = newId; if (Array.isArray(x.aliveIds))
-    x.aliveIds = x.aliveIds.map(function (id) { return id === oldId ? newId : id; }); return x; }
-function fullSnapshot() { return { ts: Date.now(), selfIdAtSave: selfId, gameId: state.gameId, roundNo: state.roundNo, gamePlayers: state.gamePlayers, playerNames: state.playerNames, aliveIds: __spreadArray([], __read(state.aliveIds), false), undercoverIds: __spreadArray([], __read(state.undercoverIds), false), undercoverName: state.undercoverName, pair: state.pair, source: state.source, secret: state.secret, votes: __spreadArray([], __read(state.votes), false), result: state.result, nextReady: __spreadArray([], __read(state.nextReady), false), newReady: __spreadArray([], __read(state.newReady), false), phase: state.phase, ready: state.ready }; }
-function saveSession() { if (!state.roomCode || !state.name)
-    return; saveProgressCookie(); if (!state.gameId)
-    return; try {
-    localStorage.setItem(sessionKey(state.roomCode, state.name), JSON.stringify(fullSnapshot()));
-}
-catch (_a) { } }
-function clearSession(code, name) {
-    if (code === void 0) { code = state.roomCode; }
-    if (name === void 0) { name = state.name; }
-    try {
-        if (code && name)
-            localStorage.removeItem(sessionKey(code, name));
-    }
-    catch (_a) { }
-    if (code && name)
-        deleteCookie(progressCookieName(code, name));
-    var last = readLastCookie();
-    if (last && last.room === String(code || '').toUpperCase() && normName(last.name) === normName(name))
-        deleteCookie('uc_last_player');
-}
-function restoreScreenFromSavedPhase() { if (!state.gameId) {
-    renderLobby();
-    return;
-} var p = state.phase; if (p === 'game') {
-    showGame();
-    return;
-} if (p === 'vote') {
-    renderVote();
-    return;
-} if (p === 'roundResult' && state.result) {
-    showRoundResult(state.result);
-    return;
-} if (p === 'spectator') {
-    showSpectator();
-    return;
-} if (p === 'final' && state.result) {
-    showFinal(state.result);
-    return;
-} showGame(); }
-function restoreFromFullSnapshot(p, code, name) {
-    var e_3, _a;
-    var old = p.selfIdAtSave || selfId, map = function (id) { return id === old ? selfId : id; };
-    state.gameId = p.gameId;
-    state.roundNo = p.roundNo || 1;
-    state.gamePlayers = (p.gamePlayers || []).map(map);
-    state.playerNames = {};
-    try {
-        for (var _b = __values(Object.entries(p.playerNames || {})), _c = _b.next(); !_c.done; _c = _b.next()) {
-            var _d = __read(_c.value, 2), id = _d[0], n = _d[1];
-            state.playerNames[map(id)] = id === old ? name : n;
-        }
-    }
-    catch (e_3_1) { e_3 = { error: e_3_1 }; }
-    finally {
-        try {
-            if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
-        }
-        finally { if (e_3) throw e_3.error; }
-    }
-    state.playerNames[selfId] = name;
-    state.aliveIds = new Set((p.aliveIds || []).map(map));
-    state.undercoverIds = new Set((p.undercoverIds || []).map(map));
-    state.undercoverName = p.undercoverName || '';
-    if (!state.undercoverName) {
-        var oldSpy = (p.undercoverIds || [])[0];
-        state.undercoverName = (p.playerNames || {})[oldSpy] || '';
-    }
-    state.pair = p.pair || null;
-    state.source = p.source || '';
-    state.secret = state.pair ? (normName(state.name) === normName(state.undercoverName) ? state.pair.undercover : state.pair.civilian) : null;
-    state.votes = new Map((p.votes || []).map(function (_a) {
-        var _b = __read(_a, 2), v = _b[0], t = _b[1];
-        return [map(v), map(t)];
-    }));
-    state.myVote = state.votes.get(selfId) || null;
-    state.result = cloneResult(p.result, old, selfId);
-    state.nextReady = new Set((p.nextReady || []).map(map));
-    state.newReady = new Set((p.newReady || []).map(map));
-    state.ready = !!p.ready;
-    state.phase = p.phase || 'game';
-    state.restoredLocally = true;
-    state.syncConfirmed = false;
-    restoreScreenFromSavedPhase();
-    return true;
-}
-function restoreFromCookie(p, code, name) {
-    var _a;
-    if (!(p === null || p === void 0 ? void 0 : p.gameId))
-        return false;
-    state.gameId = p.gameId;
-    state.roundNo = p.roundNo || 1;
-    state.undercoverName = p.undercoverName || '';
-    state.pair = p.pair || null;
-    state.source = p.source || '';
-    state.ready = !!p.ready;
-    state.phase = p.phase || 'game';
-    state.secret = state.pair ? (normName(name) === normName(state.undercoverName) ? state.pair.undercover : state.pair.civilian) : null;
-    state.gamePlayers = [selfId];
-    state.playerNames = (_a = {}, _a[selfId] = name, _a);
-    state.aliveIds = new Set(p.alive === false ? [] : [selfId]);
-    state.undercoverIds = new Set(normName(name) === normName(state.undercoverName) ? [selfId] : []);
-    state.nextReady = new Set(p.nextReady ? [selfId] : []);
-    state.newReady = new Set(p.newReady ? [selfId] : []);
-    state.restoredLocally = true;
-    state.syncConfirmed = false;
-    if (state.phase === 'vote')
-        state.phase = 'game';
-    if (state.phase === 'roundResult' || state.phase === 'final')
-        state.phase = p.alive === false ? 'spectator' : 'game';
-    restoreScreenFromSavedPhase();
-    return true;
-}
-function restoreSession(code, name) {
-    try {
-        var raw = '';
-        try {
-            raw = localStorage.getItem(sessionKey(code, name)) || '';
-        }
-        catch (_a) { }
-        if (raw) {
-            var p = JSON.parse(raw);
-            if ((p === null || p === void 0 ? void 0 : p.gameId) && Date.now() - (p.ts || 0) <= SESSION_TTL) {
-                restoreFromFullSnapshot(p, code, name);
-                var el = state.phase === 'vote' ? $('voteStatus') : state.phase === 'spectator' ? $('spectatorStatus') : state.phase === 'roundResult' ? $('continueStatus') : state.phase === 'final' ? $('finalStatus') : $('gameStatus');
-                if (el)
-                    status(el, '已用 Cookie 身分與本機進度回到原本畫面，正在同步房間最新狀態。', '已用 Cookie 身份与本机进度回到原本画面，正在同步房间最新状态。', 'Yǐ yòng Cookie shēnfèn yǔ běnjī jìndù huídào yuánběn huàmiàn.', 'Your cookie identity and saved progress restored this screen. Syncing the latest room state…', 'busy');
-                return true;
-            }
-        }
-        var cp = readProgressCookie(code, name);
-        if (cp && restoreFromCookie(cp, code, name)) {
-            var el = state.phase === 'spectator' ? $('spectatorStatus') : $('gameStatus');
-            if (el)
-                status(el, '已從 Cookie 找回你的個人進度，正在向其他玩家同步完整房間狀態。', '已从 Cookie 找回你的个人进度，正在向其他玩家同步完整房间状态。', 'Yǐ cóng Cookie zhǎohuí nǐ de gèrén jìndù.', 'Your personal progress was restored from cookies. Syncing the full room state…', 'busy');
-            return true;
-        }
-        return false;
-    }
-    catch (e) {
-        console.warn('restoreSession', e);
-        return false;
-    }
-}
-function esc(v) { return String(v !== null && v !== void 0 ? v : '').replace(/[&<>"']/g, function (m) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m]); }); }
-function normName(v) { return String(v || '').trim().replace(/\s+/g, ' ').toLocaleLowerCase(); }
-function shuffle(a) {
-    var _a;
-    a = __spreadArray([], __read(a), false);
-    for (var i = a.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        _a = __read([a[j], a[i]], 2), a[i] = _a[0], a[j] = _a[1];
-    }
-    return a;
-}
-function ids() { return __spreadArray([selfId], __read(state.peerIds), false).sort(); }
-function coord() { return __spreadArray([], __read(state.aliveIds), false).filter(function (id) { return id === selfId || state.peerIds.has(id); }).sort()[0] || ids()[0] || selfId; }
-function amCoord() { return coord() === selfId; }
-function makeCode() { var s = ''; for (var i = 0; i < 6; i++)
-    s += VALID[Math.floor(Math.random() * VALID.length)]; return s; }
-function status(el, hant, hans, py, en, type) {
-    if (type === void 0) { type = ''; }
-    el.className = 'status' + (type ? ' ' + type : '');
-    el.innerHTML = "<div class=\"hant\">".concat(esc(hant), "</div><div class=\"hans\">").concat(esc(hans), "</div><div class=\"py\">").concat(esc(py), "</div><div class=\"en\">").concat(esc(en), "</div>");
-    el.classList.remove('hidden');
-}
-function phase(p) { state.phase = p; ['login', 'lobby', 'game', 'vote', 'roundResult', 'spectator', 'final'].forEach(function (x) { return $(x + 'Card').classList.toggle('hidden', x !== p); }); var xb = $('exitGameBtn'); if (xb)
-    xb.classList.toggle('hidden', p === 'login'); if (p !== 'login' && state.roomCode && state.name)
-    queueMicrotask(function () { return saveSession(); }); }
-function currentConnected() { return ids().filter(function (id) { return state.players.has(id) && !state.offlineIds.has(id); }); }
-function activeIds() { return __spreadArray([], __read(state.aliveIds), false).sort(); }
-function connectedAliveIds() { return __spreadArray([], __read(state.aliveIds), false).filter(function (id) { return id === selfId || state.peerIds.has(id); }).sort(); }
-function isUndercoverName(name) { return !!state.undercoverName && normName(name) === normName(state.undercoverName); }
-function isUndercoverId(id) { var _a, _b, _c; var n = (_c = (_a = state.playerNames[id]) !== null && _a !== void 0 ? _a : (_b = state.players.get(id)) === null || _b === void 0 ? void 0 : _b.name) !== null && _c !== void 0 ? _c : ''; return isUndercoverName(n) || (state.undercoverIds.has(id) && !state.undercoverName); }
-function aliveCounts() {
-    var e_4, _a;
-    var spy = 0, civ = 0;
-    try {
-        for (var _b = __values(state.aliveIds), _c = _b.next(); !_c.done; _c = _b.next()) {
-            var id = _c.value;
-            if (isUndercoverId(id))
-                spy++;
-            else
-                civ++;
-        }
-    }
-    catch (e_4_1) { e_4 = { error: e_4_1 }; }
-    finally {
-        try {
-            if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
-        }
-        finally { if (e_4) throw e_4.error; }
-    }
-    return { spy: spy, civ: civ };
-}
-function reconnectCandidate(name, newId) {
-    var e_5, _a, e_6, _b;
-    var _c, _d;
-    var key = normName(name);
-    if (!key || !state.gameId)
-        return null;
-    try {
-        for (var _e = __values(state.gamePlayers), _f = _e.next(); !_f.done; _f = _e.next()) {
-            var id = _f.value;
-            if (id === newId)
-                continue;
-            var n = (_c = state.playerNames[id]) !== null && _c !== void 0 ? _c : (_d = state.players.get(id)) === null || _d === void 0 ? void 0 : _d.name;
-            if (normName(n) === key)
-                return id;
-        }
-    }
-    catch (e_5_1) { e_5 = { error: e_5_1 }; }
-    finally {
-        try {
-            if (_f && !_f.done && (_a = _e.return)) _a.call(_e);
-        }
-        finally { if (e_5) throw e_5.error; }
-    }
-    try {
-        for (var _g = __values(state.players), _h = _g.next(); !_h.done; _h = _g.next()) {
-            var _j = __read(_h.value, 2), id = _j[0], p = _j[1];
-            if (id === newId)
-                continue;
-            if (normName(p === null || p === void 0 ? void 0 : p.name) === key)
-                return id;
-        }
-    }
-    catch (e_6_1) { e_6 = { error: e_6_1 }; }
-    finally {
-        try {
-            if (_h && !_h.done && (_b = _g.return)) _b.call(_g);
-        }
-        finally { if (e_6) throw e_6.error; }
-    }
-    return null;
-}
-function swapSetId(set, oldId, newId) { if (set.has(oldId)) {
-    set.delete(oldId);
-    set.add(newId);
-} }
-function migrateIdentity(oldId, newId, name, ready) {
-    var e_7, _a;
-    if (!oldId || oldId === newId)
-        return;
-    var prev = state.players.get(oldId) || {};
-    state.players.delete(oldId);
-    state.players.set(newId, __assign(__assign({}, prev), { name: name, ready: !!ready }));
-    state.offlineIds.delete(oldId);
-    state.offlineIds.delete(newId);
-    state.gamePlayers = __spreadArray([], __read(new Set(state.gamePlayers.map(function (id) { return id === oldId ? newId : id; }))), false);
-    if (state.playerNames[oldId] !== undefined) {
-        state.playerNames[newId] = name || state.playerNames[oldId];
-        delete state.playerNames[oldId];
-    }
-    else
-        state.playerNames[newId] = name;
-    swapSetId(state.aliveIds, oldId, newId);
-    swapSetId(state.undercoverIds, oldId, newId);
-    swapSetId(state.nextReady, oldId, newId);
-    swapSetId(state.newReady, oldId, newId);
-    var nv = new Map();
-    try {
-        for (var _b = __values(state.votes), _c = _b.next(); !_c.done; _c = _b.next()) {
-            var _d = __read(_c.value, 2), v = _d[0], t = _d[1];
-            nv.set(v === oldId ? newId : v, t === oldId ? newId : t);
-        }
-    }
-    catch (e_7_1) { e_7 = { error: e_7_1 }; }
-    finally {
-        try {
-            if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
-        }
-        finally { if (e_7) throw e_7.error; }
-    }
-    state.votes = nv;
-    if (state.result) {
-        if (state.result.eliminatedId === oldId)
-            state.result.eliminatedId = newId;
-        if (Array.isArray(state.result.aliveIds))
-            state.result.aliveIds = state.result.aliveIds.map(function (id) { return id === oldId ? newId : id; });
-    }
-}
-function remapIncomingSelf(p) {
-    var e_8, _a;
-    if (!p || !state.name)
-        return p;
-    var q = JSON.parse(JSON.stringify(p));
-    var key = normName(state.name);
-    var names = q.playerNames || {};
-    var oldId = (q.gamePlayers || []).find(function (id) { return id !== selfId && normName(names[id]) === key; });
-    if (!oldId)
-        return q;
-    var map = function (id) { return id === oldId ? selfId : id; };
-    q.gamePlayers = __spreadArray([], __read(new Set((q.gamePlayers || []).map(map))), false);
-    q.aliveIds = (q.aliveIds || []).map(map);
-    q.undercoverIds = (q.undercoverIds || []).map(map);
-    var mappedNames = {};
-    try {
-        for (var _b = __values(Object.entries(names)), _c = _b.next(); !_c.done; _c = _b.next()) {
-            var _d = __read(_c.value, 2), id = _d[0], n = _d[1];
-            mappedNames[map(id)] = id === oldId ? state.name : n;
-        }
-    }
-    catch (e_8_1) { e_8 = { error: e_8_1 }; }
-    finally {
-        try {
-            if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
-        }
-        finally { if (e_8) throw e_8.error; }
-    }
-    mappedNames[selfId] = state.name;
-    q.playerNames = mappedNames;
-    q.votes = (q.votes || []).map(function (_a) {
-        var _b = __read(_a, 2), v = _b[0], t = _b[1];
-        return [map(v), map(t)];
-    });
-    q.nextReady = (q.nextReady || []).map(map);
-    q.newReady = (q.newReady || []).map(map);
-    if (q.result) {
-        if (q.result.eliminatedId === oldId)
-            q.result.eliminatedId = selfId;
-        if (Array.isArray(q.result.aliveIds))
-            q.result.aliveIds = q.result.aliveIds.map(map);
-    }
-    q.spectator = !(q.aliveIds || []).includes(selfId);
-    if (!q.undercoverName) {
-        var sid = (q.undercoverIds || [])[0];
-        q.undercoverName = (q.playerNames || {})[sid] || '';
-    }
-    if (q.pair)
-        q.secret = normName(state.name) === normName(q.undercoverName) ? q.pair.undercover : q.pair.civilian;
-    return q;
-}
-function reconnectPayload(targetId, spectator) {
-    var _a, _b, _c, _d, _e;
-    if (spectator === void 0) { spectator = false; }
-    var targetName = (_c = (_a = state.playerNames[targetId]) !== null && _a !== void 0 ? _a : (_b = state.players.get(targetId)) === null || _b === void 0 ? void 0 : _b.name) !== null && _c !== void 0 ? _c : '';
-    return { gameId: state.gameId, roundNo: state.roundNo, gamePlayers: state.gamePlayers, playerNames: state.playerNames, aliveIds: __spreadArray([], __read(state.aliveIds), false), undercoverIds: __spreadArray([], __read(state.undercoverIds), false), undercoverName: state.undercoverName, pair: state.pair, source: state.source, secret: spectator ? null : (isUndercoverName(targetName) ? (_d = state.pair) === null || _d === void 0 ? void 0 : _d.undercover : (_e = state.pair) === null || _e === void 0 ? void 0 : _e.civilian), sync: true, spectator: spectator, phase: state.phase, votes: __spreadArray([], __read(state.votes), false), result: state.result, nextReady: __spreadArray([], __read(state.nextReady), false), newReady: __spreadArray([], __read(state.newReady), false) };
-}
-function renderLobby() {
-    var e_9, _a;
-    phase('lobby');
-    $('roomCode').textContent = state.roomCode;
-    var list = $('playerList');
-    list.innerHTML = '';
-    try {
-        for (var _b = __values(currentConnected()), _c = _b.next(); !_c.done; _c = _b.next()) {
-            var id = _c.value;
-            var p = state.players.get(id);
-            var row = document.createElement('div');
-            row.className = 'player';
-            row.innerHTML = "<div class=\"player-main\"><div class=\"player-name\">".concat(esc(p.name)).concat(id === selfId ? ' <span style="color:#7a6f66">（你 / You）</span>' : '', "</div></div><span class=\"badge ").concat(p.ready ? 'ready' : 'waiting', "\">").concat(p.ready ? '準備 / Ready' : '等待 / Waiting', "</span>");
-            list.appendChild(row);
-        }
-    }
-    catch (e_9_1) { e_9 = { error: e_9_1 }; }
-    finally {
-        try {
-            if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
-        }
-        finally { if (e_9) throw e_9.error; }
-    }
-    $('readyBtn').classList.toggle('ready', state.ready);
-    $('readyBtn').innerHTML = state.ready ? '<span class="hant">取消準備</span><span class="hans">取消准备</span><span class="py">Qǔxiāo zhǔnbèi</span><span class="en">Cancel Ready</span>' : '<span class="hant">我準備好了</span><span class="hans">我准备好了</span><span class="py">Wǒ zhǔnbèi hǎo le</span><span class="en">I\'m Ready</span>';
-}
-function showGame() { var _a, _b, _c, _d, _e, _f; if (!state.aliveIds.has(selfId)) {
-    showSpectator();
-    return;
-} phase('game'); $('roundPill').textContent = "Round ".concat(state.roundNo); var onlyHans = document.documentElement.classList.contains('show-hans') && !document.documentElement.classList.contains('show-hant'); $('wordMain').textContent = onlyHans ? (((_a = state.secret) === null || _a === void 0 ? void 0 : _a.simp) || ((_b = state.secret) === null || _b === void 0 ? void 0 : _b.trad)) : (((_c = state.secret) === null || _c === void 0 ? void 0 : _c.trad) || ((_d = state.secret) === null || _d === void 0 ? void 0 : _d.simp)); $('wordPinyin').textContent = ((_e = state.secret) === null || _e === void 0 ? void 0 : _e.pinyin) || ''; $('wordEnglish').textContent = ((_f = state.secret) === null || _f === void 0 ? void 0 : _f.en) || ''; status($('gameStatus'), "\u7B2C ".concat(state.roundNo, " \u8F2A\uFF1A\u76EE\u524D\u5834\u4E0A ").concat(aliveCounts().civ, " \u4F4D\u5E73\u6C11 + ").concat(aliveCounts().spy, " \u4F4D\u81E5\u5E95\u3002"), "\u7B2C ".concat(state.roundNo, " \u8F6E\uFF1A\u76EE\u524D\u573A\u4E0A ").concat(aliveCounts().civ, " \u4F4D\u5E73\u6C11 + ").concat(aliveCounts().spy, " \u4F4D\u5367\u5E95\u3002"), "D\u00EC ".concat(state.roundNo, " l\u00FAn: m\u00F9qi\u00E1n ch\u01CEngsh\u00E0ng ").concat(aliveCounts().civ, " w\u00E8i p\u00EDngm\u00EDn + ").concat(aliveCounts().spy, " w\u00E8i w\u00F2d\u01D0."), "Round ".concat(state.roundNo, ": ").concat(aliveCounts().civ, " civilian(s) + ").concat(aliveCounts().spy, " undercover remain."), 'ok'); }
-function showSpectator() { phase('spectator'); var c = aliveCounts(); status($('spectatorStatus'), "\u76EE\u524D\u5834\u4E0A\uFF1A".concat(c.civ, " \u4F4D\u5E73\u6C11 + ").concat(c.spy, " \u4F4D\u81E5\u5E95\u3002"), "\u76EE\u524D\u573A\u4E0A\uFF1A".concat(c.civ, " \u4F4D\u5E73\u6C11 + ").concat(c.spy, " \u4F4D\u5367\u5E95\u3002"), "M\u00F9qi\u00E1n ch\u01CEngsh\u00E0ng: ".concat(c.civ, " w\u00E8i p\u00EDngm\u00EDn + ").concat(c.spy, " w\u00E8i w\u00F2d\u01D0."), "Still in play: ".concat(c.civ, " civilian(s) + ").concat(c.spy, " undercover."), 'ok'); }
-function renderVote() {
-    var e_10, _a;
-    var _b;
-    if (!state.aliveIds.has(selfId)) {
-        showSpectator();
-        return;
-    }
-    phase('vote');
-    $('voteRoundPill').textContent = "Round ".concat(state.roundNo);
-    var box = $('voteOptions');
-    box.innerHTML = '';
-    var _loop_1 = function (id) {
-        if (id === selfId)
-            return "continue";
-        var label = document.createElement('label');
-        label.className = 'vote-option' + (state.myVote === id ? ' selected' : '');
-        label.innerHTML = "<input type=\"radio\" name=\"vote\" value=\"".concat(esc(id), "\" ").concat(state.myVote === id ? 'checked' : '', " ").concat(state.myVote ? 'disabled' : '', "><span class=\"name\">").concat(esc(state.playerNames[id] || ((_b = state.players.get(id)) === null || _b === void 0 ? void 0 : _b.name) || '玩家'), "</span>");
-        label.addEventListener('click', function () { if (state.myVote)
-            return; document.querySelectorAll('.vote-option').forEach(function (x) { return x.classList.remove('selected'); }); label.classList.add('selected'); $('submitVoteBtn').disabled = false; });
-        box.appendChild(label);
-    };
-    try {
-        for (var _c = __values(activeIds()), _d = _c.next(); !_d.done; _d = _c.next()) {
-            var id = _d.value;
-            _loop_1(id);
-        }
-    }
-    catch (e_10_1) { e_10 = { error: e_10_1 }; }
-    finally {
-        try {
-            if (_d && !_d.done && (_a = _c.return)) _a.call(_c);
-        }
-        finally { if (e_10) throw e_10.error; }
-    }
-    $('submitVoteBtn').disabled = !!state.myVote;
-    renderVoteProgress();
-}
-function renderVoteProgress() {
-    var e_11, _a;
-    var _b;
-    var box = $('voteProgress');
-    box.innerHTML = '';
-    try {
-        for (var _c = __values(activeIds()), _d = _c.next(); !_d.done; _d = _c.next()) {
-            var id = _d.value;
-            var done = state.votes.has(id), offline = id !== selfId && !state.peerIds.has(id);
-            var row = document.createElement('div');
-            row.className = 'vote-person';
-            row.innerHTML = "<strong>".concat(esc(state.playerNames[id] || ((_b = state.players.get(id)) === null || _b === void 0 ? void 0 : _b.name) || '玩家'), "</strong><span class=\"badge ").concat(done ? 'voted' : 'waiting', "\">").concat(done ? '已投票 / Voted' : offline ? '暫時離線 / Offline' : '未投票 / Waiting', "</span>");
-            box.appendChild(row);
-        }
-    }
-    catch (e_11_1) { e_11 = { error: e_11_1 }; }
-    finally {
-        try {
-            if (_d && !_d.done && (_a = _c.return)) _a.call(_c);
-        }
-        finally { if (e_11) throw e_11.error; }
-    }
-    var n = activeIds().filter(function (id) { return state.votes.has(id); }).length, total = activeIds().length;
-    if (state.phase === 'vote')
-        status($('voteStatus'), "\u5DF2\u6709 ".concat(n, "/").concat(total, " \u4F4D\u73A9\u5BB6\u5B8C\u6210\u6295\u7968\u3002"), "\u5DF2\u6709 ".concat(n, "/").concat(total, " \u4F4D\u73A9\u5BB6\u5B8C\u6210\u6295\u7968\u3002"), "Y\u01D0 y\u01D2u ".concat(n, "/").concat(total, " w\u00E8i w\u00E1nji\u0101 w\u00E1nch\u00E9ng t\u00F3upi\u00E0o."), "".concat(n, "/").concat(total, " players have voted."), 'warn');
-}
-function applyResult(r) { if (!r || r.gameId !== state.gameId || r.roundNo !== state.roundNo)
-    return; state.result = r; state.aliveIds = new Set(r.aliveIds || []); state.nextReady = new Set(); saveSession(); if (r.winner) {
-    showFinal(r);
-    return;
-} if (!state.aliveIds.has(selfId)) {
-    showRoundResult(r);
-    return;
-} showRoundResult(r); }
-function showRoundResult(r) { phase('roundResult'); var hero = $('roundResultHero'); hero.className = 'result-hero' + (r.tie ? ' tie' : ''); $('eliminatedBox').classList.toggle('hidden', !r.eliminatedId); if (r.tie) {
-    $('roundResultTitle').textContent = '平票 · 無人淘汰 / Tie · No Elimination';
-    $('roundResultText').innerHTML = '<div class="hant">最高票平手，本輪沒有人離場，遊戲繼續。</div><div class="hans">最高票平手，本轮没有人离场，游戏继续。</div><div class="py">Zuìgāo piào píngshǒu, běn lún méiyǒu rén líchǎng, yóuxì jìxù.</div><div class="en">The top vote is tied. Nobody is eliminated, so the game continues.</div>';
-}
-else {
-    var name = state.playerNames[r.eliminatedId] || '玩家';
-    var spy = r.eliminatedWasSpy;
-    $('roundResultTitle').textContent = "".concat(name, " \u88AB\u6DD8\u6C70 / Eliminated");
-    $('roundResultText').innerHTML = spy ? '<div class="hant">被淘汰的是臥底。</div><div class="hans">被淘汰的是卧底。</div><div class="py">Bèi táotài de shì wòdǐ.</div><div class="en">The eliminated player was the undercover player.</div>' : '<div class="hant">被淘汰的是平民，遊戲繼續。</div><div class="hans">被淘汰的是平民，游戏继续。</div><div class="py">Bèi táotài de shì píngmín, yóuxì jìxù.</div><div class="en">The eliminated player was a civilian. The game continues.</div>';
-    $('eliminatedName').textContent = name;
-    $('eliminatedRole').className = 'role ' + (spy ? 'spy' : 'civ');
-    $('eliminatedRole').textContent = spy ? '😈 臥底 / Undercover' : '👤 平民 / Civilian';
-} $('civilianCount').textContent = "\uD83D\uDC64 \u00D7 ".concat(r.civiliansAlive); $('spyCount').textContent = "\uD83D\uDE08 \u00D7 ".concat(r.spiesAlive); $('continueArea').classList.toggle('hidden', !!r.winner); updateContinue(); }
-function updateContinue() { var ready = state.nextReady.has(selfId); $('continueBtn').classList.toggle('ready', ready); $('continueBtn').innerHTML = ready ? '<span class="hant">已準備，等待其他玩家</span><span class="hans">已准备，等待其他玩家</span><span class="py">Yǐ zhǔnbèi, děngdài qítā wánjiā</span><span class="en">Ready — Waiting for Others</span>' : '<span class="hant">準備下一輪</span><span class="hans">准备下一轮</span><span class="py">Zhǔnbèi xià yì lún</span><span class="en">Ready for Next Round</span>'; }
-function setWord(prefix, w) { var onlyHans = document.documentElement.classList.contains('show-hans') && !document.documentElement.classList.contains('show-hant'); $(prefix + 'Main').textContent = onlyHans ? ((w === null || w === void 0 ? void 0 : w.simp) || (w === null || w === void 0 ? void 0 : w.trad) || '') : ((w === null || w === void 0 ? void 0 : w.trad) || (w === null || w === void 0 ? void 0 : w.simp) || ''); $(prefix + 'Py').textContent = (w === null || w === void 0 ? void 0 : w.pinyin) || ''; $(prefix + 'En').textContent = (w === null || w === void 0 ? void 0 : w.en) || ''; }
-function showFinal(r) {
-    var e_12, _a;
-    var _b, _c;
-    phase('final');
-    var civWin = r.winner === 'civilian';
-    $('finalHero').className = 'result-hero ' + (civWin ? 'win-civ' : 'win-spy');
-    $('winnerTitle').textContent = civWin ? '👤 平民勝 / Civilians Win' : '😈 臥底勝 / Undercover Wins';
-    $('winnerReason').innerHTML = r.quit ? (civWin ? '<div class="hant">臥底主動退出遊戲，因此平民獲勝。</div><div class="hans">卧底主动退出游戏，因此平民获胜。</div><div class="py">Wòdǐ zhǔdòng tuìchū yóuxì, yīncǐ píngmín huòshèng.</div><div class="en">The undercover player left the game, so the civilians win.</div>' : '<div class="hant">玩家退出後，場上平民人數已不多於臥底，因此臥底獲勝。</div><div class="hans">玩家退出后，场上平民人数已不多于卧底，因此卧底获胜。</div><div class="py">Wánjiā tuìchū hòu, chǎngshàng píngmín rénshù yǐ bù duō yú wòdǐ.</div><div class="en">After a player left, civilians no longer outnumber the undercover, so the undercover wins.</div>') : (civWin ? '<div class="hant">臥底已被投票淘汰。</div><div class="hans">卧底已被投票淘汰。</div><div class="py">Wòdǐ yǐ bèi tóupiào táotài.</div><div class="en">The undercover player was voted out.</div>' : '<div class="hant">場上只剩 1 位平民和 1 位臥底，臥底達成勝利條件。</div><div class="hans">场上只剩 1 位平民和 1 位卧底，卧底达成胜利条件。</div><div class="py">Chǎngshàng zhǐ shèng yí wèi píngmín hé yí wèi wòdǐ, wòdǐ dáchéng shènglì tiáojiàn.</div><div class="en">Only one civilian and one undercover remain, so the undercover wins.</div>');
-    $('undercoverNames').textContent = state.undercoverName || __spreadArray([], __read(state.undercoverIds), false).map(function (id) { return state.playerNames[id] || '玩家'; }).join('、');
-    setWord('civilianWord', (_b = state.pair) === null || _b === void 0 ? void 0 : _b.civilian);
-    setWord('undercoverWord', (_c = state.pair) === null || _c === void 0 ? void 0 : _c.undercover);
-    var list = $('roleList');
-    list.innerHTML = '';
-    try {
-        for (var _d = __values(state.gamePlayers), _e = _d.next(); !_e.done; _e = _d.next()) {
-            var id = _e.value;
-            var row = document.createElement('div');
-            var spy = isUndercoverId(id);
-            row.className = 'role-row';
-            row.innerHTML = "<div class=\"role-name\">".concat(esc(state.playerNames[id] || '玩家')).concat(id === selfId ? ' <span style="color:#7a6f66">（你 / You）</span>' : '', "</div><span class=\"role-tag ").concat(spy ? 'spy' : 'civ', "\">").concat(spy ? '😈 臥底 / Undercover' : '👤 平民 / Civilian', "</span>");
-            list.appendChild(row);
-        }
-    }
-    catch (e_12_1) { e_12 = { error: e_12_1 }; }
-    finally {
-        try {
-            if (_e && !_e.done && (_a = _d.return)) _a.call(_d);
-        }
-        finally { if (e_12) throw e_12.error; }
-    }
-    state.newReady = new Set();
-    updateNewGame();
-}
-function updateNewGame() { var ready = state.newReady.has(selfId); $('newGameBtn').classList.toggle('ready', ready); $('newGameBtn').innerHTML = ready ? '<span class="hant">已準備新遊戲</span><span class="hans">已准备新游戏</span><span class="py">Yǐ zhǔnbèi xīn yóuxì</span><span class="en">Ready for New Game</span>' : '<span class="hant">準備新遊戲</span><span class="hans">准备新游戏</span><span class="py">Zhǔnbèi xīn yóuxì</span><span class="en">Ready for New Game</span>'; }
-function norm(s) { return String(s || '').replace(/\s*\([^)]*\)\s*$/, '').replace(/_/g, ' ').trim(); }
-function usable(s) { s = norm(s); return s && s.length <= 40 && !/^List of /i.test(s) && !/^[0-9]{3,4}$/.test(s) && !s.includes(':') && s.split(/\s+/).length <= 5; }
-function makeQuery(obj) { return Object.keys(obj).map(function (k) { return encodeURIComponent(k) + '=' + encodeURIComponent(obj[k]); }).join('&'); }
-function fetchJson(url_1) {
-    return __awaiter(this, arguments, void 0, function (url, timeout) {
-        var hasAbort, c, t, opt, r;
-        if (timeout === void 0) { timeout = 6500; }
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    hasAbort = typeof AbortController !== 'undefined';
-                    c = hasAbort ? new AbortController() : null;
-                    t = hasAbort ? setTimeout(function () { return c.abort(); }, timeout) : null;
-                    _a.label = 1;
-                case 1:
-                    _a.trys.push([1, , 4, 5]);
-                    opt = { cache: 'no-store' };
-                    if (c)
-                        opt.signal = c.signal;
-                    return [4 /*yield*/, fetch(url, opt)];
-                case 2:
-                    r = _a.sent();
-                    if (!r.ok)
-                        throw Error('HTTP ' + r.status);
-                    return [4 /*yield*/, r.json()];
-                case 3: return [2 /*return*/, _a.sent()];
-                case 4:
-                    if (t)
-                        clearTimeout(t);
-                    return [7 /*endfinally*/];
-                case 5: return [2 /*return*/];
-            }
-        });
-    });
-}
-function fetchText(url_1) {
-    return __awaiter(this, arguments, void 0, function (url, timeout) {
-        var hasAbort, c, t, opt, r;
-        if (timeout === void 0) { timeout = 9000; }
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    hasAbort = typeof AbortController !== 'undefined';
-                    c = hasAbort ? new AbortController() : null;
-                    t = hasAbort ? setTimeout(function () { return c.abort(); }, timeout) : null;
-                    _a.label = 1;
-                case 1:
-                    _a.trys.push([1, , 4, 5]);
-                    opt = { cache: 'force-cache' };
-                    if (c)
-                        opt.signal = c.signal;
-                    return [4 /*yield*/, fetch(url, opt)];
-                case 2:
-                    r = _a.sent();
-                    if (!r.ok)
-                        throw Error('HTTP ' + r.status);
-                    return [4 /*yield*/, r.text()];
-                case 3: return [2 /*return*/, _a.sent()];
-                case 4:
-                    if (t)
-                        clearTimeout(t);
-                    return [7 /*endfinally*/];
-                case 5: return [2 /*return*/];
-            }
-        });
-    });
-}
-function zhTitle(en) {
-    return __awaiter(this, void 0, void 0, function () { var q, j, p, z; var _a, _b, _c, _d; return __generator(this, function (_e) {
-        switch (_e.label) {
-            case 0:
-                q = makeQuery({ action: 'query', format: 'json', origin: '*', prop: 'langlinks', lllang: 'zh', lllimit: '1', redirects: '1', titles: en });
-                return [4 /*yield*/, fetchJson('https://en.wikipedia.org/w/api.php?' + q)];
-            case 1:
-                j = _e.sent();
-                p = Object.values(((_a = j === null || j === void 0 ? void 0 : j.query) === null || _a === void 0 ? void 0 : _a.pages) || {});
-                z = (_d = (_c = (_b = p[0]) === null || _b === void 0 ? void 0 : _b.langlinks) === null || _c === void 0 ? void 0 : _c[0]) === null || _d === void 0 ? void 0 : _d['*'];
-                return [2 /*return*/, z ? norm(z) : null];
-        }
-    }); });
-}
-function word(zh, en) { var trad = toTrad(zh), simp = toSimp(zh); var py = ''; try {
-    py = pinyin(trad);
-}
-catch (_a) { } return { trad: trad, simp: simp, pinyin: py, en: norm(en) }; }
-function simpleEnglish(w) { w = String(w || '').toLowerCase().trim(); return /^[a-z]{3,18}$/.test(w) && !/(.)\1\1/.test(w); }
-function parseCeecVocab(raw) {
-    var e_13, _a;
-    var all = [], nouns = [];
-    try {
-        for (var _b = __values(String(raw || '').split(/\r?\n/)), _c = _b.next(); !_c.done; _c = _b.next()) {
-            var line = _c.value;
-            var s = line.trim();
-            var m = s.match(/^([A-Za-z][A-Za-z'/-]*(?:\([^)]*\))?)\s+(.+)$/);
-            if (!m)
-                continue;
-            var w = m[1].split('/')[0].replace(/\([^)]*\)/g, '').toLowerCase();
-            if (!simpleEnglish(w))
-                continue;
-            all.push(w);
-            if (/(^|\/)n\.|\bn\./.test(m[2]))
-                nouns.push(w);
-        }
-    }
-    catch (e_13_1) { e_13 = { error: e_13_1 }; }
-    finally {
-        try {
-            if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
-        }
-        finally { if (e_13) throw e_13.error; }
-    }
-    return { all: __spreadArray([], __read(new Set(all)), false), nouns: __spreadArray([], __read(new Set(nouns)), false) };
-}
-function parseCommonVocab(raw) { return __spreadArray([], __read(new Set(String(raw || '').split(/\r?\n/).map(function (x) { return x.trim().toLowerCase(); }).filter(simpleEnglish))), false); }
-function loadExam8000() {
-    return __awaiter(this, void 0, void 0, function () {
-        var saved, _a, ceecRaw, commonRaw, ceec, common, set, common_1, common_1_1, w, all, allSet, nouns;
-        var e_14, _b;
-        var _c, _d;
-        return __generator(this, function (_e) {
-            switch (_e.label) {
-                case 0:
-                    if (examBankCache)
-                        return [2 /*return*/, examBankCache];
-                    try {
-                        saved = JSON.parse(localStorage.getItem(VOCAB_CACHE_KEY) || 'null');
-                        if (((_c = saved === null || saved === void 0 ? void 0 : saved.all) === null || _c === void 0 ? void 0 : _c.length) === 8000 && ((_d = saved === null || saved === void 0 ? void 0 : saved.nouns) === null || _d === void 0 ? void 0 : _d.length) > 500) {
-                            examBankCache = { all: saved.all, nouns: saved.nouns, set: new Set(saved.all) };
-                            return [2 /*return*/, examBankCache];
-                        }
-                    }
-                    catch (_f) { }
-                    return [4 /*yield*/, Promise.all([fetchText(CEEC_VOCAB_URL), fetchText(COMMON_VOCAB_URL)])];
-                case 1:
-                    _a = __read.apply(void 0, [_e.sent(), 2]), ceecRaw = _a[0], commonRaw = _a[1];
-                    ceec = parseCeecVocab(ceecRaw), common = parseCommonVocab(commonRaw), set = new Set(ceec.all);
-                    try {
-                        for (common_1 = __values(common), common_1_1 = common_1.next(); !common_1_1.done; common_1_1 = common_1.next()) {
-                            w = common_1_1.value;
-                            if (set.size >= 8000)
-                                break;
-                            set.add(w);
-                        }
-                    }
-                    catch (e_14_1) { e_14 = { error: e_14_1 }; }
-                    finally {
-                        try {
-                            if (common_1_1 && !common_1_1.done && (_b = common_1.return)) _b.call(common_1);
-                        }
-                        finally { if (e_14) throw e_14.error; }
-                    }
-                    // 若來源格式日後變更，仍要求至少有大量詞彙才啟用；不足就走保底詞組。
-                    if (set.size < 7000)
-                        throw Error('Vocabulary bank too small: ' + set.size);
-                    all = __spreadArray([], __read(set), false).slice(0, 8000);
-                    allSet = new Set(all);
-                    nouns = ceec.nouns.filter(function (w) { return allSet.has(w) && simpleEnglish(w); });
-                    examBankCache = { all: all, nouns: nouns.length > 500 ? nouns : all.slice(0, 3500), set: allSet };
-                    try {
-                        localStorage.setItem(VOCAB_CACHE_KEY, JSON.stringify({ all: examBankCache.all, nouns: examBankCache.nouns }));
-                    }
-                    catch (_g) { }
-                    return [2 /*return*/, examBankCache];
-            }
-        });
-    });
-}
-function relatedWord(base, bank) {
-    return __awaiter(this, void 0, void 0, function () {
-        var q, rows, good;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    q = makeQuery({ ml: base, md: 'p', max: '50' });
-                    return [4 /*yield*/, fetchJson('https://api.datamuse.com/words?' + q, 5500)];
-                case 1:
-                    rows = _a.sent();
-                    good = (Array.isArray(rows) ? rows : []).map(function (x) { return String(x.word || '').toLowerCase(); }).filter(function (w) { return w !== base && simpleEnglish(w) && bank.set.has(w); });
-                    if (!good.length)
-                        return [2 /*return*/, null];
-                    // 前段通常語意較接近；在前 12 個中隨機，可降低每局重複。
-                    return [2 /*return*/, good[Math.floor(Math.random() * Math.min(12, good.length))]];
-            }
-        });
-    });
-}
-function onlinePair() {
-    return __awaiter(this, void 0, void 0, function () {
-        var bank, bases, i, enA, enB, _a, _b, zhA, zhB, _c;
-        return __generator(this, function (_d) {
-            switch (_d.label) {
-                case 0: return [4 /*yield*/, loadExam8000()];
-                case 1:
-                    bank = _d.sent();
-                    bases = shuffle(bank.nouns.length ? bank.nouns : bank.all);
-                    i = 0;
-                    _d.label = 2;
-                case 2:
-                    if (!(i < Math.min(18, bases.length))) return [3 /*break*/, 11];
-                    enA = bases[i];
-                    enB = null;
-                    _d.label = 3;
-                case 3:
-                    _d.trys.push([3, 5, , 6]);
-                    return [4 /*yield*/, relatedWord(enA, bank)];
-                case 4:
-                    enB = _d.sent();
-                    return [3 /*break*/, 6];
-                case 5:
-                    _a = _d.sent();
-                    return [3 /*break*/, 10];
-                case 6:
-                    if (!enB)
-                        return [3 /*break*/, 10];
-                    _d.label = 7;
-                case 7:
-                    _d.trys.push([7, 9, , 10]);
-                    return [4 /*yield*/, Promise.all([zhTitle(enA), zhTitle(enB)])];
-                case 8:
-                    _b = __read.apply(void 0, [_d.sent(), 2]), zhA = _b[0], zhB = _b[1];
-                    if (!zhA || !zhB || !usable(zhA) || !usable(zhB) || zhA === zhB)
-                        return [3 /*break*/, 10];
-                    return [2 /*return*/, { civilian: word(zhA, enA), undercover: word(zhB, enB), source: 'CEEC 6000 + 2000 common extension' }];
-                case 9:
-                    _c = _d.sent();
-                    return [3 /*break*/, 10];
-                case 10:
-                    i++;
-                    return [3 /*break*/, 2];
-                case 11: throw Error('No suitable related pair found');
-            }
-        });
-    });
-}
-function fallback() { var _a = __read(FALLBACK_PAIRS[Math.floor(Math.random() * FALLBACK_PAIRS.length)], 4), zhA = _a[0], enA = _a[1], zhB = _a[2], enB = _a[3]; return { civilian: word(zhA, enA), undercover: word(zhB, enB), source: 'Fallback local' }; }
-function beginGame() {
-    return __awaiter(this, void 0, void 0, function () {
-        var ps, pair, e_15, undercover, playerNames, undercoverName, game, ps_1, ps_1_1, id, payload, e_16_1;
-        var e_16, _a;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    if (state.starting || !amCoord())
-                        return [2 /*return*/];
-                    ps = currentConnected();
-                    if (ps.length < 3)
-                        return [2 /*return*/];
-                    state.starting = true;
-                    state.actions.system.send({ type: 'fetching' }).catch(function () { });
-                    status($('lobbyStatus'), '正在載入升大學 8000 字庫並尋找相近詞…', '正在载入升大学 8000 词库并寻找相近词…', 'Zhèngzài zàirù shēng dàxué bāqiān cíkù bìng xúnzhǎo xiāngjìn cí…', 'Loading the 8,000-word college-entrance bank and finding a related pair…', 'busy');
-                    _b.label = 1;
-                case 1:
-                    _b.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, onlinePair()];
-                case 2:
-                    pair = _b.sent();
-                    return [3 /*break*/, 4];
-                case 3:
-                    e_15 = _b.sent();
-                    pair = fallback();
-                    return [3 /*break*/, 4];
-                case 4:
-                    undercover = shuffle(ps)[0];
-                    playerNames = Object.fromEntries(ps.map(function (id) { var _a; return [id, ((_a = state.players.get(id)) === null || _a === void 0 ? void 0 : _a.name) || '玩家']; }));
-                    undercoverName = playerNames[undercover];
-                    game = { gameId: Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 7), roundNo: 1, gamePlayers: ps, playerNames: playerNames, aliveIds: ps, undercoverIds: [undercover], undercoverName: undercoverName, pair: pair, source: pair.source };
-                    _b.label = 5;
-                case 5:
-                    _b.trys.push([5, 11, 12, 13]);
-                    ps_1 = __values(ps), ps_1_1 = ps_1.next();
-                    _b.label = 6;
-                case 6:
-                    if (!!ps_1_1.done) return [3 /*break*/, 10];
-                    id = ps_1_1.value;
-                    payload = __assign({}, game);
-                    if (!(id === selfId)) return [3 /*break*/, 7];
-                    receiveStart(payload);
-                    return [3 /*break*/, 9];
-                case 7: return [4 /*yield*/, state.actions.start.send(payload, { target: id }).catch(function () { })];
-                case 8:
-                    _b.sent();
-                    _b.label = 9;
-                case 9:
-                    ps_1_1 = ps_1.next();
-                    return [3 /*break*/, 6];
-                case 10: return [3 /*break*/, 13];
-                case 11:
-                    e_16_1 = _b.sent();
-                    e_16 = { error: e_16_1 };
-                    return [3 /*break*/, 13];
-                case 12:
-                    try {
-                        if (ps_1_1 && !ps_1_1.done && (_a = ps_1.return)) _a.call(ps_1);
-                    }
-                    finally { if (e_16) throw e_16.error; }
-                    return [7 /*endfinally*/];
-                case 13:
-                    state.starting = false;
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-function receiveStart(p) {
-    var e_17, _a;
-    if (!(p === null || p === void 0 ? void 0 : p.gameId))
-        return;
-    p = remapIncomingSelf(p);
-    state.gameId = p.gameId;
-    state.roundNo = p.roundNo || 1;
-    state.gamePlayers = p.gamePlayers || [];
-    state.playerNames = p.playerNames || {};
-    state.aliveIds = new Set(p.aliveIds || []);
-    state.undercoverIds = new Set(p.undercoverIds || []);
-    state.undercoverName = p.undercoverName || '';
-    if (!state.undercoverName) {
-        var sid = (p.undercoverIds || [])[0];
-        state.undercoverName = (p.playerNames || {})[sid] || '';
-    }
-    state.pair = p.pair;
-    state.source = p.source || '';
-    state.secret = state.pair ? (isUndercoverName(state.name) ? state.pair.undercover : state.pair.civilian) : null;
-    state.votes = new Map(p.sync ? (p.votes || []) : []);
-    state.myVote = state.votes.get(selfId) || null;
-    state.result = p.sync ? (p.result || null) : null;
-    state.nextReady = new Set(p.sync ? (p.nextReady || []) : []);
-    state.newReady = new Set(p.sync ? (p.newReady || []) : []);
-    state.syncConfirmed = !!p.sync;
-    state.restoredLocally = false;
-    $('readyBtn').disabled = false;
-    try {
-        for (var _b = __values(state.players), _c = _b.next(); !_c.done; _c = _b.next()) {
-            var _d = __read(_c.value, 2), v = _d[1];
-            v.ready = false;
-        }
-    }
-    catch (e_17_1) { e_17 = { error: e_17_1 }; }
-    finally {
-        try {
-            if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
-        }
-        finally { if (e_17) throw e_17.error; }
-    }
-    state.ready = false;
-    var known = state.gamePlayers.includes(selfId), alive = state.aliveIds.has(selfId);
-    if (!known) {
-        showSpectator();
-        status($('spectatorStatus'), '你是在本局開始後才加入，因此目前只能觀戰。', '你是在本局开始后才加入，因此目前只能观战。', 'Nǐ shì zài běn jú kāishǐ hòu cái jiārù.', 'You joined after this game started, so you are spectating this game.', 'warn');
-        saveSession();
-        return;
-    }
-    if (!alive) {
-        showSpectator();
-        saveSession();
-        return;
-    }
-    if (p.sync) {
-        if (p.phase === 'vote') {
-            renderVote();
-            saveSession();
-            return;
-        }
-        if (p.phase === 'roundResult' && state.result) {
-            showRoundResult(state.result);
-            saveSession();
-            return;
-        }
-        if (p.phase === 'final' && state.result) {
-            showFinal(state.result);
-            saveSession();
-            return;
-        }
-    }
-    showGame();
-    saveSession();
-}
-function maybeStart() { clearTimeout(state.startTimer); if (state.phase !== 'lobby' || state.starting || state.gameId)
-    return; var ps = currentConnected(); if (ps.length < 3) {
-    status($('lobbyStatus'), '至少需要 3 位玩家。', '至少需要 3 位玩家。', 'Zhìshǎo xūyào sān wèi wánjiā.', 'At least 3 players are required.', 'warn');
-    return;
-} if (ps.some(function (id) { var _a; return !((_a = state.players.get(id)) === null || _a === void 0 ? void 0 : _a.ready); })) {
-    status($('lobbyStatus'), '等待所有玩家按準備。', '等待所有玩家按准备。', 'Děngdài suǒyǒu wánjiā àn zhǔnbèi.', 'Waiting for everyone to press Ready.', 'warn');
-    return;
-} if (amCoord())
-    state.startTimer = setTimeout(beginGame, 1000);
-else
-    status($('lobbyStatus'), '所有人已準備，系統正在同步。', '所有人已准备，系统正在同步。', 'Suǒyǒu rén yǐ zhǔnbèi, xìtǒng zhèngzài tóngbù.', 'Everyone is ready. Synchronizing…', 'busy'); }
-function maybeResolveVote() {
-    var e_18, _a;
-    if (state.phase !== 'vote' || !amCoord())
-        return;
-    var a = __spreadArray([], __read(state.aliveIds), false).sort();
-    if (a.length < 2)
-        return; /* 只有每一位仍在場玩家都明確送出投票後才結算。斷線不會縮小門檻或觸發自動投票。 */
-    if (a.some(function (id) { return !state.votes.has(id); }))
-        return;
-    var tally = {};
-    try {
-        for (var _b = __values(state.votes.entries()), _c = _b.next(); !_c.done; _c = _b.next()) {
-            var _d = __read(_c.value, 2), voter = _d[0], target = _d[1];
-            if (a.includes(voter) && a.includes(target))
-                tally[target] = (tally[target] || 0) + 1;
-        }
-    }
-    catch (e_18_1) { e_18 = { error: e_18_1 }; }
-    finally {
-        try {
-            if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
-        }
-        finally { if (e_18) throw e_18.error; }
-    }
-    var max = Math.max.apply(Math, __spreadArray(__spreadArray([], __read(Object.values(tally)), false), [0], false)), top = Object.keys(tally).filter(function (id) { return tally[id] === max; });
-    var r = { gameId: state.gameId, roundNo: state.roundNo, aliveIds: __spreadArray([], __read(state.aliveIds), false), winner: null, tie: false, eliminatedId: null, eliminatedWasSpy: false, civiliansAlive: 0, spiesAlive: 0 };
-    if (top.length !== 1) {
-        r.tie = true;
-    }
-    else {
-        var out = top[0];
-        r.eliminatedId = out;
-        r.eliminatedWasSpy = isUndercoverId(out);
-        state.aliveIds.delete(out);
-        r.aliveIds = __spreadArray([], __read(state.aliveIds), false);
-        var c = aliveCounts();
-        r.civiliansAlive = c.civ;
-        r.spiesAlive = c.spy;
-        if (c.spy === 0)
-            r.winner = 'civilian';
-        else if (c.civ <= c.spy)
-            r.winner = 'undercover';
-    }
-    if (r.tie) {
-        var c = aliveCounts();
-        r.civiliansAlive = c.civ;
-        r.spiesAlive = c.spy;
-    }
-    state.actions.voteResult.send(r).catch(function () { });
-    applyResult(r);
-}
-function continueRound() { state.roundNo++; state.votes = new Map(); state.myVote = null; state.result = null; state.nextReady = new Set(); saveSession(); var payload = { gameId: state.gameId, roundNo: state.roundNo, aliveIds: __spreadArray([], __read(state.aliveIds), false) }; state.actions.nextRound.send(payload).catch(function () { }); receiveNextRound(payload); }
-function receiveNextRound(p) { if ((p === null || p === void 0 ? void 0 : p.gameId) !== state.gameId)
-    return; state.roundNo = p.roundNo; state.aliveIds = new Set(p.aliveIds || []); state.votes = new Map(); state.myVote = null; state.result = null; state.nextReady = new Set(); if (state.aliveIds.has(selfId))
-    showGame();
-else
-    showSpectator(); saveSession(); }
-function maybeContinue() { if (!state.result || state.result.winner || !amCoord())
-    return; var a = activeIds(); if (a.length && a.every(function (id) { return state.nextReady.has(id); }))
-    continueRound(); }
-function newGame() {
-    return __awaiter(this, void 0, void 0, function () {
-        var _a, _b, _c, p;
-        var e_19, _d;
-        return __generator(this, function (_e) {
-            switch (_e.label) {
-                case 0:
-                    if (state.starting || !amCoord())
-                        return [2 /*return*/];
-                    try {
-                        for (_a = __values(state.players), _b = _a.next(); !_b.done; _b = _a.next()) {
-                            _c = __read(_b.value, 2), p = _c[1];
-                            p.ready = true;
-                        }
-                    }
-                    catch (e_19_1) { e_19 = { error: e_19_1 }; }
-                    finally {
-                        try {
-                            if (_b && !_b.done && (_d = _a.return)) _d.call(_a);
-                        }
-                        finally { if (e_19) throw e_19.error; }
-                    }
-                    state.ready = true;
-                    return [4 /*yield*/, beginGame()];
-                case 1:
-                    _e.sent();
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-function maybeNewGame() { if (state.phase !== 'final' || !amCoord())
-    return; var ps = currentConnected(); if (ps.length >= 3 && ps.every(function (id) { return state.newReady.has(id); }))
-    newGame(); }
-function cleanup() { var _a; clearTimeout(state.startTimer); try {
-    (_a = state.room) === null || _a === void 0 ? void 0 : _a.leave();
-}
-catch (_b) { } Object.assign(state, { room: null, actions: null, roomCode: '', name: '', phase: 'login', players: new Map(), peerIds: new Set(), ready: false, gameId: null, roundNo: 0, gamePlayers: [], playerNames: {}, aliveIds: new Set(), undercoverIds: new Set(), undercoverName: '', pair: null, source: '', secret: null, votes: new Map(), myVote: null, result: null, nextReady: new Set(), newReady: new Set(), offlineIds: new Set(), starting: false, startTimer: null, syncConfirmed: false, restoredLocally: false }); $('roomInput').value = ''; phase('login'); }
-function enterRoom(code, name) { cleanup(); state.roomCode = code.toUpperCase(); state.name = name; saveLastCookie(name, state.roomCode); try {
-    localStorage.setItem('undercoverLastName', name);
-    localStorage.setItem('undercoverLastRoom', state.roomCode);
-}
-catch (_a) { } ; try {
-    var room = joinRoom({ appId: APP_ID }, state.roomCode.toLowerCase());
-    state.room = room;
-    var profile_1 = room.makeAction('profile'), ready = room.makeAction('ready'), start_1 = room.makeAction('start'), system = room.makeAction('system'), vote = room.makeAction('vote'), voteResult = room.makeAction('voteResult'), nextReady = room.makeAction('nextReady'), nextRound = room.makeAction('nextRound'), newReady = room.makeAction('newReady'), syncRequest_1 = room.makeAction('syncRequest'), quit = room.makeAction('quit');
-    state.actions = { profile: profile_1, ready: ready, start: start_1, system: system, vote: vote, voteResult: voteResult, nextReady: nextReady, nextRound: nextRound, newReady: newReady, syncRequest: syncRequest_1, quit: quit };
-    state.players.set(selfId, { name: name, ready: false });
-    var restored = restoreSession(state.roomCode, state.name);
-    if (!restored)
-        renderLobby();
-    var askSync_1 = function (id) { var payload = { name: state.name, gameId: state.gameId || null }; if (id)
-        syncRequest_1.send(payload, { target: id }).catch(function () { });
-    else
-        syncRequest_1.send(payload).catch(function () { }); };
-    state.actions.askSync = askSync_1;
-    room.onPeerJoin = function (id) { state.peerIds.add(id); state.offlineIds.delete(id); if (!state.players.has(id))
-        state.players.set(id, { name: '…', ready: false }); profile_1.send({ name: state.name, ready: state.ready }, { target: id }).catch(function () { }); askSync_1(id); if (state.phase === 'lobby')
-        renderLobby(); };
-    room.onPeerLeave = function (id) { state.peerIds.delete(id); if (state.phase === 'lobby' && !state.gameId) {
-        state.players.delete(id);
-        state.offlineIds.delete(id);
-        renderLobby();
-        maybeStart();
-    }
-    else {
-        state.offlineIds.add(id);
-        saveSession();
-        if (state.phase === 'vote')
-            renderVoteProgress();
-        if (state.phase === 'game' || state.phase === 'vote' || state.phase === 'roundResult' || state.phase === 'spectator') {
-            var el = state.phase === 'vote' ? $('voteStatus') : state.phase === 'game' ? $('gameStatus') : state.phase === 'spectator' ? $('spectatorStatus') : $('continueStatus');
-            if (el)
-                status(el, '有玩家暫時離線；系統不會自動淘汰他，也不會代替任何人投票。', '有玩家暂时离线；系统不会自动淘汰他，也不会代替任何人投票。', 'Yǒu wánjiā zànshí líxiàn; xìtǒng bú huì zìdòng táotài tā, yě bú huì dàitì rènhé rén tóupiào.', 'A player is temporarily offline. Nobody is auto-eliminated and no vote is cast automatically.', 'warn');
-        }
-    } };
-    function restorePeer(incoming, peerId, readyFlag) { var oldId = reconnectCandidate(incoming, peerId); if (oldId) {
-        migrateIdentity(oldId, peerId, incoming, readyFlag);
-        saveSession();
-        return true;
-    } return state.gamePlayers.includes(peerId) && normName(state.playerNames[peerId]) === normName(incoming); }
-    profile_1.onMessage = function (d, _a) {
-        var peerId = _a.peerId;
-        var incoming = String((d === null || d === void 0 ? void 0 : d.name) || '玩家').trim().slice(0, 20) || '玩家';
-        var reconnected = restorePeer(incoming, peerId, d === null || d === void 0 ? void 0 : d.ready);
-        if (reconnected && state.gameId) {
-            start_1.send(reconnectPayload(peerId, !state.aliveIds.has(peerId)), { target: peerId }).catch(function () { });
-            var el = state.phase === 'vote' ? $('voteStatus') : state.phase === 'game' ? $('gameStatus') : state.phase === 'roundResult' ? $('continueStatus') : state.phase === 'spectator' ? $('spectatorStatus') : state.phase === 'final' ? $('finalStatus') : $('lobbyStatus');
-            if (el)
-                status(el, "".concat(incoming, " \u5DF2\u7528\u76F8\u540C\u540D\u5B57\u91CD\u65B0\u9023\u7DDA\uFF0C\u539F\u672C\u8EAB\u5206\u8207\u76EE\u524D\u904A\u6232\u756B\u9762\u5DF2\u6062\u5FA9\u3002"), "".concat(incoming, " \u5DF2\u7528\u76F8\u540C\u540D\u5B57\u91CD\u65B0\u8FDE\u63A5\uFF0C\u539F\u672C\u8EAB\u4EFD\u4E0E\u5F53\u524D\u6E38\u620F\u753B\u9762\u5DF2\u6062\u590D\u3002"), "".concat(incoming, " y\u01D0 y\u00F2ng xi\u0101ngt\u00F3ng m\u00EDngzi ch\u00F3ngx\u012Bn li\u00E1nxi\u00E0n."), "".concat(incoming, " reconnected with the same name. Their role and current game screen were restored."), 'ok');
-            if (state.phase === 'vote')
-                renderVoteProgress();
-            return;
-        }
-        state.offlineIds.delete(peerId);
-        var p = state.players.get(peerId) || {};
-        state.players.set(peerId, __assign(__assign({}, p), { name: incoming, ready: !!(d === null || d === void 0 ? void 0 : d.ready) }));
-        if (state.gameId && !state.gamePlayers.includes(peerId))
-            start_1.send(reconnectPayload(peerId, true), { target: peerId }).catch(function () { });
-        if (state.phase === 'lobby') {
-            renderLobby();
-            maybeStart();
-        }
-    };
-    syncRequest_1.onMessage = function (d, _a) {
-        var peerId = _a.peerId;
-        var incoming = String((d === null || d === void 0 ? void 0 : d.name) || '').trim().slice(0, 20);
-        if (!incoming || !state.gameId)
-            return;
-        var reconnected = restorePeer(incoming, peerId, false);
-        if (reconnected)
-            start_1.send(reconnectPayload(peerId, !state.aliveIds.has(peerId)), { target: peerId }).catch(function () { });
-    };
-    quit.onMessage = function (d, _a) {
-        var e_20, _b;
-        var _c;
-        var peerId = _a.peerId;
-        var quitName = String((d === null || d === void 0 ? void 0 : d.name) || state.playerNames[peerId] || ((_c = state.players.get(peerId)) === null || _c === void 0 ? void 0 : _c.name) || '玩家').trim();
-        var qid = peerId;
-        var byName = state.gamePlayers.find(function (id) { var _a; return normName(state.playerNames[id] || ((_a = state.players.get(id)) === null || _a === void 0 ? void 0 : _a.name)) === normName(quitName); });
-        if (byName)
-            qid = byName;
-        state.peerIds.delete(peerId);
-        state.offlineIds.delete(peerId);
-        state.offlineIds.delete(qid);
-        state.players.delete(peerId);
-        state.nextReady.delete(qid);
-        state.newReady.delete(qid);
-        if (!state.gameId || !state.gamePlayers.includes(qid)) {
-            if (state.phase === 'lobby') {
-                renderLobby();
-                maybeStart();
-            }
-            return;
-        }
-        var wasAlive = state.aliveIds.has(qid);
-        state.aliveIds.delete(qid);
-        var nv = new Map();
-        try {
-            for (var _d = __values(state.votes), _e = _d.next(); !_e.done; _e = _d.next()) {
-                var _f = __read(_e.value, 2), v = _f[0], t = _f[1];
-                if (v !== qid && t !== qid)
-                    nv.set(v, t);
-            }
-        }
-        catch (e_20_1) { e_20 = { error: e_20_1 }; }
-        finally {
-            try {
-                if (_e && !_e.done && (_b = _d.return)) _b.call(_d);
-            }
-            finally { if (e_20) throw e_20.error; }
-        }
-        state.votes = nv;
-        if (state.myVote === qid)
-            state.myVote = null;
-        saveSession();
-        var c = aliveCounts();
-        var winner = null;
-        if (c.spy === 0)
-            winner = 'civilian';
-        else if (c.civ <= c.spy)
-            winner = 'undercover';
-        if (wasAlive && winner && amCoord()) {
-            var r = { gameId: state.gameId, roundNo: state.roundNo, aliveIds: __spreadArray([], __read(state.aliveIds), false), winner: winner, tie: false, eliminatedId: qid, eliminatedWasSpy: isUndercoverId(qid), civiliansAlive: c.civ, spiesAlive: c.spy, quit: true, quitName: quitName };
-            state.actions.voteResult.send(r).catch(function () { });
-            applyResult(r);
-            return;
-        }
-        if (state.phase === 'vote') {
-            renderVote();
-            maybeResolveVote();
-        }
-        else if (state.phase === 'roundResult' && state.result) {
-            state.result = __assign(__assign({}, state.result), { aliveIds: __spreadArray([], __read(state.aliveIds), false), civiliansAlive: c.civ, spiesAlive: c.spy });
-            showRoundResult(state.result);
-            maybeContinue();
-        }
-        else if (state.phase === 'game') {
-            showGame();
-            status($('gameStatus'), "".concat(quitName, " \u5DF2\u4E3B\u52D5\u9000\u51FA\u904A\u6232\u3002\u5269\u9918\u73A9\u5BB6\u53EF\u4EE5\u7E7C\u7E8C\u672C\u5C40\u3002"), "".concat(quitName, " \u5DF2\u4E3B\u52A8\u9000\u51FA\u6E38\u620F\u3002\u5269\u4F59\u73A9\u5BB6\u53EF\u4EE5\u7EE7\u7EED\u672C\u5C40\u3002"), "".concat(quitName, " y\u01D0 zh\u01D4d\u00F2ng tu\u00ECch\u016B y\u00F3ux\u00EC."), "".concat(quitName, " left the game. The remaining players can continue."), 'warn');
-        }
-        else if (state.phase === 'lobby') {
-            renderLobby();
-            maybeStart();
-        }
-    };
-    ready.onMessage = function (d, _a) {
-        var peerId = _a.peerId;
-        var p = state.players.get(peerId) || { name: '玩家' };
-        p.ready = !!(d === null || d === void 0 ? void 0 : d.ready);
-        state.players.set(peerId, p);
-        if (state.phase === 'lobby') {
-            renderLobby();
-            maybeStart();
-        }
-    };
-    start_1.onMessage = function (d) { return receiveStart(d); };
-    system.onMessage = function (d) { if ((d === null || d === void 0 ? void 0 : d.type) === 'fetching' && state.phase === 'lobby')
-        status($('lobbyStatus'), '系統正在載入 8000 字庫並配對詞彙…', '系统正在载入 8000 词库并配对词汇…', 'Xìtǒng zhèngzài zàirù bāqiān cíkù bìng pèiduì cíhuì…', 'Loading the 8,000-word bank and pairing vocabulary…', 'busy'); };
-    vote.onMessage = function (d, _a) {
-        var peerId = _a.peerId;
-        if ((d === null || d === void 0 ? void 0 : d.gameId) !== state.gameId || (d === null || d === void 0 ? void 0 : d.roundNo) !== state.roundNo)
-            return;
-        state.votes.set(peerId, d.targetId);
-        saveSession();
-        renderVoteProgress();
-        maybeResolveVote();
-    };
-    voteResult.onMessage = function (d) { return applyResult(d); };
-    nextReady.onMessage = function (d, _a) {
-        var peerId = _a.peerId;
-        if ((d === null || d === void 0 ? void 0 : d.gameId) !== state.gameId || (d === null || d === void 0 ? void 0 : d.roundNo) !== state.roundNo)
-            return;
-        if (d.ready)
-            state.nextReady.add(peerId);
-        else
-            state.nextReady.delete(peerId);
-        saveSession();
-        maybeContinue();
-    };
-    nextRound.onMessage = function (d) { return receiveNextRound(d); };
-    newReady.onMessage = function (d, _a) {
-        var peerId = _a.peerId;
-        if ((d === null || d === void 0 ? void 0 : d.gameId) !== state.gameId)
-            return;
-        if (d.ready)
-            state.newReady.add(peerId);
-        else
-            state.newReady.delete(peerId);
-        saveSession();
-        maybeNewGame();
-    };
-    profile_1.send({ name: state.name, ready: false }).catch(function () { });
-    [250, 900, 2000, 4000].forEach(function (ms) { return setTimeout(function () { if (state.room && state.roomCode === code.toUpperCase())
-        askSync_1(); }, ms); });
-    if (!restored)
-        status($('lobbyStatus'), '已加入房間。正在檢查是否有同名的既有玩家身分…', '已加入房间。正在检查是否有同名的既有玩家身份…', 'Yǐ jiārù fángjiān. Zhèngzài jiǎnchá shìfǒu yǒu tóngmíng de jìyǒu wánjiā shēnfèn…', 'Joined. Checking for an existing player with the same name…', 'busy');
-}
-catch (e) {
-    console.error(e);
-    cleanup();
-    status($('loginStatus'), '多人連線啟動失敗，請重新整理後再試。', '多人连接启动失败，请重新整理后再试。', 'Duōrén liánxiàn qǐdòng shībài.', 'Multiplayer failed to start. Reload and try again.', 'error');
-} }
-function leaveGameNow() { var _a, _b; if (!state.roomCode || !state.name) {
-    clearSession();
-    cleanup();
-    return;
-} if (!window.confirm('確定要退出遊戲嗎？退出後這台裝置的房間 Cookie 與進度會被清除。\nAre you sure you want to leave? Your saved room progress on this device will be cleared.'))
-    return; var code = state.roomCode, name = state.name, gameId = state.gameId; try {
-    (_b = (_a = state.actions) === null || _a === void 0 ? void 0 : _a.quit) === null || _b === void 0 ? void 0 : _b.send({ name: name, gameId: gameId }).catch(function () { });
-}
-catch (_c) { } setTimeout(function () { clearSession(code, name); cleanup(); $('nameInput').value = ''; $('roomInput').value = ''; try {
-    localStorage.removeItem('undercoverLastName');
-    localStorage.removeItem('undercoverLastRoom');
-}
-catch (_a) { } ; status($('loginStatus'), '你已退出遊戲，Cookie 與本機進度已清除。', '你已退出游戏，Cookie 与本机进度已清除。', 'Nǐ yǐ tuìchū yóuxì, Cookie yǔ běnjī jìndù yǐ qīngchú.', 'You left the game. Your room cookie and saved progress on this device were cleared.', 'ok'); }, 220); }
-function copyTextCompat(text) { if (navigator.clipboard && navigator.clipboard.writeText)
-    return navigator.clipboard.writeText(text); return new Promise(function (resolve, reject) { try {
-    var t = document.createElement('textarea');
-    t.value = text;
-    t.setAttribute('readonly', '');
-    t.style.position = 'fixed';
-    t.style.opacity = '0';
-    document.body.appendChild(t);
-    t.select();
-    var ok = document.execCommand('copy');
-    document.body.removeChild(t);
-    ok ? resolve() : reject(new Error('copy failed'));
-}
-catch (e) {
-    reject(e);
-} }); }
-/* Expose only the room-entry function to the small non-module UI layer.
-   This keeps room-code creation usable even if the multiplayer module loads late. */
-window.__undercoverEnterRoom = enterRoom;
-window.__undercoverGameReady = true;
-$('exitGameBtn').onclick = leaveGameNow;
-$('joinBtn').onclick = function () { var n = $('nameInput').value.trim(), c = $('roomInput').value.trim().toUpperCase(); if (!n)
-    return status($('loginStatus'), '請先輸入名字。', '请先输入名字。', 'Qǐng xiān shūrù míngzi.', 'Please enter your name first.', 'error'); if (!/^[A-Z2-9]{6}$/.test(c))
-    return status($('loginStatus'), '請輸入 6 位房間碼。', '请输入 6 位房间码。', 'Qǐng shūrù liù wèi fángjiān mǎ.', 'Please enter a 6-character room code.', 'error'); enterRoom(c, n); };
-$('rejoinBtn').onclick = function () { var n = '', c = ''; var ck = readLastCookie(); if (ck) {
-    n = ck.name;
-    c = ck.room;
-}
-else
-    try {
-        n = (localStorage.getItem('undercoverLastName') || '').trim();
-        c = (localStorage.getItem('undercoverLastRoom') || '').trim().toUpperCase();
-    }
-    catch (_a) { } if (!n || !/^[A-Z2-9]{6}$/.test(c))
-    return status($('loginStatus'), '找不到上次的房間資料，請手動輸入名字與房間碼。', '找不到上次的房间资料，请手动输入名字与房间码。', 'Zhǎo bú dào shàng cì de fángjiān zīliào.', 'No previous room was found. Enter your name and room code manually.', 'error'); $('nameInput').value = n; $('roomInput').value = c; enterRoom(c, n); };
-$('readyBtn').onclick = function () { state.ready = !state.ready; var p = state.players.get(selfId); if (p)
-    p.ready = state.ready; state.actions.ready.send({ ready: state.ready }).catch(function () { }); state.actions.profile.send({ name: state.name, ready: state.ready }).catch(function () { }); saveSession(); renderLobby(); maybeStart(); };
-$('leaveBtn').onclick = leaveGameNow;
-$('goVoteBtn').onclick = renderVote;
-$('submitVoteBtn').onclick = function () { var _a; if (state.myVote)
-    return; var r = document.querySelector('input[name=vote]:checked'); if (!r)
-    return; var targetName = state.playerNames[r.value] || ((_a = state.players.get(r.value)) === null || _a === void 0 ? void 0 : _a.name) || '這位玩家'; if (!window.confirm("\u7B2C\u4E00\u6B21\u78BA\u8A8D\uFF1A\u4F60\u8981\u6295\u7D66 ".concat(targetName, " \u55CE\uFF1F\nFirst confirmation: vote for ").concat(targetName, "?")))
-    return; if (!window.confirm("\u7B2C\u4E8C\u6B21\u6700\u7D42\u78BA\u8A8D\uFF1A\u78BA\u5B9A\u9001\u51FA\u7D66 ".concat(targetName, "\uFF1F\u9001\u51FA\u5F8C\u4E0D\u80FD\u66F4\u6539\u3002\nFinal confirmation: submit your vote for ").concat(targetName, "? This cannot be changed.")))
-    return; state.myVote = r.value; state.votes.set(selfId, state.myVote); saveSession(); state.actions.vote.send({ gameId: state.gameId, roundNo: state.roundNo, targetId: state.myVote }).catch(function () { }); renderVote(); maybeResolveVote(); };
-$('continueBtn').onclick = function () { if (state.nextReady.has(selfId))
-    state.nextReady.delete(selfId);
-else
-    state.nextReady.add(selfId); state.actions.nextReady.send({ gameId: state.gameId, roundNo: state.roundNo, ready: state.nextReady.has(selfId) }).catch(function () { }); saveSession(); updateContinue(); var n = activeIds().filter(function (id) { return state.nextReady.has(id); }).length, total = activeIds().length; status($('continueStatus'), "\u5DF2\u6709 ".concat(n, "/").concat(total, " \u4F4D\u5728\u5834\u73A9\u5BB6\u6E96\u5099\u4E0B\u4E00\u8F2A\u3002"), "\u5DF2\u6709 ".concat(n, "/").concat(total, " \u4F4D\u5728\u573A\u73A9\u5BB6\u51C6\u5907\u4E0B\u4E00\u8F6E\u3002"), "Y\u01D0 y\u01D2u ".concat(n, "/").concat(total, " w\u00E8i z\u00E0ich\u01CEng w\u00E1nji\u0101 zh\u01D4nb\u00E8i xi\u00E0 y\u00EC l\u00FAn."), "".concat(n, "/").concat(total, " remaining players are ready for the next round."), 'warn'); maybeContinue(); };
-$('newGameBtn').onclick = function () { if (state.newReady.has(selfId))
-    state.newReady.delete(selfId);
-else
-    state.newReady.add(selfId); state.actions.newReady.send({ gameId: state.gameId, ready: state.newReady.has(selfId) }).catch(function () { }); saveSession(); updateNewGame(); var ps = currentConnected(), n = ps.filter(function (id) { return state.newReady.has(id); }).length; status($('finalStatus'), "\u5DF2\u6709 ".concat(n, "/").concat(ps.length, " \u4F4D\u73A9\u5BB6\u6E96\u5099\u65B0\u904A\u6232\u3002"), "\u5DF2\u6709 ".concat(n, "/").concat(ps.length, " \u4F4D\u73A9\u5BB6\u51C6\u5907\u65B0\u6E38\u620F\u3002"), "Y\u01D0 y\u01D2u ".concat(n, "/").concat(ps.length, " w\u00E8i w\u00E1nji\u0101 zh\u01D4nb\u00E8i x\u012Bn y\u00F3ux\u00EC."), "".concat(n, "/").concat(ps.length, " players are ready for a new game."), 'warn'); maybeNewGame(); };
-$('resyncBtn').onclick = function () { var _a; if (!state.room || !((_a = state.actions) === null || _a === void 0 ? void 0 : _a.askSync))
-    return; status($('spectatorStatus'), '正在重新向房間其他玩家核對你的身分與是否仍在場…', '正在重新向房间其他玩家核对你的身份与是否仍在场…', 'Zhèngzài chóngxīn héduì nǐ de shēnfèn yǔ zhuàngtài…', 'Rechecking your identity and in-game status with the room…', 'busy'); state.actions.askSync(); [700, 1800, 3500].forEach(function (ms) { return setTimeout(function () { var _a, _b; return (_b = (_a = state.actions) === null || _a === void 0 ? void 0 : _a.askSync) === null || _b === void 0 ? void 0 : _b.call(_a); }, ms); }); };
-$('copyCodeBtn').onclick = function () { return __awaiter(void 0, void 0, void 0, function () { var _a; return __generator(this, function (_b) {
-    switch (_b.label) {
-        case 0:
-            _b.trys.push([0, 2, , 3]);
-            return [4 /*yield*/, copyTextCompat(state.roomCode)];
-        case 1:
-            _b.sent();
-            status($('lobbyStatus'), '房間碼已複製。', '房间码已复制。', 'Fángjiān mǎ yǐ fùzhì.', 'Room code copied.', 'ok');
-            return [3 /*break*/, 3];
-        case 2:
-            _a = _b.sent();
-            return [3 /*break*/, 3];
-        case 3: return [2 /*return*/];
-    }
-}); }); };
-$('shareBtn').onclick = function () { return __awaiter(void 0, void 0, void 0, function () { var base, u, _a; return __generator(this, function (_b) {
-    switch (_b.label) {
-        case 0:
-            base = location.href.split('#')[0].split('?')[0];
-            u = base + '?room=' + encodeURIComponent(state.roomCode);
-            _b.label = 1;
-        case 1:
-            _b.trys.push([1, 6, , 7]);
-            if (!navigator.share) return [3 /*break*/, 3];
-            return [4 /*yield*/, navigator.share({ title: '誰是臥底', text: '誰是臥底 / Who Is the Undercover? — ' + state.roomCode, url: u })];
-        case 2:
-            _b.sent();
-            return [3 /*break*/, 5];
-        case 3: return [4 /*yield*/, copyTextCompat(u)];
-        case 4:
-            _b.sent();
-            _b.label = 5;
-        case 5: return [3 /*break*/, 7];
-        case 6:
-            _a = _b.sent();
-            return [3 /*break*/, 7];
-        case 7: return [2 /*return*/];
-    }
-}); }); };
-var menu = $('menu'), menuBtn = $('menuBtn');
-menuBtn.onclick = function () { return menu.classList.toggle('open'); };
-document.addEventListener('click', function (e) { if (!menu.contains(e.target) && !menuBtn.contains(e.target))
-    menu.classList.remove('open'); });
-var toggles = { hant: $('toggleHant'), hans: $('toggleHans'), en: $('toggleEn'), py: $('togglePy') };
-function languages() { var k = Object.keys(toggles); if (!k.some(function (x) { return toggles[x].checked; }))
-    toggles.hant.checked = true; k.forEach(function (x) { return document.documentElement.classList.toggle('show-' + x, toggles[x].checked); }); localStorage.setItem('undercoverLangs', JSON.stringify(Object.fromEntries(k.map(function (x) { return [x, toggles[x].checked]; })))); if (state.phase === 'game')
-    showGame(); if (state.phase === 'final' && state.result)
-    showFinal(state.result); }
-try {
-    var s_1 = JSON.parse(localStorage.getItem('undercoverLangs') || 'null');
-    if (s_1)
-        Object.keys(toggles).forEach(function (k) { if (typeof s_1[k] === 'boolean')
-            toggles[k].checked = s_1[k]; });
-}
-catch (_a) { }
-Object.values(toggles).forEach(function (x) { return x.onchange = languages; });
-languages();
-var lastCookie = readLastCookie();
-var ln = (lastCookie === null || lastCookie === void 0 ? void 0 : lastCookie.name) || '', lr = (lastCookie === null || lastCookie === void 0 ? void 0 : lastCookie.room) || '';
-if (!ln || !lr) {
-    try {
-        ln = localStorage.getItem('undercoverLastName') || '';
-        lr = (localStorage.getItem('undercoverLastRoom') || '').toUpperCase();
-    }
-    catch (_b) { }
-}
-if (ln && !$('nameInput').value)
-    $('nameInput').value = ln;
-if (lr && /^[A-Z2-9]{6}$/.test(lr) && !$('roomInput').value)
-    $('roomInput').value = lr;
-if (ln && lr && /^[A-Z2-9]{6}$/.test(lr)) {
-    var b = $('rejoinBtn');
-    b.classList.remove('hidden');
-    status($('rejoinHint'), "Cookie \u5DF2\u8A18\u4F4F\uFF1A".concat(ln, "\uFF5C\u623F\u9593\uFF1A").concat(lr, "\u3002\u82E5\u4E0A\u4E00\u5C40\u5C1A\u672A\u7D50\u675F\uFF0C\u91CD\u65B0\u958B\u555F\u9801\u9762\u6703\u81EA\u52D5\u56DE\u5230\u539F\u672C\u9032\u5EA6\u3002"), "Cookie \u5DF2\u8BB0\u4F4F\uFF1A".concat(ln, "\uFF5C\u623F\u95F4\uFF1A").concat(lr, "\u3002\u82E5\u4E0A\u4E00\u5C40\u5C1A\u672A\u7ED3\u675F\uFF0C\u91CD\u65B0\u5F00\u542F\u9875\u9762\u4F1A\u81EA\u52A8\u56DE\u5230\u539F\u672C\u8FDB\u5EA6\u3002"), "Cookie y\u01D0 j\u00ECzh\u00F9: ".concat(ln, " | f\u00E1ngji\u0101n: ").concat(lr, "."), "Cookie saved: ".concat(ln, " | Room: ").concat(lr, ". If the game is still active, reopening this page will automatically resume your progress."), 'ok');
-}
-var qm = location.search.match(/[?&]room=([^&]+)/i);
-var q = qm ? decodeURIComponent(qm[1].replace(/\+/g, ' ')) : null;
-if (q && /^[A-Z0-9]{6}$/i.test(q))
-    $('roomInput').value = q.toUpperCase();
-window.addEventListener('beforeunload', function () { var _a; saveSession(); try {
-    (_a = state.room) === null || _a === void 0 ? void 0 : _a.leave();
-}
-catch (_b) { } });
-window.addEventListener('offline', function () { return saveSession(); });
-window.addEventListener('online', function () { if (state.roomCode && state.name) {
-    var c_1 = state.roomCode, n_1 = state.name;
-    saveSession();
-    setTimeout(function () { return enterRoom(c_1, n_1); }, 350);
-} });
-document.addEventListener('visibilitychange', function () { var _a; if (document.visibilityState === 'hidden') {
-    saveSession();
-    return;
-} if (state.room && ((_a = state.actions) === null || _a === void 0 ? void 0 : _a.askSync)) {
-    state.actions.askSync();
-    setTimeout(function () { var _a, _b; return (_b = (_a = state.actions) === null || _a === void 0 ? void 0 : _a.askSync) === null || _b === void 0 ? void 0 : _b.call(_a); }, 800);
-} });
-phase('login');
-var auto = lastCookie && (!q || q.toUpperCase() === lastCookie.room) && readProgressCookie(lastCookie.room, lastCookie.name);
-if (auto) {
-    status($('loginStatus'), '偵測到 Cookie 中尚未結束的遊戲，正在自動回到房間與原本進度…', '检测到 Cookie 中尚未结束的游戏，正在自动回到房间与原本进度…', 'Zhēncè dào Cookie zhōng shàngwèi jiéshù de yóuxì, zhèngzài zìdòng huídào fángjiān…', 'An unfinished game was found in cookies. Returning to your room and previous progress automatically…', 'busy');
-    setTimeout(function () { return enterRoom(lastCookie.room, lastCookie.name); }, 180);
-}
-</script>
-<script nomodule>
-(function(){
-  var el=document.getElementById('loginStatus');
-  if(el){
-    el.className='status error';
-    el.innerHTML='<div>此瀏覽器版本不支援多人連線所需的 ES Module / WebRTC。請更新 Chrome、Edge、Firefox 或 Safari。</div><div style="margin-top:6px">This browser version cannot run the ES Module/WebRTC multiplayer layer. Please update Chrome, Edge, Firefox, or Safari.</div>';
+async function onlinePair(){
+  const bank=await loadExam8000();
+  const bases=shuffle(bank.nouns.length?bank.nouns:bank.all);
+  for(let i=0;i<Math.min(18,bases.length);i++){
+    const enA=bases[i];
+    let enB=null;
+    try{enB=await relatedWord(enA,bank)}catch{continue}
+    if(!enB)continue;
+    try{
+      const [zhA,zhB]=await Promise.all([zhTitle(enA),zhTitle(enB)]);
+      if(!zhA||!zhB||!usable(zhA)||!usable(zhB)||zhA===zhB)continue;
+      return{civilian:word(zhA,enA),undercover:word(zhB,enB),source:'CEEC 6000 + 2000 common extension'};
+    }catch{}
   }
-}());
+  throw Error('No suitable related pair found');
+}
+function fallback(){const[zhA,enA,zhB,enB]=FALLBACK_PAIRS[Math.floor(Math.random()*FALLBACK_PAIRS.length)];return{civilian:word(zhA,enA),undercover:word(zhB,enB),source:'Fallback local'}}
+async function beginGame(){if(state.starting||!amCoord())return;const ps=currentConnected();if(ps.length<3)return;state.starting=true;state.actions.system.send({type:'fetching'}).catch(()=>{});status($('lobbyStatus'),'正在載入升大學 8000 字庫並尋找相近詞…','正在载入升大学 8000 词库并寻找相近词…','Zhèngzài zàirù shēng dàxué bāqiān cíkù bìng xúnzhǎo xiāngjìn cí…','Loading the 8,000-word college-entrance bank and finding a related pair…','busy');let pair;try{pair=await onlinePair()}catch(e){pair=fallback()}const undercover=shuffle(ps)[0];const playerNames=Object.fromEntries(ps.map(id=>[id,state.players.get(id)?.name||'玩家']));const undercoverName=playerNames[undercover];const game={gameId:Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7),roundNo:1,gamePlayers:ps,playerNames,aliveIds:ps,undercoverIds:[undercover],undercoverName,pair,source:pair.source};for(const id of ps){const payload={...game};if(id===selfId)receiveStart(payload);else await state.actions.start.send(payload,{target:id}).catch(()=>{})}state.starting=false;}
+function receiveStart(p){if(!p?.gameId)return;p=remapIncomingSelf(p);state.gameId=p.gameId;state.roundNo=p.roundNo||1;state.gamePlayers=p.gamePlayers||[];state.playerNames=p.playerNames||{};state.aliveIds=new Set(p.aliveIds||[]);state.undercoverIds=new Set(p.undercoverIds||[]);state.undercoverName=p.undercoverName||'';if(!state.undercoverName){const sid=(p.undercoverIds||[])[0];state.undercoverName=(p.playerNames||{})[sid]||'';}state.pair=p.pair;state.source=p.source||'';state.secret=state.pair?(isUndercoverName(state.name)?state.pair.undercover:state.pair.civilian):null;state.votes=new Map(p.sync?(p.votes||[]):[]);state.myVote=state.votes.get(selfId)||null;state.result=p.sync?(p.result||null):null;state.nextReady=new Set(p.sync?(p.nextReady||[]):[]);state.newReady=new Set(p.sync?(p.newReady||[]):[]);state.syncConfirmed=!!p.sync;state.restoredLocally=false;$('readyBtn').disabled=false;for(const [,v]of state.players)v.ready=false;state.ready=false;const known=state.gamePlayers.includes(selfId),alive=state.aliveIds.has(selfId);if(!known){showSpectator();status($('spectatorStatus'),'你是在本局開始後才加入，因此目前只能觀戰。','你是在本局开始后才加入，因此目前只能观战。','Nǐ shì zài běn jú kāishǐ hòu cái jiārù.','You joined after this game started, so you are spectating this game.','warn');saveSession();return}if(!alive){showSpectator();saveSession();return}if(p.sync){if(p.phase==='vote'){renderVote();saveSession();return}if(p.phase==='roundResult'&&state.result){showRoundResult(state.result);saveSession();return}if(p.phase==='final'&&state.result){showFinal(state.result);saveSession();return}}showGame();saveSession();}
+function maybeStart(){clearTimeout(state.startTimer);if(state.phase!=='lobby'||state.starting||state.gameId)return;const ps=currentConnected();if(ps.length<3){status($('lobbyStatus'),'至少需要 3 位玩家。','至少需要 3 位玩家。','Zhìshǎo xūyào sān wèi wánjiā.','At least 3 players are required.','warn');return}if(ps.some(id=>!state.players.get(id)?.ready)){status($('lobbyStatus'),'等待所有玩家按準備。','等待所有玩家按准备。','Děngdài suǒyǒu wánjiā àn zhǔnbèi.','Waiting for everyone to press Ready.','warn');return}if(amCoord())state.startTimer=setTimeout(beginGame,1000);else status($('lobbyStatus'),'所有人已準備，系統正在同步。','所有人已准备，系统正在同步。','Suǒyǒu rén yǐ zhǔnbèi, xìtǒng zhèngzài tóngbù.','Everyone is ready. Synchronizing…','busy');}
+function maybeResolveVote(){if(state.phase!=='vote'||!amCoord())return;const a=[...state.aliveIds].sort();if(a.length<2)return;/* 只有每一位仍在場玩家都明確送出投票後才結算。斷線不會縮小門檻或觸發自動投票。 */if(a.some(id=>!state.votes.has(id)))return;const tally={};for(const [voter,target] of state.votes.entries())if(a.includes(voter)&&a.includes(target))tally[target]=(tally[target]||0)+1;const max=Math.max(...Object.values(tally),0),top=Object.keys(tally).filter(id=>tally[id]===max);let r={gameId:state.gameId,roundNo:state.roundNo,aliveIds:[...state.aliveIds],winner:null,tie:false,eliminatedId:null,eliminatedWasSpy:false,civiliansAlive:0,spiesAlive:0};if(top.length!==1){r.tie=true}else{const out=top[0];r.eliminatedId=out;r.eliminatedWasSpy=isUndercoverId(out);state.aliveIds.delete(out);r.aliveIds=[...state.aliveIds];const c=aliveCounts();r.civiliansAlive=c.civ;r.spiesAlive=c.spy;if(c.spy===0)r.winner='civilian';else if(c.civ<=c.spy)r.winner='undercover'}if(r.tie){const c=aliveCounts();r.civiliansAlive=c.civ;r.spiesAlive=c.spy}state.actions.voteResult.send(r).catch(()=>{});applyResult(r);}
+function continueRound(){state.roundNo++;state.votes=new Map();state.myVote=null;state.result=null;state.nextReady=new Set();saveSession();const payload={gameId:state.gameId,roundNo:state.roundNo,aliveIds:[...state.aliveIds]};state.actions.nextRound.send(payload).catch(()=>{});receiveNextRound(payload)}function receiveNextRound(p){if(p?.gameId!==state.gameId)return;state.roundNo=p.roundNo;state.aliveIds=new Set(p.aliveIds||[]);state.votes=new Map();state.myVote=null;state.result=null;state.nextReady=new Set();if(state.aliveIds.has(selfId))showGame();else showSpectator();saveSession();}
+function maybeContinue(){if(!state.result||state.result.winner||!amCoord())return;const a=activeIds();if(a.length&&a.every(id=>state.nextReady.has(id)))continueRound();}
+async function newGame(){if(state.starting||!amCoord())return;for(const [,p]of state.players)p.ready=true;state.ready=true;await beginGame();}
+function maybeNewGame(){if(state.phase!=='final'||!amCoord())return;const ps=currentConnected();if(ps.length>=3&&ps.every(id=>state.newReady.has(id)))newGame();}
+function cleanup(){clearTimeout(state.startTimer);try{state.room?.leave()}catch{}Object.assign(state,{room:null,actions:null,roomCode:'',name:'',phase:'login',players:new Map(),peerIds:new Set(),ready:false,gameId:null,roundNo:0,gamePlayers:[],playerNames:{},aliveIds:new Set(),undercoverIds:new Set(),undercoverName:'',pair:null,source:'',secret:null,votes:new Map(),myVote:null,result:null,nextReady:new Set(),newReady:new Set(),offlineIds:new Set(),starting:false,startTimer:null,syncConfirmed:false,restoredLocally:false});$('roomInput').value='';phase('login')}
+function enterRoom(code,name){cleanup();state.roomCode=code.toUpperCase();state.name=name;saveLastCookie(name,state.roomCode);try{localStorage.setItem('undercoverLastName',name);localStorage.setItem('undercoverLastRoom',state.roomCode)}catch{};try{const room=joinRoom({appId:APP_ID},state.roomCode.toLowerCase());state.room=room;const profile=room.makeAction('profile'),ready=room.makeAction('ready'),start=room.makeAction('start'),system=room.makeAction('system'),vote=room.makeAction('vote'),voteResult=room.makeAction('voteResult'),nextReady=room.makeAction('nextReady'),nextRound=room.makeAction('nextRound'),newReady=room.makeAction('newReady'),syncRequest=room.makeAction('syncRequest'),quit=room.makeAction('quit');state.actions={profile,ready,start,system,vote,voteResult,nextReady,nextRound,newReady,syncRequest,quit};state.players.set(selfId,{name,ready:false});const restored=restoreSession(state.roomCode,state.name);if(!restored)renderLobby();const askSync=id=>{const payload={name:state.name,gameId:state.gameId||null};if(id)syncRequest.send(payload,{target:id}).catch(()=>{});else syncRequest.send(payload).catch(()=>{})};state.actions.askSync=askSync;room.onPeerJoin=id=>{state.peerIds.add(id);state.offlineIds.delete(id);if(!state.players.has(id))state.players.set(id,{name:'…',ready:false});profile.send({name:state.name,ready:state.ready},{target:id}).catch(()=>{});askSync(id);if(state.phase==='lobby')renderLobby();};room.onPeerLeave=id=>{state.peerIds.delete(id);if(state.phase==='lobby'&&!state.gameId){state.players.delete(id);state.offlineIds.delete(id);renderLobby();maybeStart()}else{state.offlineIds.add(id);saveSession();if(state.phase==='vote')renderVoteProgress();if(state.phase==='game'||state.phase==='vote'||state.phase==='roundResult'||state.phase==='spectator'){const el=state.phase==='vote'?$('voteStatus'):state.phase==='game'?$('gameStatus'):state.phase==='spectator'?$('spectatorStatus'):$('continueStatus');if(el)status(el,'有玩家暫時離線；系統不會自動淘汰他，也不會代替任何人投票。','有玩家暂时离线；系统不会自动淘汰他，也不会代替任何人投票。','Yǒu wánjiā zànshí líxiàn; xìtǒng bú huì zìdòng táotài tā, yě bú huì dàitì rènhé rén tóupiào.','A player is temporarily offline. Nobody is auto-eliminated and no vote is cast automatically.','warn')}}};function restorePeer(incoming,peerId,readyFlag){let oldId=reconnectCandidate(incoming,peerId);if(oldId){migrateIdentity(oldId,peerId,incoming,readyFlag);saveSession();return true}return state.gamePlayers.includes(peerId)&&normName(state.playerNames[peerId])===normName(incoming)}profile.onMessage=(d,{peerId})=>{const incoming=String(d?.name||'玩家').trim().slice(0,20)||'玩家';const reconnected=restorePeer(incoming,peerId,d?.ready);if(reconnected&&state.gameId){start.send(reconnectPayload(peerId,!state.aliveIds.has(peerId)),{target:peerId}).catch(()=>{});const el=state.phase==='vote'?$('voteStatus'):state.phase==='game'?$('gameStatus'):state.phase==='roundResult'?$('continueStatus'):state.phase==='spectator'?$('spectatorStatus'):state.phase==='final'?$('finalStatus'):$('lobbyStatus');if(el)status(el,`${incoming} 已用相同名字重新連線，原本身分與目前遊戲畫面已恢復。`,`${incoming} 已用相同名字重新连接，原本身份与当前游戏画面已恢复。`,`${incoming} yǐ yòng xiāngtóng míngzi chóngxīn liánxiàn.`,`${incoming} reconnected with the same name. Their role and current game screen were restored.`,'ok');if(state.phase==='vote')renderVoteProgress();return}state.offlineIds.delete(peerId);const p=state.players.get(peerId)||{};state.players.set(peerId,{...p,name:incoming,ready:!!d?.ready});if(state.gameId&&!state.gamePlayers.includes(peerId))start.send(reconnectPayload(peerId,true),{target:peerId}).catch(()=>{});if(state.phase==='lobby'){renderLobby();maybeStart()}};syncRequest.onMessage=(d,{peerId})=>{const incoming=String(d?.name||'').trim().slice(0,20);if(!incoming||!state.gameId)return;const reconnected=restorePeer(incoming,peerId,false);if(reconnected)start.send(reconnectPayload(peerId,!state.aliveIds.has(peerId)),{target:peerId}).catch(()=>{})};quit.onMessage=(d,{peerId})=>{const quitName=String(d?.name||state.playerNames[peerId]||state.players.get(peerId)?.name||'玩家').trim();let qid=peerId;const byName=state.gamePlayers.find(id=>normName(state.playerNames[id]||state.players.get(id)?.name)===normName(quitName));if(byName)qid=byName;state.peerIds.delete(peerId);state.offlineIds.delete(peerId);state.offlineIds.delete(qid);state.players.delete(peerId);state.nextReady.delete(qid);state.newReady.delete(qid);if(!state.gameId||!state.gamePlayers.includes(qid)){if(state.phase==='lobby'){renderLobby();maybeStart()}return;}const wasAlive=state.aliveIds.has(qid);state.aliveIds.delete(qid);const nv=new Map();for(const [v,t] of state.votes){if(v!==qid&&t!==qid)nv.set(v,t)}state.votes=nv;if(state.myVote===qid)state.myVote=null;saveSession();const c=aliveCounts();let winner=null;if(c.spy===0)winner='civilian';else if(c.civ<=c.spy)winner='undercover';if(wasAlive&&winner&&amCoord()){const r={gameId:state.gameId,roundNo:state.roundNo,aliveIds:[...state.aliveIds],winner,tie:false,eliminatedId:qid,eliminatedWasSpy:isUndercoverId(qid),civiliansAlive:c.civ,spiesAlive:c.spy,quit:true,quitName};state.actions.voteResult.send(r).catch(()=>{});applyResult(r);return;}if(state.phase==='vote'){renderVote();maybeResolveVote()}else if(state.phase==='roundResult'&&state.result){state.result={...state.result,aliveIds:[...state.aliveIds],civiliansAlive:c.civ,spiesAlive:c.spy};showRoundResult(state.result);maybeContinue()}else if(state.phase==='game'){showGame();status($('gameStatus'),`${quitName} 已主動退出遊戲。剩餘玩家可以繼續本局。`,`${quitName} 已主动退出游戏。剩余玩家可以继续本局。`,`${quitName} yǐ zhǔdòng tuìchū yóuxì.`,`${quitName} left the game. The remaining players can continue.`,'warn')}else if(state.phase==='lobby'){renderLobby();maybeStart()}};ready.onMessage=(d,{peerId})=>{const p=state.players.get(peerId)||{name:'玩家'};p.ready=!!d?.ready;state.players.set(peerId,p);if(state.phase==='lobby'){renderLobby();maybeStart()}};start.onMessage=d=>receiveStart(d);system.onMessage=d=>{if(d?.type==='fetching'&&state.phase==='lobby')status($('lobbyStatus'),'系統正在載入 8000 字庫並配對詞彙…','系统正在载入 8000 词库并配对词汇…','Xìtǒng zhèngzài zàirù bāqiān cíkù bìng pèiduì cíhuì…','Loading the 8,000-word bank and pairing vocabulary…','busy')};vote.onMessage=(d,{peerId})=>{if(d?.gameId!==state.gameId||d?.roundNo!==state.roundNo)return;state.votes.set(peerId,d.targetId);saveSession();renderVoteProgress();maybeResolveVote()};voteResult.onMessage=d=>applyResult(d);nextReady.onMessage=(d,{peerId})=>{if(d?.gameId!==state.gameId||d?.roundNo!==state.roundNo)return;if(d.ready)state.nextReady.add(peerId);else state.nextReady.delete(peerId);saveSession();maybeContinue()};nextRound.onMessage=d=>receiveNextRound(d);newReady.onMessage=(d,{peerId})=>{if(d?.gameId!==state.gameId)return;if(d.ready)state.newReady.add(peerId);else state.newReady.delete(peerId);saveSession();maybeNewGame()};profile.send({name:state.name,ready:false}).catch(()=>{});[250,900,2000,4000].forEach(ms=>setTimeout(()=>{if(state.room&&state.roomCode===code.toUpperCase())askSync()},ms));if(!restored)status($('lobbyStatus'),'已加入房間。正在檢查是否有同名的既有玩家身分…','已加入房间。正在检查是否有同名的既有玩家身份…','Yǐ jiārù fángjiān. Zhèngzài jiǎnchá shìfǒu yǒu tóngmíng de jìyǒu wánjiā shēnfèn…','Joined. Checking for an existing player with the same name…','busy')}catch(e){console.error(e);cleanup();status($('loginStatus'),'多人連線啟動失敗，請重新整理後再試。','多人连接启动失败，请重新整理后再试。','Duōrén liánxiàn qǐdòng shībài.','Multiplayer failed to start. Reload and try again.','error')}}
+function leaveGameNow(){if(!state.roomCode||!state.name){clearSession();cleanup();return}if(!window.confirm('確定要退出遊戲嗎？退出後這台裝置的房間 Cookie 與進度會被清除。\nAre you sure you want to leave? Your saved room progress on this device will be cleared.'))return;const code=state.roomCode,name=state.name,gameId=state.gameId;try{state.actions?.quit?.send({name,gameId}).catch(()=>{})}catch{}setTimeout(()=>{clearSession(code,name);cleanup();$('nameInput').value='';$('roomInput').value='';try{localStorage.removeItem('undercoverLastName');localStorage.removeItem('undercoverLastRoom')}catch{};status($('loginStatus'),'你已退出遊戲，Cookie 與本機進度已清除。','你已退出游戏，Cookie 与本机进度已清除。','Nǐ yǐ tuìchū yóuxì, Cookie yǔ běnjī jìndù yǐ qīngchú.','You left the game. Your room cookie and saved progress on this device were cleared.','ok')},220)}
+$('exitGameBtn').onclick=leaveGameNow;
+$('createBtn').onclick=()=>{const n=$('nameInput').value.trim();if(!n)return status($('loginStatus'),'請先輸入名字。','请先输入名字。','Qǐng xiān shūrù míngzi.','Please enter your name first.','error');const c=makeCode();$('roomInput').value=c;enterRoom(c,n)};$('joinBtn').onclick=()=>{const n=$('nameInput').value.trim(),c=$('roomInput').value.trim().toUpperCase();if(!n)return status($('loginStatus'),'請先輸入名字。','请先输入名字。','Qǐng xiān shūrù míngzi.','Please enter your name first.','error');if(!/^[A-Z2-9]{6}$/.test(c))return status($('loginStatus'),'請輸入 6 位房間碼。','请输入 6 位房间码。','Qǐng shūrù liù wèi fángjiān mǎ.','Please enter a 6-character room code.','error');enterRoom(c,n)};$('rejoinBtn').onclick=()=>{let n='',c='';const ck=readLastCookie();if(ck){n=ck.name;c=ck.room}else try{n=(localStorage.getItem('undercoverLastName')||'').trim();c=(localStorage.getItem('undercoverLastRoom')||'').trim().toUpperCase()}catch{}if(!n||!/^[A-Z2-9]{6}$/.test(c))return status($('loginStatus'),'找不到上次的房間資料，請手動輸入名字與房間碼。','找不到上次的房间资料，请手动输入名字与房间码。','Zhǎo bú dào shàng cì de fángjiān zīliào.','No previous room was found. Enter your name and room code manually.','error');$('nameInput').value=n;$('roomInput').value=c;enterRoom(c,n)};$('readyBtn').onclick=()=>{state.ready=!state.ready;const p=state.players.get(selfId);if(p)p.ready=state.ready;state.actions.ready.send({ready:state.ready}).catch(()=>{});state.actions.profile.send({name:state.name,ready:state.ready}).catch(()=>{});saveSession();renderLobby();maybeStart()};$('leaveBtn').onclick=leaveGameNow;$('goVoteBtn').onclick=renderVote;$('submitVoteBtn').onclick=()=>{if(state.myVote)return;const r=document.querySelector('input[name=vote]:checked');if(!r)return;const targetName=state.playerNames[r.value]||state.players.get(r.value)?.name||'這位玩家';if(!window.confirm(`第一次確認：你要投給 ${targetName} 嗎？\nFirst confirmation: vote for ${targetName}?`))return;if(!window.confirm(`第二次最終確認：確定送出給 ${targetName}？送出後不能更改。\nFinal confirmation: submit your vote for ${targetName}? This cannot be changed.`))return;state.myVote=r.value;state.votes.set(selfId,state.myVote);saveSession();state.actions.vote.send({gameId:state.gameId,roundNo:state.roundNo,targetId:state.myVote}).catch(()=>{});renderVote();maybeResolveVote()};$('continueBtn').onclick=()=>{if(state.nextReady.has(selfId))state.nextReady.delete(selfId);else state.nextReady.add(selfId);state.actions.nextReady.send({gameId:state.gameId,roundNo:state.roundNo,ready:state.nextReady.has(selfId)}).catch(()=>{});saveSession();updateContinue();const n=activeIds().filter(id=>state.nextReady.has(id)).length,total=activeIds().length;status($('continueStatus'),`已有 ${n}/${total} 位在場玩家準備下一輪。`,`已有 ${n}/${total} 位在场玩家准备下一轮。`,`Yǐ yǒu ${n}/${total} wèi zàichǎng wánjiā zhǔnbèi xià yì lún.`,`${n}/${total} remaining players are ready for the next round.`,'warn');maybeContinue()};$('newGameBtn').onclick=()=>{if(state.newReady.has(selfId))state.newReady.delete(selfId);else state.newReady.add(selfId);state.actions.newReady.send({gameId:state.gameId,ready:state.newReady.has(selfId)}).catch(()=>{});saveSession();updateNewGame();const ps=currentConnected(),n=ps.filter(id=>state.newReady.has(id)).length;status($('finalStatus'),`已有 ${n}/${ps.length} 位玩家準備新遊戲。`,`已有 ${n}/${ps.length} 位玩家准备新游戏。`,`Yǐ yǒu ${n}/${ps.length} wèi wánjiā zhǔnbèi xīn yóuxì.`,`${n}/${ps.length} players are ready for a new game.`,'warn');maybeNewGame()};$('resyncBtn').onclick=()=>{if(!state.room||!state.actions?.askSync)return;status($('spectatorStatus'),'正在重新向房間其他玩家核對你的身分與是否仍在場…','正在重新向房间其他玩家核对你的身份与是否仍在场…','Zhèngzài chóngxīn héduì nǐ de shēnfèn yǔ zhuàngtài…','Rechecking your identity and in-game status with the room…','busy');state.actions.askSync();[700,1800,3500].forEach(ms=>setTimeout(()=>state.actions?.askSync?.(),ms));};$('copyCodeBtn').onclick=async()=>{try{await navigator.clipboard.writeText(state.roomCode);status($('lobbyStatus'),'房間碼已複製。','房间码已复制。','Fángjiān mǎ yǐ fùzhì.','Room code copied.','ok')}catch{}};$('shareBtn').onclick=async()=>{const u=new URL(location.href);u.searchParams.set('room',state.roomCode);try{if(navigator.share)await navigator.share({title:'誰是臥底',text:'誰是臥底 / Who Is the Undercover? — '+state.roomCode,url:u.toString()});else await navigator.clipboard.writeText(u.toString())}catch{}};
+const menu=$('menu'),menuBtn=$('menuBtn');menuBtn.onclick=()=>menu.classList.toggle('open');document.addEventListener('click',e=>{if(!menu.contains(e.target)&&!menuBtn.contains(e.target))menu.classList.remove('open')});const toggles={hant:$('toggleHant'),hans:$('toggleHans'),en:$('toggleEn'),py:$('togglePy')};function languages(){const k=Object.keys(toggles);if(!k.some(x=>toggles[x].checked))toggles.hant.checked=true;k.forEach(x=>document.documentElement.classList.toggle('show-'+x,toggles[x].checked));localStorage.setItem('undercoverLangs',JSON.stringify(Object.fromEntries(k.map(x=>[x,toggles[x].checked]))));if(state.phase==='game')showGame();if(state.phase==='final'&&state.result)showFinal(state.result)}try{const s=JSON.parse(localStorage.getItem('undercoverLangs')||'null');if(s)Object.keys(toggles).forEach(k=>{if(typeof s[k]==='boolean')toggles[k].checked=s[k]})}catch{}Object.values(toggles).forEach(x=>x.onchange=languages);languages();const lastCookie=readLastCookie();let ln=lastCookie?.name||'',lr=lastCookie?.room||'';if(!ln||!lr){try{ln=localStorage.getItem('undercoverLastName')||'';lr=(localStorage.getItem('undercoverLastRoom')||'').toUpperCase()}catch{}}if(ln&&!$('nameInput').value)$('nameInput').value=ln;if(lr&&/^[A-Z2-9]{6}$/.test(lr)&&!$('roomInput').value)$('roomInput').value=lr;if(ln&&lr&&/^[A-Z2-9]{6}$/.test(lr)){const b=$('rejoinBtn');b.classList.remove('hidden');status($('rejoinHint'),`Cookie 已記住：${ln}｜房間：${lr}。若上一局尚未結束，重新開啟頁面會自動回到原本進度。`,`Cookie 已记住：${ln}｜房间：${lr}。若上一局尚未结束，重新开启页面会自动回到原本进度。`,`Cookie yǐ jìzhù: ${ln} | fángjiān: ${lr}.`,`Cookie saved: ${ln} | Room: ${lr}. If the game is still active, reopening this page will automatically resume your progress.`,'ok')}const q=(new URL(location.href)).searchParams.get('room');if(q&&/^[A-Z0-9]{6}$/i.test(q))$('roomInput').value=q.toUpperCase();window.addEventListener('beforeunload',()=>{saveSession();try{state.room?.leave()}catch{}});window.addEventListener('offline',()=>saveSession());window.addEventListener('online',()=>{if(state.roomCode&&state.name){const c=state.roomCode,n=state.name;saveSession();setTimeout(()=>enterRoom(c,n),350)}});document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){saveSession();return}if(state.room&&state.actions?.askSync){state.actions.askSync();setTimeout(()=>state.actions?.askSync?.(),800)}});phase('login');const auto=lastCookie&&(!q||q.toUpperCase()===lastCookie.room)&&readProgressCookie(lastCookie.room,lastCookie.name);if(auto){status($('loginStatus'),'偵測到 Cookie 中尚未結束的遊戲，正在自動回到房間與原本進度…','检测到 Cookie 中尚未结束的游戏，正在自动回到房间与原本进度…','Zhēncè dào Cookie zhōng shàngwèi jiéshù de yóuxì, zhèngzài zìdòng huídào fángjiān…','An unfinished game was found in cookies. Returning to your room and previous progress automatically…','busy');setTimeout(()=>enterRoom(lastCookie.room,lastCookie.name),180)}
 </script>
 </body>
 </html>
