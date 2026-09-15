@@ -635,8 +635,6 @@
       }
       return a;
     }
-      return a;
-    }
 
     function showError(hant,hans,py,en){
       $("errorBox").innerHTML = `
@@ -698,7 +696,7 @@
         </div>`).join("");
 
       localStorage.setItem(
-        "romeoOpheliaPublicAssignments",
+        "hamletPublicAssignments",
         JSON.stringify(names.map((name,i)=>({name,role:picked[i]})))
       );
 
