@@ -217,6 +217,56 @@ main { width:100%; max-width:780px; }
       if(Object.prototype.hasOwnProperty.call(toggles,k) && toggles[k])toggles[k].onchange=applyBasicLanguages;
     }
     applyBasicLanguages();
+
+    /* Create-room-code button must work even before/without the multiplayer module. */
+    var createBtn=byId('createBtn');
+    var roomInput=byId('roomInput');
+    var nameInput=byId('nameInput');
+    var loginStatus=byId('loginStatus');
+    function makeLocalRoomCode(){
+      var chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+      var code='',i;
+      for(i=0;i<6;i++)code+=chars.charAt(Math.floor(Math.random()*chars.length));
+      return code;
+    }
+    function showLocalStatus(hant,hans,py,en,type){
+      if(!loginStatus)return;
+      loginStatus.className='status'+(type?' '+type:'');
+      loginStatus.innerHTML='<div class="hant"></div><div class="hans"></div><div class="py"></div><div class="en"></div>';
+      var parts=loginStatus.children;
+      if(parts[0])parts[0].textContent=hant;
+      if(parts[1])parts[1].textContent=hans;
+      if(parts[2])parts[2].textContent=py;
+      if(parts[3])parts[3].textContent=en;
+    }
+    if(createBtn && roomInput){
+      createBtn.onclick=function(e){
+        if(e && e.preventDefault)e.preventDefault();
+        var code=makeLocalRoomCode();
+        roomInput.value=code;
+        var name=nameInput?nameInput.value.replace(/^\s+|\s+$/g,''):'';
+        if(name && typeof window.__undercoverEnterRoom==='function'){
+          window.__undercoverEnterRoom(code,name);
+        }else if(!name){
+          showLocalStatus(
+            '已產生新房間碼 '+code+'。請輸入名字後按「加入房間」。',
+            '已产生新房间码 '+code+'。请输入名字后按“加入房间”。',
+            'Yǐ chǎnshēng xīn fángjiān mǎ '+code+'. Qǐng shūrù míngzi hòu àn jiārù fángjiān.',
+            'New room code '+code+' created. Enter your name, then press Join Room.',
+            'ok'
+          );
+        }else{
+          showLocalStatus(
+            '房間碼 '+code+' 已產生。多人連線功能正在載入，完成後請按「加入房間」。',
+            '房间码 '+code+' 已产生。多人连接功能正在载入，完成后请按“加入房间”。',
+            'Fángjiān mǎ '+code+' yǐ chǎnshēng. Duōrén liánxiàn gōngnéng zhèngzài zàirù.',
+            'Room code '+code+' created. Multiplayer is still loading; press Join Room when it is ready.',
+            'busy'
+          );
+        }
+        return false;
+      };
+    }
   }
 
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initBasicUi,false);
@@ -1642,9 +1692,11 @@ function copyTextCompat(text) { if (navigator.clipboard && navigator.clipboard.w
 catch (e) {
     reject(e);
 } }); }
+/* Expose only the room-entry function to the small non-module UI layer.
+   This keeps room-code creation usable even if the multiplayer module loads late. */
+window.__undercoverEnterRoom = enterRoom;
+window.__undercoverGameReady = true;
 $('exitGameBtn').onclick = leaveGameNow;
-$('createBtn').onclick = function () { var n = $('nameInput').value.trim(); if (!n)
-    return status($('loginStatus'), '請先輸入名字。', '请先输入名字。', 'Qǐng xiān shūrù míngzi.', 'Please enter your name first.', 'error'); var c = makeCode(); $('roomInput').value = c; enterRoom(c, n); };
 $('joinBtn').onclick = function () { var n = $('nameInput').value.trim(), c = $('roomInput').value.trim().toUpperCase(); if (!n)
     return status($('loginStatus'), '請先輸入名字。', '请先输入名字。', 'Qǐng xiān shūrù míngzi.', 'Please enter your name first.', 'error'); if (!/^[A-Z2-9]{6}$/.test(c))
     return status($('loginStatus'), '請輸入 6 位房間碼。', '请输入 6 位房间码。', 'Qǐng shūrù liù wèi fángjiān mǎ.', 'Please enter a 6-character room code.', 'error'); enterRoom(c, n); };
